@@ -14,171 +14,220 @@ import {
   Hospital,
   ShoppingBag,
   Server,
+  ArrowRight,
+  Zap,
+  Activity,
+  Radio,
 } from "lucide-react";
 
 export default function FDASServicePage() {
-
   const benefits = [
     {
-      icon: <Clock className="w-6 h-6 text-red-600" />,
-      title: "Ultra-Early Fire Detection",
+      id: "01",
+      icon: <Clock className="w-8 h-8 text-blue-600" />,
+      title: "ULTRA-EARLY DETECTION",
       description:
-        "Detect smoke and abnormal heat conditions before flames spread, providing valuable evacuation time and reducing property damage.",
+        "Detect smoke and abnormal thermal shifts before combustion occurs, maximizing evacuation windows and protecting physical assets.",
     },
     {
-      icon: <ShieldAlert className="w-6 h-6 text-red-600" />,
-      title: "Code-Compliant Installations",
+      id: "02",
+      icon: <ShieldAlert className="w-8 h-8 text-blue-600" />,
+      title: "CODE COMPLIANT",
       description:
-        "Engineered in accordance with NFPA standards and local fire safety regulations for inspections, insurance, and long-term compliance.",
+        "Engineered precisely to NFPA standards and strict local fire codes to ensure seamless regulatory approval and lower insurance risk.",
     },
     {
-      icon: <Server className="w-6 h-6 text-red-600" />,
-      title: "24/7 Intelligent Monitoring",
+      id: "03",
+      icon: <Server className="w-8 h-8 text-blue-600" />,
+      title: "24/7 ACTIVE MONITORING",
       description:
-        "Integrated alarm panels, remote notifications, and BMS connectivity ensure immediate awareness during emergencies.",
+        "Real-time panel telemetry, instant remote mobile notifications, and continuous BMS connectivity for zero operational blind spots.",
     },
     {
-      icon: <CheckCircle2 className="w-6 h-6 text-red-600" />,
-      title: "Reduced False Alarms",
+      id: "04",
+      icon: <CheckCircle2 className="w-8 h-8 text-blue-600" />,
+      title: "ZERO-FALSE-ALARM TECH",
       description:
-        "Advanced multi-criteria detection minimizes nuisance alarms caused by dust, humidity, or steam while maintaining reliable protection.",
+        "Advanced multi-criteria sensor algorithms ignore ambient dust, steam, and humidity to eliminate costly nuisance disruptions.",
     },
   ];
 
   const industries = [
     {
-      icon: <Building2 className="w-8 h-8 text-slate-700" />,
-      name: "Commercial Buildings",
-      desc: "Scalable addressable fire alarm systems for offices, condominiums, and mixed-use developments.",
+      icon: <Building2 className="w-10 h-10 text-blue-600" />,
+      name: "COMMERCIAL REAL ESTATE",
+      desc: "Addressable fire alarm networks tailored for multi-story corporate headquarters and residential towers.",
     },
     {
-      icon: <Factory className="w-8 h-8 text-slate-700" />,
-      name: "Industrial Facilities",
-      desc: "Reliable fire detection for factories, warehouses, and hazardous production environments.",
+      icon: <Factory className="w-10 h-10 text-blue-600" />,
+      name: "HEAVY INDUSTRIAL",
+      desc: "Industrial-grade detection hardware built for high-dust, high-heat, and hazardous chemical environments.",
     },
     {
-      icon: <Hospital className="w-8 h-8 text-slate-700" />,
-      name: "Healthcare",
-      desc: "Critical life-safety systems with phased evacuation and uninterrupted monitoring.",
+      icon: <Hospital className="w-10 h-10 text-blue-600" />,
+      name: "HEALTHCARE & LIFE SAFETY",
+      desc: "Phased evacuation protocols, silent alert modes, and non-disruptive continuous life-safety monitoring.",
     },
     {
-      icon: <Server className="w-8 h-8 text-slate-700" />,
-      name: "Data Centers",
-      desc: "High-sensitivity air sampling systems designed to detect fires before equipment is damaged.",
+      icon: <Server className="w-10 h-10 text-blue-600" />,
+      name: "CRITICAL DATA CENTERS",
+      desc: "Hypersensitive air-sampling VESDA networks to stop electrical fire threats prior to equipment destruction.",
     },
     {
-      icon: <ShoppingBag className="w-8 h-8 text-slate-700" />,
-      name: "Retail & Hospitality",
-      desc: "Discreet and dependable fire alarm solutions for hotels, malls, and public facilities.",
+      icon: <ShoppingBag className="w-10 h-10 text-blue-600" />,
+      name: "RETAIL & HOSPITALITY",
+      desc: "High-capacity, aesthetic integration designed to shield guests and maintain uncompromised venue aesthetics.",
     },
   ];
 
   const technologies = [
     {
-      name: "Addressable Fire Alarm Systems",
+      code: "TECH_01",
+      name: "Addressable Fire Systems",
       detail:
-        "Identify the exact detector or device activated for faster emergency response and easier maintenance.",
+        "Pinpoint exact sensor locations instantaneously for accelerated physical response times and rapid diagnostic telemetry.",
     },
     {
+      code: "TECH_02",
       name: "VESDA Air Sampling",
       detail:
-        "Continuously monitors air for microscopic smoke particles, providing the earliest possible warning.",
+        "Continuous active air suction through microscopic laser channels for hyper-early particulate detection.",
     },
     {
-      name: "Multi-Criteria Detectors",
+      code: "TECH_03",
+      name: "Multi-Criteria Sensors",
       detail:
-        "Combine smoke, heat, and carbon monoxide sensing technologies for greater accuracy.",
+        "Simultaneous thermal, optical smoke, and carbon monoxide evaluation to filter real threats from environmental noise.",
     },
     {
-      name: "Voice Evacuation Systems",
+      code: "TECH_04",
+      name: "Voice Evacuation (EVACS)",
       detail:
-        "Provide clear voice instructions to occupants for safer and more organized evacuations.",
+        "Clear, high-decibel directional voice directives replacing confusing sirens for organized building evacuations.",
     },
     {
-      name: "Beam Smoke Detectors",
+      code: "TECH_05",
+      name: "Optical Beam Detectors",
       detail:
-        "Ideal for warehouses, atriums, and large open spaces where conventional detectors are impractical.",
+        "Long-range infrared light paths across vast open areas like aircraft hangars, warehouses, and glass atriums.",
     },
     {
-      name: "Integrated Building Controls",
+      code: "TECH_06",
+      name: "BMS / HVAC Interfacing",
       detail:
-        "Automatically interface with elevators, HVAC systems, access control, and suppression equipment.",
+        "Automated mechanical shutdowns, elevator recalls, pressurization fan triggers, and automated door releases.",
     },
   ];
 
   return (
-    <main className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
-      
+    <main className="min-h-screen flex flex-col bg-white text-blue-950 font-sans selection:bg-blue-600 selection:text-white">
       <Header />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900 text-white min-h-[85vh] flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-900/40 to-slate-900" />
+      {/* Hero Section */}
+      <section className="relative bg-white text-blue-950 pt-16 pb-24 border-b-4 border-blue-600 overflow-hidden">
+        {/* Crisp Geometric Blueprint Background Grid */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.07]"
+          style={{
+            backgroundImage: `radial-gradient(#0055ff 1.5px, transparent 1.5px), linear-gradient(to right, #0055ff 1px, transparent 1px), linear-gradient(to bottom, #0055ff 1px, transparent 1px)`,
+            backgroundSize: `24px 24px, 48px 48px, 48px 48px`,
+          }}
+        />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/20 px-4 py-2 text-sm font-medium text-red-300">
-              <Flame className="h-4 w-4" />
-              Fire Detection & Alarm System Solutions
-            </span>
+          <div className="max-w-4xl">
+            {/* Loud Sharp Badge */}
+            <div className="mb-8 inline-flex items-center gap-3 border-2 border-blue-600 bg-blue-50 px-4 py-2 font-mono text-xs font-black uppercase tracking-widest text-blue-700 shadow-[4px_4px_0px_0px_rgba(0,85,255,1)]">
+              <Flame className="h-4 w-4 fill-red-500 text-red-500 animate-pulse" />
+              <span>FIRE DETECTION & ALARM SYSTEMS (FDAS)</span>
+            </div>
 
-            <h1 className="mb-6 text-4xl font-extrabold leading-tight md:text-5xl">
-              Advanced Fire Detection &
-              <br />
-              Alarm Systems (FDAS)
+            {/* Massive Loud Typography */}
+            <h1 className="mb-8 text-5xl font-black uppercase tracking-tight text-blue-950 sm:text-6xl md:text-7xl leading-none">
+              ENGINEERED FOR <br />
+              <span className="bg-blue-600 text-white px-3 py-1 inline-block mt-2">
+                ZERO FAILURE
+              </span> <br />
+              LIFE SAFETY.
             </h1>
 
-            <p className="mb-8 text-lg leading-relaxed text-slate-300">
-              Protect people, property, and business operations with reliable,
-              standards-compliant Fire Detection and Alarm Systems engineered
-              for commercial, industrial, and mission-critical facilities.
+            <p className="mb-10 text-xl font-bold leading-relaxed text-blue-900/80 max-w-2xl border-l-4 border-blue-600 pl-4">
+              High-velocity early detection, full NFPA code compliance, and integrated industrial telemetry built to protect high-density facilities.
             </p>
 
+            {/* Sharp Action Buttons */}
             <div className="flex flex-wrap gap-4">
               <a
                 href="#process"
-                className="rounded-lg bg-red-600 px-6 py-3 font-medium text-white transition hover:bg-red-700"
+                className="group flex items-center gap-3 border-2 border-blue-950 bg-blue-600 px-8 py-4 font-mono font-black uppercase tracking-wider text-white transition-all hover:bg-blue-700 hover:shadow-[6px_6px_0px_0px_rgba(2,6,23,1)]"
               >
-                Our Process
+                <span>DEPLOY PROCESS</span>
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
                 href="#technologies"
-                className="rounded-lg border border-slate-700 bg-slate-800 px-6 py-3 font-medium text-white transition hover:bg-slate-700"
+                className="border-2 border-blue-950 bg-white px-8 py-4 font-mono font-black uppercase tracking-wider text-blue-950 transition-all hover:bg-blue-50 hover:shadow-[6px_6px_0px_0px_rgba(0,85,255,1)]"
               >
-                Technologies
+                SYSTEM TECH
               </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Tactical Status Ribbon */}
+        <div className="mt-20 border-y-2 border-blue-950 bg-blue-50 py-3">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 font-mono text-xs font-bold uppercase text-blue-900">
+            <div className="flex items-center gap-2">
+              <Zap className="h-4 w-4 text-blue-600" />
+              <span>RESPONSE SPEED: IMMEDIATE</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Radio className="h-4 w-4 text-blue-600" />
+              <span>PROTOCOL: ADDRESSABLE / MULTI-LOOP</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Activity className="h-4 w-4 text-blue-600" />
+              <span>STANDARDS: NFPA 72 COMPLIANT</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="bg-white py-20">
+      {/* Benefits Section */}
+      <section className="bg-blue-50/50 py-24 border-b-2 border-blue-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <h2 className="text-3xl font-bold">
-              Why Choose Our FDAS Solutions?
-            </h2>
-            <p className="mt-4 text-slate-600">
-              Professionally engineered systems that improve safety, reduce
-              risks, and ensure regulatory compliance.
+          <div className="mb-16 border-b-4 border-blue-950 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <span className="font-mono text-sm font-black text-blue-600 uppercase tracking-widest">// SYSTEM ADVANTAGES</span>
+              <h2 className="text-4xl font-black uppercase text-blue-950 tracking-tight mt-1">
+                WHY CHOOSE OUR FDAS?
+              </h2>
+            </div>
+            <p className="font-mono text-sm font-bold text-blue-900 max-w-md">
+              DESIGNED TO ELIMINATE SYSTEM DOWNTIME AND ACCELERATE INCIDENT DISPATCH.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {benefits.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-slate-200 bg-slate-50 p-6"
+                className="relative border-2 border-blue-950 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,85,255,1)]"
               >
-                <div className="mb-5 w-fit rounded-lg bg-red-50 p-3">
+                <div className="absolute top-4 right-4 font-mono text-2xl font-black text-blue-200">
+                  {item.id}
+                </div>
+
+                <div className="mb-6 inline-block border-2 border-blue-950 bg-blue-100 p-3 shadow-[3px_3px_0px_0px_rgba(2,6,23,1)]">
                   {item.icon}
                 </div>
 
-                <h3 className="mb-3 text-lg font-semibold">{item.title}</h3>
+                <h3 className="mb-3 text-xl font-black uppercase text-blue-950 tracking-tight">
+                  {item.title}
+                </h3>
 
-                <p className="text-sm leading-relaxed text-slate-600">
+                <p className="text-sm font-medium leading-relaxed text-blue-900/80">
                   {item.description}
                 </p>
               </div>
@@ -187,62 +236,77 @@ export default function FDASServicePage() {
         </div>
       </section>
 
-      {/* Industries */}
-      <section className="border-y bg-slate-100 py-20">
+      {/* Industries Section */}
+      <section className="bg-white py-24 border-b-2 border-blue-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <h2 className="text-3xl font-bold">Industries We Serve</h2>
-            <p className="mt-4 text-slate-600">
-              Fire protection solutions customized for different operational
-              environments.
-            </p>
+          <div className="mb-16 border-b-4 border-blue-950 pb-6">
+            <span className="font-mono text-sm font-black text-blue-600 uppercase tracking-widest">// DEPLOYMENT TARGETS</span>
+            <h2 className="text-4xl font-black uppercase text-blue-950 tracking-tight mt-1">
+              INDUSTRIES PROTECTED
+            </h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-5">
             {industries.map((item) => (
               <div
                 key={item.name}
-                className="rounded-xl border bg-white p-6"
+                className="group border-2 border-blue-950 bg-white p-6 transition-all hover:bg-blue-600 hover:text-white"
               >
-                <div className="mb-4">{item.icon}</div>
+                <div className="mb-6 inline-block border-2 border-blue-950 bg-blue-50 p-3 text-blue-600 group-hover:border-white group-hover:bg-white group-hover:text-blue-950">
+                  {item.icon}
+                </div>
 
-                <h3 className="mb-2 text-lg font-bold">{item.name}</h3>
+                <h3 className="mb-3 text-lg font-black uppercase tracking-tight text-blue-950 group-hover:text-white">
+                  {item.name}
+                </h3>
 
-                <p className="text-sm text-slate-600">{item.desc}</p>
+                <p className="text-xs font-semibold leading-relaxed text-blue-900/80 group-hover:text-blue-50">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Technologies */}
+      {/* Technologies Section */}
       <section
         id="technologies"
-        className="bg-slate-900 py-20 text-white"
+        className="bg-blue-950 py-24 text-white border-b-4 border-blue-600 relative"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-14">
-            <span className="text-sm font-semibold uppercase tracking-wider text-red-400">
-              Technology
-            </span>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Modern Fire Detection Technologies
-            </h2>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-16 border-b-2 border-blue-800 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <span className="font-mono text-sm font-bold tracking-widest text-blue-400 uppercase">
+                // INFRASTRUCTURE TECH
+              </span>
+              <h2 className="mt-1 text-4xl font-black uppercase tracking-tight text-white">
+                HARDWARE & DETECTION TECH
+              </h2>
+            </div>
+            <div className="border-2 border-blue-500 bg-blue-900/50 px-4 py-2 font-mono text-xs font-bold text-blue-300 uppercase">
+              HARDENED HARDWARE STANDARDS
+            </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {technologies.map((item) => (
               <div
                 key={item.name}
-                className="rounded-xl border border-slate-700 bg-slate-800 p-6"
+                className="border-2 border-blue-700 bg-blue-900/40 p-8 transition-all hover:border-blue-400 hover:bg-blue-900/80"
               >
-                <div className="mb-4 flex items-center gap-3">
-                  <Cpu className="h-5 w-5 text-red-400" />
-                  <h3 className="font-semibold">{item.name}</h3>
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="font-mono text-xs font-black text-blue-400 border border-blue-700 px-2 py-1 bg-blue-950">
+                    {item.code}
+                  </span>
+                  <Cpu className="h-6 w-6 text-blue-400" />
                 </div>
 
-                <p className="text-sm leading-relaxed text-slate-400">
+                <h3 className="mb-3 text-xl font-black uppercase tracking-tight text-white">
+                  {item.name}
+                </h3>
+
+                <p className="text-sm font-medium leading-relaxed text-blue-200">
                   {item.detail}
                 </p>
               </div>
@@ -256,8 +320,6 @@ export default function FDASServicePage() {
       <CTA />
 
       <Footer />
-
     </main>
-
   );
 }

@@ -15,237 +15,297 @@ import {
   CheckCircle2,
   Lock,
   Layers,
+  ArrowRight,
+  ChevronRight,
+  Zap,
+  Activity,
+  Cpu,
 } from "lucide-react";
 
 export default function AccessControlPage() {
-  
   const benefits = [
     {
+      code: "01",
       title: "Real-Time Audit Trails",
       description:
-        "Monitor every entry, exit attempt, and door status through centralized event logging.",
+        "Instant event logging tracks every entry, exit, and physical door violation with precise millisecond timestamps.",
       icon: CheckCircle2,
     },
     {
+      code: "02",
       title: "Granular Multi-Level Access",
       description:
-        "Assign user permissions based on schedules, departments, and secured zones.",
+        "Define time-based matrix schedules, clear roles, and zone boundaries for maximum spatial restriction.",
       icon: Lock,
     },
     {
-      title: "Seamless System Integration",
+      code: "03",
+      title: "Seamless Ecosystem Integration",
       description:
-        "Integrate with CCTV, fire alarm systems, HR attendance, and visitor management.",
+        "Direct API integration with CCTV feeds, active fire alarm suppression systems, and HR management systems.",
       icon: Layers,
     },
     {
-      title: "Enhanced Facility Security",
+      code: "04",
+      title: "Active Perimeter Threat Defense",
       description:
-        "Reduce unauthorized access with intelligent authentication and emergency lockdown features.",
+        "Deploy single-click lockdown protocols, anti-passback rules, and multi-factor biometric checks.",
       icon: ShieldCheck,
     },
   ];
 
   const industries = [
     {
+      tag: "FINANCIAL & TECH",
       name: "Corporate Offices",
-      desc: "Protect executive offices, server rooms, and employee workspaces.",
+      desc: "Protect executive floors, server corridors, and sensitive data networks.",
     },
     {
+      tag: "CRITICAL INFRASTRUCTURE",
       name: "Data Centers",
-      desc: "Secure mission-critical infrastructure with biometric authentication.",
+      desc: "Zero-trust physical barriers featuring dual-custody biometric locks.",
     },
     {
+      tag: "LOGISTICS & PRODUCTION",
       name: "Manufacturing & Warehouses",
-      desc: "Manage employee access, loading bays, and restricted production areas.",
+      desc: "Manage high-volume shift turnstiles, loading docks, and hazard zones.",
     },
     {
+      tag: "COMPLIANCE & CARE",
       name: "Healthcare Facilities",
-      desc: "Restrict access to pharmacies, laboratories, and patient care areas.",
+      desc: "Restrict pharmaceutical vaults, ICUs, and restricted operational rooms.",
     },
     {
+      tag: "HIGH-RISE RESIDENTIAL",
       name: "Residential & Condominiums",
-      desc: "Provide residents with secure RFID, biometric, and visitor access.",
+      desc: "Smart NFC access, resident RFID barriers, and cloud visitor logging.",
     },
     {
+      tag: "PUBLIC SECTOR",
       name: "Educational Institutions",
-      desc: "Control campus entry, dormitories, faculty offices, and laboratories.",
+      desc: "Campus-wide emergency lockdowns, dorm access, and lab security.",
     },
   ];
 
   const techData = [
     {
       id: "authentication",
-      title: "Authentication",
-      subtitle: "SECURE ACCESS CONTROL",
+      title: "Biometric & Digital Authentication",
+      subtitle: "IDENTITY VERIFICATION",
       description:
-        "Seamless multi-factor and biometric credentials designed to secure entry points without slowing down momentum.",
+        "Multi-factor, low-latency verification hardware designed to process enterprise foot traffic without bottlenecks.",
       items: [
-        "Fingerprint & Facial Recognition",
-        "RFID & Smart Cards",
-        "Bluetooth & NFC Mobile Credentials",
-        "PIN Keypads",
+        "Facial & Fingerprint Biometrics",
+        "RFID & Smart IC Cards",
+        "Bluetooth & NFC Mobile Pass",
+        "Encrypted PIN Keypads",
       ],
-      image:
-        "/services/home/access-control.png",
+      image: "/services/home/access-control.png",
     },
     {
       id: "door-hardware",
-      title: "Door Hardware",
-      subtitle: "PRECISION ENGINEERING",
+      title: "Architectural Door Hardware",
+      subtitle: "PHYSICAL RETENTION",
       description:
-        "Architectural-grade smart locks and strikes engineered for heavy foot traffic, durability, and instantaneous response.",
+        "Heavy-duty electronic strikes, magnetic shear locks, and physical speed gates built to withstand intense operational stress.",
       items: [
-        "Electromagnetic Locks",
-        "Electric Strikes & Drop Bolts",
-        "Turnstiles & Speed Gates",
-        "Emergency Break Glass Devices",
+        "Electromagnetic Shear Locks",
+        "High-Speed Turnstiles",
+        "Break-Glass Panic Systems",
       ],
-      image:
-        "/services/access-control/magnetic-door.png",
+      image: "/services/access-control/magnetic-door.png",
     },
     {
       id: "management-platform",
-      title: "Management Platform",
-      subtitle: "CENTRALIZED CONTROL",
+      title: "Unified Command Platform",
+      subtitle: "REAL-TIME MONITORING",
       description:
-        "A single dashboard to monitor activity, manage roles, configure real-time alerts, and scale across multi-site deployments.",
+        "A centralized web interface delivering full visibility across physical sites, user privileges, and event triggers.",
       items: [
-        "IP-Based Door Controllers",
-        "Centralized Monitoring Software",
-        "Time Attendance Integration",
-        "Remote Web & Mobile Management",
+        "IP Controller Hubs",
+        "Central Event Console",
+        "HR & Payroll Attendance Sync",
+        "Remote Cloud Dashboard",
       ],
-      image:
-        "/services/access-control/dashboard.png",
+      image: "/services/access-control/dashboard.png",
     },
   ];
 
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 font-sans">
+    <main className="min-h-screen bg-white text-slate-950 font-sans selection:bg-blue-600 selection:text-white">
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-white text-slate-900 min-h-[85vh] flex items-center relative overflow-hidden border-b border-slate-100">
+      <section className="bg-white text-slate-950 min-h-[90vh] flex items-center relative overflow-hidden border-b-4 border-blue-600">
+        {/* Subtle grid background pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px]" />
+
         <NetworkBackground
-          nodeCount={50}
+          nodeCount={65}
           nodeColorRgb="37, 99, 235"
-          pulseColorRgb="29, 78, 216"
+          pulseColorRgb="37, 99, 235"
         />
 
-        <div className="container mx-auto max-w-7xl px-6 py-24 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-6xl md:text-7xl font-bold text-slate-900 mb-8">
-              Access Control & Door Security Systems
+        <div className="container mx-auto max-w-7xl px-6 py-28 relative z-10">
+          <div className="max-w-4xl">
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600 text-white font-mono text-xs font-bold uppercase tracking-widest mb-8 border border-blue-700 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+              <Zap className="w-3.5 h-3.5 fill-current" /> Next-Gen Enterprise Security
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-slate-950 tracking-tight leading-[0.95] uppercase mb-8">
+              Access Control <br />
+              <span className="text-blue-600 underline decoration-blue-600 decoration-8 underline-offset-8">
+                & Door Security
+              </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-600 leading-relaxed">
-              Secure your people, facilities, and valuable assets with enterprise-grade
-              access control solutions. From single-door biometric systems to fully
-              networked multi-site deployments, we design scalable security platforms
-              tailored to your business.
+            <p className="text-lg md:text-2xl text-slate-700 font-medium leading-relaxed max-w-3xl mb-10 border-l-4 border-blue-600 pl-6">
+              Lock down physical vulnerabilities and streamline multi-zone access. 
+              We build hyper-scalable biometric, RFID, and cloud-managed security infrastructure tailored to high-density environments.
             </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#technologies"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold text-sm tracking-wider uppercase border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                Explore Platform <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#benefits"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-950 font-bold text-sm tracking-wider uppercase border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(37,99,235,1)] hover:bg-slate-100 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                System Capabilities
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      
-      {/* WHITE-THEMED STICKY TECHNOLOGIES SHOWCASE */}
+      {/* Live System Specs Ticker Bar */}
+      <div className="bg-slate-950 text-white border-b-2 border-slate-950 py-3 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between text-xs font-mono font-bold uppercase tracking-widest gap-4">
+          <span className="flex items-center gap-2 text-blue-400">
+            <Activity className="w-4 h-4 animate-pulse" /> Status: Systems Operational
+          </span>
+          <span className="hidden sm:inline-block text-slate-400">Response Speed: &lt; 200ms</span>
+          <span className="hidden md:inline-block text-slate-400">Encryption: AES-256 Grade</span>
+          <span className="text-blue-400">Multi-Site Ready</span>
+        </div>
+      </div>
+
+      {/* TECHNOLOGIES SHOWCASE */}
       <section
         id="technologies"
-        className="bg-slate-50 text-slate-900 py-24 px-6 md:px-16 border-t border-slate-200"
+        className="bg-white text-slate-950 py-28 px-6 md:px-16 border-b-4 border-slate-950"
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* LEFT COLUMN (Sticky Text & Controls) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-8 flex flex-col justify-between min-h-[480px]">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="mb-16 border-b-2 border-slate-950 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
-                {techData[activeTab].subtitle}
+              <span className="text-xs font-mono font-black uppercase tracking-widest text-blue-600">
+                01 // HARDWARE & SOFTWARE ECOSYSTEM
               </span>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-slate-950 mt-2">
+                Core Technologies
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider">
+              [ Interactive Architecture View ]
+            </span>
+          </div>
 
-              {/* Dynamic Content Switching with Fade */}
-              <div className="relative min-h-[220px] mt-4">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeTab}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* LEFT COLUMN */}
+            <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-8 flex flex-col justify-between">
+              <div className="bg-slate-50 border-2 border-slate-950 p-8 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)]">
+                <span className="inline-block bg-blue-600 text-white text-[10px] font-mono font-black uppercase tracking-widest px-2 py-0.5 mb-4">
+                  {techData[activeTab].subtitle}
+                </span>
+
+                <div className="relative min-h-[200px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeTab}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <h3 className="text-3xl font-black uppercase text-slate-950 tracking-tight">
+                        {techData[activeTab].title}
+                      </h3>
+                      <p className="mt-4 text-slate-700 font-medium leading-relaxed text-base">
+                        {techData[activeTab].description}
+                      </p>
+
+                      <div className="mt-6 space-y-2">
+                        {techData[activeTab].items.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center gap-3 text-sm font-bold text-slate-900 bg-white border border-slate-950 p-2.5 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]"
+                          >
+                            <ChevronRight className="w-4 h-4 text-blue-600 stroke-[3]" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              {/* Navigation Tabs */}
+              <div className="space-y-2">
+                {techData.map((tech, index) => (
+                  <button
+                    key={tech.id}
+                    onClick={() => {
+                      setActiveTab(index);
+                      document
+                        .getElementById(tech.id)
+                        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                    }}
+                    className={`w-full flex items-center justify-between p-4 text-left font-bold text-sm tracking-wider uppercase transition-all border-2 border-slate-950 ${
+                      activeTab === index
+                        ? "bg-blue-600 text-white shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] translate-x-1"
+                        : "bg-white text-slate-950 hover:bg-slate-100"
+                    }`}
                   >
-                    <h2 className="text-4xl font-bold tracking-tight text-slate-900">
-                      {techData[activeTab].title}
-                    </h2>
-                    <p className="mt-4 text-slate-600 font-normal leading-relaxed text-base">
-                      {techData[activeTab].description}
-                    </p>
-
-                    {/* Integrated Feature Items List */}
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {techData[activeTab].items.map((item, idx) => (
-                        <span
-                          key={idx}
-                          className="text-xs px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-sm"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                    <span>{tech.title}</span>
+                    <span className="font-mono text-xs">0{index + 1}</span>
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Navigation Indicators */}
-            <div className="space-y-3 pt-6 border-t border-slate-200">
+            {/* RIGHT COLUMN */}
+            <div className="lg:col-span-7 space-y-16">
               {techData.map((tech, index) => (
-                <button
+                <motion.div
                   key={tech.id}
-                  onClick={() => {
-                    setActiveTab(index);
-                    document
-                      .getElementById(tech.id)
-                      ?.scrollIntoView({ behavior: "smooth", block: "center" });
-                  }}
-                  className={`w-full flex items-center justify-between py-2 text-left transition-colors duration-200 ${
-                    activeTab === index
-                      ? "text-blue-600 font-semibold"
-                      : "text-slate-500 hover:text-slate-800"
-                  }`}
+                  id={tech.id}
+                  onViewportEnter={() => setActiveTab(index)}
+                  viewport={{ amount: 0.5 }}
+                  className="relative group border-4 border-slate-950 bg-slate-950 p-2 shadow-[12px_12px_0px_0px_rgba(37,99,235,1)]"
                 >
-                  <span className="text-sm tracking-wide">{tech.title}</span>
-                  <span
-                    className={`h-[2px] transition-all duration-300 ${
-                      activeTab === index ? "w-8 bg-blue-600" : "w-0 bg-transparent"
-                    }`}
-                  />
-                </button>
+                  <div className="relative aspect-video w-full overflow-hidden border-2 border-slate-950 bg-slate-900">
+                    <img
+                      src={tech.image}
+                      alt={tech.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ease-out grayscale hover:grayscale-0"
+                    />
+                    <div className="absolute top-4 left-4 bg-slate-950 text-white font-mono text-xs px-3 py-1 font-bold border border-blue-500">
+                      SYS // {tech.id.toUpperCase()}
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-
-          {/* RIGHT COLUMN (Scrollable Images / Cards) */}
-          <div className="lg:col-span-7 space-y-24">
-            {techData.map((tech, index) => (
-              <motion.div
-                key={tech.id}
-                id={tech.id}
-                onViewportEnter={() => setActiveTab(index)}
-                viewport={{ amount: 0.6 }}
-                className="relative group rounded-2xl overflow-hidden border border-slate-200/80 bg-white p-3 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-100">
-                  <img
-                    src={tech.image}
-                    alt={tech.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -253,18 +313,20 @@ export default function AccessControlPage() {
       {/* Benefits Section */}
       <section
         id="benefits"
-        className="py-20 px-6 bg-slate-50 border-y border-slate-200"
+        className="py-28 px-6 bg-blue-600 text-white border-b-4 border-slate-950 relative"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">
-              Why Choose Electronic Access Control?
-            </h2>
-
-            <p className="text-slate-600 max-w-2xl">
-              Replace traditional keys with intelligent security solutions that
-              improve operational efficiency, accountability, and facility
-              protection.
+          <div className="mb-16 border-b-2 border-white/30 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <span className="text-xs font-mono font-black uppercase tracking-widest text-slate-950 bg-white px-2 py-0.5">
+                02 // KEY ADVANTAGES
+              </span>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mt-4">
+                Why Upgrade System Security?
+              </h2>
+            </div>
+            <p className="text-white/80 font-medium max-w-md text-sm leading-relaxed">
+              Eliminate vulnerable physical keying systems with modern, auditable biometric and digital access controls.
             </p>
           </div>
 
@@ -275,19 +337,26 @@ export default function AccessControlPage() {
               return (
                 <div
                   key={index}
-                  className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition"
+                  className="bg-white text-slate-950 border-2 border-slate-950 p-8 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] flex flex-col justify-between hover:-translate-y-1 transition-transform"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6" />
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-12 h-12 bg-blue-600 text-white border-2 border-slate-950 flex items-center justify-center font-bold">
+                        <Icon className="w-6 h-6 stroke-[2.5]" />
+                      </div>
+                      <span className="font-mono text-2xl font-black text-slate-300">
+                        {item.code}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-black uppercase tracking-tight text-slate-950 mb-3">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-sm font-medium text-slate-700 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
               );
             })}
@@ -296,15 +365,18 @@ export default function AccessControlPage() {
       </section>
 
       {/* Industries Section */}
-      <section id="industries" className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-3">
-            Industries We Serve
-          </h2>
-
-          <p className="text-slate-600 max-w-2xl">
-            Our access control solutions are customized to meet the operational
-            and security requirements of different industries.
+      <section id="industries" className="py-28 px-6 max-w-7xl mx-auto">
+        <div className="mb-16 border-b-2 border-slate-950 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span className="text-xs font-mono font-black uppercase tracking-widest text-blue-600">
+              03 // TARGET DEPLOYMENTS
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-slate-950 mt-2">
+              Industries Protected
+            </h2>
+          </div>
+          <p className="text-slate-600 font-medium max-w-md text-sm">
+            Custom engineered security architectures designed to meet industry-specific compliance and access speeds.
           </p>
         </div>
 
@@ -312,22 +384,56 @@ export default function AccessControlPage() {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="bg-white border border-slate-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-md transition"
+              className="group bg-slate-50 border-2 border-slate-950 p-8 shadow-[6px_6px_0px_0px_rgba(37,99,235,1)] hover:bg-blue-600 hover:text-white transition-all duration-200"
             >
-              <Building2 className="w-8 h-8 text-blue-600 mb-4" />
+              <div className="flex items-center justify-between mb-6">
+                <Building2 className="w-8 h-8 text-blue-600 group-hover:text-white stroke-[2.5]" />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 bg-slate-200 group-hover:bg-white group-hover:text-slate-950 text-slate-800">
+                  {industry.tag}
+                </span>
+              </div>
 
-              <h3 className="text-lg font-bold text-slate-900 mb-2">
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-3">
                 {industry.name}
               </h3>
 
-              <p className="text-slate-600 text-sm">{industry.desc}</p>
+              <p className="text-slate-700 group-hover:text-white/90 text-sm font-medium leading-relaxed">
+                {industry.desc}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
+      {/* High-Impact Tech Banner */}
+      <section className="bg-slate-950 text-white py-16 border-y-4 border-slate-950">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="flex items-center gap-6">
+            <div className="p-4 bg-blue-600 text-white border-2 border-white hidden sm:block">
+              <Cpu className="w-10 h-10" />
+            </div>
+            <div>
+              <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight">
+                Need a custom access control architecture?
+              </h3>
+              <p className="text-slate-400 font-medium text-sm mt-1">
+                We perform site surveys and engineer custom integrations with your existing hardware.
+              </p>
+            </div>
+          </div>
+          <a
+            href="#cta"
+            className="w-full lg:w-auto text-center px-8 py-4 bg-blue-600 text-white font-bold text-sm tracking-wider uppercase border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+          >
+            Request Site Audit
+          </a>
+        </div>
+      </section>
+
       <ApproachSection />
-      <CTA />
+      <div id="cta">
+        <CTA />
+      </div>
       <Footer />
     </main>
   );

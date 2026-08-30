@@ -135,29 +135,32 @@ export default function ServicesPage() {
     <main className="min-h-screen bg-white font-sans text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
       <Header />
 
-      {/* HERO SECTION */}
       <section className="relative flex min-h-[85vh] items-center overflow-hidden border-b border-slate-100 px-6 py-24 sm:px-10 lg:px-[7%]">
+        {/* Background Video with Poster Fallback */}
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover pointer-events-none"
           autoPlay
           muted
           loop
           playsInline
           aria-hidden="true"
+          poster="/services/servicehero-poster.jpg" // Mobile/Low-Data Fallback Image
         >
+          <source src="/services/servicehero.webm" type="video/webm" />
           <source src="/services/servicehero.mp4" type="video/mp4" />
         </video>
 
-        {/* Gradient Overlay for light/dark balance */}
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-slate-900/30" />
 
+        {/* Hero Content */}
         <div className="relative z-10 max-w-3xl text-white">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-blue-300 backdrop-blur-md">
             <Sparkles className="h-3.5 w-3.5" /> Our Expertise
           </div>
 
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl leading-[1.1]">
-            Seamless Integration & <br />
+            Seamless Integration & <br className="hidden sm:inline" />
             <span className="text-blue-400">Smarter Operations</span>
           </h1>
 

@@ -14,141 +14,146 @@ import {
   Network,
   Cpu,
   Radio,
-  Layers
+  Layers,
+  Zap,
+  ArrowRight
 } from "lucide-react"
 import Image from 'next/image'
 
 const values = [
   {
     icon: Award,
-    title: "Uncompromising Quality",
-    description: "We enforce rigorous standards across every build—from precise cable management and detailed OTDR testing to clean rack architecture.",
-    gradient: "from-blue-500/10 via-indigo-500/5 to-transparent",
+    title: "UNCOMPROMISING QUALITY",
+    description: "Rigorous physical-layer standards on every build—from precise cable management and detailed OTDR testing to clean rack architecture.",
   },
   {
     icon: Users,
-    title: "Transparent Integrity",
-    description: "We earn client trust through upfront timelines, crystal-clear project scope, and an unwavering commitment to transparent pricing.",
-    gradient: "from-indigo-500/10 via-purple-500/5 to-transparent",
+    title: "TRANSPARENT INTEGRITY",
+    description: "Client trust built on upfront timelines, crystal-clear project scopes, and zero hidden costs across all deployments.",
   },
   {
     icon: Lightbulb,
-    title: "Forward-Thinking Innovation",
-    description: "We deploy next-generation fiber backbones, high-performance network switches, and smart integrated controls built to scale with your business.",
-    gradient: "from-sky-500/10 via-blue-500/5 to-transparent",
+    title: "FORWARD-THINKING INNOVATION",
+    description: "Deploying next-gen fiber backbones, high-density enterprise switching, and smart integrated building controls.",
   },
   {
     icon: HardHat,
-    title: "Safety without Compromise",
-    description: "On-site safety is absolute. Our engineering teams strictly adhere to official OSH protocols across all elevated and high-voltage field environments.",
-    gradient: "from-amber-500/10 via-orange-500/5 to-transparent",
+    title: "ABSOLUTE SITE SAFETY",
+    description: "OSH-compliant site execution. Continuous safety protocol enforcement across high-voltage and elevated field environments.",
   },
 ]
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
+    <main className="min-h-screen bg-white text-slate-900 antialiased selection:bg-blue-600 selection:text-white font-sans">
       <Header />
       
-      {/* 1. Who We Are Section (Hero Layout) */}
-      <section className="pt-28 pb-16 lg:pt-36 lg:pb-24 bg-background relative border-b border-border overflow-hidden">
-        {/* Subtle Engineering Grid Backdrop */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+      {/* HERO SECTION - Electric White & Vivid Blue */}
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-white border-b-4 border-blue-600 overflow-hidden">
+        {/* High-Contrast Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#2563eb15_1px,transparent_1px),linear-gradient(to_bottom,#2563eb15_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+        
+        {/* Bold Blue Glow Accent */}
+        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           
-          {/* Eyebrow Tag */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-primary/10 border border-primary/20 text-primary text-xs font-semibold tracking-wide uppercase mb-6">
-            <Network className="h-3.5 w-3.5" />
-            About Our Company
+          {/* Tagline Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-xs font-black tracking-widest uppercase mb-8 border-2 border-blue-700 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+            <Network className="h-4 w-4 stroke-[3]" />
+            Enterprise Infrastructure Engineering
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Left Content Column */}
+            {/* Left Column: Heading */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-                Powering connections with <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">
-                  resilient network infrastructure.
-                </span>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-slate-900 leading-[0.95]">
+                Powering networks with <br />
+                <span className="text-blue-600 underline decoration-blue-500 decoration-8 underline-offset-8">
+                  unshakeable
+                </span> speed.
               </h1>
 
-              <div className="space-y-4 text-muted-foreground leading-relaxed text-base sm:text-lg">
+              <div className="space-y-4 text-slate-700 leading-relaxed text-base sm:text-xl font-medium pt-2">
                 <p>
-                  <strong className="text-foreground font-semibold">
+                  <strong className="text-blue-600 font-extrabold uppercase">
                     RCC Cabling and Network Solutions Corporation
                   </strong>{" "}
                   is a premier systems integration partner delivering turnkey IT, telecommunications, and building auxiliary solutions tailored for Philippine enterprises.
                 </p>
-                <p>
+                <p className="text-slate-600 text-base">
                   Whether engineered for high-density structured cabling, enterprise-grade CCTV networks, or long-distance fiber optic backbones, we turn complex technical designs into dependable operational realities.
-                </p>
-                <p className="text-sm sm:text-base">
-                  Official distributor and certified installer for global industry leaders:{" "}
-                  <span className="text-foreground font-medium underline decoration-primary/40 underline-offset-4">
-                    LS, Alantek, Fluke Networks, Hikvision, Cisco, Bosch, and Panasonic
-                  </span>.
                 </p>
               </div>
 
-              {/* Tag Badges */}
+              {/* Vendor List */}
+              <div className="p-4 bg-blue-50 border-2 border-blue-600 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)]">
+                <p className="text-xs font-black uppercase tracking-wider text-blue-900">
+                  Certified Distribution & Integration Partner:
+                </p>
+                <p className="text-sm font-bold text-slate-900 mt-1">
+                  LS • Alantek • Fluke Networks • Hikvision • Cisco • Bosch • Panasonic
+                </p>
+              </div>
+
+              {/* Badges Grid */}
               <div className="pt-2 flex flex-wrap gap-2">
                 {["Fiber Optics", "Structured Cabling", "CCTV & Security", "PABX", "FDAS", "NOC Migration"].map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none text-xs font-semibold bg-secondary/80 text-secondary-foreground border border-border/60 hover:border-primary/50 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-black uppercase bg-slate-900 text-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_rgba(37,99,235,1)]"
                   >
-                    <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                    <CheckCircle2 className="h-3.5 w-3.5 text-blue-400" />
                     {tag}
                   </span>
                 ))}
               </div>
 
-              {/* Micro Stats Cards */}
-              <div className="pt-6 grid grid-cols-3 gap-4 border-t border-border/80 mt-8">
-                <div className="p-4 rounded-none bg-card/50 border border-border/60 shadow-sm">
-                  <p className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">15+</p>
-                  <p className="text-xs text-muted-foreground mt-1 font-medium">Years of Expertise</p>
+              {/* Stats Box */}
+              <div className="pt-6 grid grid-cols-3 gap-4 border-t-2 border-slate-200 mt-8">
+                <div className="p-4 bg-white border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+                  <p className="text-4xl font-black text-blue-600 tracking-tight">15+</p>
+                  <p className="text-xs font-black uppercase text-slate-800 mt-1">Years Field Work</p>
                 </div>
-                <div className="p-4 rounded-none bg-card/50 border border-border/60 shadow-sm">
-                  <p className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">240+</p>
-                  <p className="text-xs text-muted-foreground mt-1 font-medium">Successful Projects</p>
+                <div className="p-4 bg-white border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+                  <p className="text-4xl font-black text-blue-600 tracking-tight">240+</p>
+                  <p className="text-xs font-black uppercase text-slate-800 mt-1">Projects Built</p>
                 </div>
-                <div className="p-4 rounded-none bg-card/50 border border-border/60 shadow-sm">
-                  <p className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">99.7%</p>
-                  <p className="text-xs text-muted-foreground mt-1 font-medium">Target Reliability</p>
+                <div className="p-4 bg-blue-600 text-white border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+                  <p className="text-4xl font-black tracking-tight">99.7%</p>
+                  <p className="text-xs font-black uppercase text-blue-100 mt-1">Uptime Target</p>
                 </div>
               </div>
             </div>
 
-            {/* Right Visual Asset Column */}
+            {/* Right Column: Visual Showcase */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none rounded-none bg-card p-6 sm:p-8 border border-border shadow-2xl backdrop-blur-xl group hover:border-primary/50 transition-all duration-500">
+              <div className="relative mx-auto max-w-md lg:max-w-none bg-blue-600 p-3 border-4 border-slate-900 shadow-[12px_12px_0px_0px_rgba(15,23,42,1)]">
                 
                 {/* Floating Credential Badge */}
-                <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground px-3 py-1.5 rounded-none shadow-lg flex items-center gap-2 text-xs font-semibold tracking-wider uppercase">
-                  <ShieldCheck className="h-4 w-4" />
-                  SEC Registered
+                <div className="absolute -top-5 -right-5 bg-white text-slate-900 border-2 border-slate-900 px-4 py-2 font-black text-xs uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] flex items-center gap-2 z-20">
+                  <ShieldCheck className="h-4 w-4 text-blue-600" />
+                  SEC REGISTERED
                 </div>
 
-                <div className="relative aspect-square w-full flex items-center justify-center p-8 bg-muted/40 rounded-none border border-border/80 group-hover:bg-muted/20 transition-colors">
+                <div className="relative aspect-square w-full bg-white flex items-center justify-center p-8 border-2 border-slate-900">
                   <Image
                     src="/services/RCC-Logo.png"
                     alt="RCC Cabling Logo"
                     width={320}
                     height={320}
                     priority
-                    className="object-contain filter drop-shadow-lg group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain filter drop-shadow-xl"
                   />
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2 text-muted-foreground font-medium">
-                    <span className="h-2 w-2 rounded-none bg-emerald-500 animate-pulse" />
+                <div className="mt-3 p-3 bg-slate-900 text-white flex items-center justify-between text-xs font-black tracking-wider uppercase">
+                  <div className="flex items-center gap-2 text-blue-400">
+                    <span className="h-2.5 w-2.5 bg-blue-400 animate-ping" />
                     Field Teams Active
                   </div>
-                  <span className="text-muted-foreground font-mono">PH ISO Standards Compliant</span>
+                  <span className="text-slate-300">ISO Standard Compliant</span>
                 </div>
               </div>
             </div>
@@ -157,42 +162,43 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. Mission & Vision - Sharp Bento Grid */}
-      <section className="py-20 lg:py-24 bg-secondary/30 border-b border-border relative">
+      {/* MISSION & VISION - High Contrast Blue Blocks */}
+      <section className="py-20 lg:py-28 bg-slate-100 border-b-4 border-slate-900 relative">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Mission */}
-            <div className="group relative rounded-none bg-card p-8 sm:p-10 border border-border/80 shadow-sm hover:border-primary/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+            <div className="bg-white p-8 sm:p-10 border-4 border-slate-900 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)] flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 rounded-bl-full pointer-events-none" />
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <Target className="h-6 w-6" />
+                  <div className="flex items-center justify-center w-14 h-14 bg-blue-600 text-white border-2 border-slate-900 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+                    <Target className="h-7 w-7" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary">Core Purpose</span>
-                    <h3 className="text-2xl font-bold text-foreground">Our Mission</h3>
+                    <span className="text-xs font-black uppercase tracking-widest text-blue-600">Primary Objective</span>
+                    <h3 className="text-3xl font-black uppercase text-slate-900 tracking-tight">Our Mission</h3>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-base">
+                <p className="text-slate-700 leading-relaxed text-base sm:text-lg font-medium">
                   To empower organizations with dependable, high-capacity system integration services—covering robust data networks, surveillance systems, telecom assets, and intelligent building controls—backed by expert execution and genuine service excellence.
                 </p>
               </div>
             </div>
 
             {/* Vision */}
-            <div className="group relative rounded-none bg-card p-8 sm:p-10 border border-border/80 shadow-sm hover:border-primary/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+            <div className="bg-blue-600 text-white p-8 sm:p-10 border-4 border-slate-900 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <Eye className="h-6 w-6" />
+                  <div className="flex items-center justify-center w-14 h-14 bg-white text-blue-600 border-2 border-slate-900 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+                    <Eye className="h-7 w-7" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary">Future Vision</span>
-                    <h3 className="text-2xl font-bold text-foreground">Our Vision</h3>
+                    <span className="text-xs font-black uppercase tracking-widest text-blue-200">Long-Term Goal</span>
+                    <h3 className="text-3xl font-black uppercase text-white tracking-tight">Our Vision</h3>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-base">
+                <p className="text-blue-50 leading-relaxed text-base sm:text-lg font-medium">
                   To stand as the premier and most trusted systems integrator in the Philippines, setting benchmark standards for modern enterprise infrastructure and seamless digital connectivity across the nation.
                 </p>
               </div>
@@ -202,32 +208,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Core Values Section */}
-      <section className="py-20 lg:py-24 bg-background border-b border-border">
+      {/* CORE VALUES - Loud Cards */}
+      <section className="py-20 lg:py-28 bg-white border-b-4 border-slate-900">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">What Drives Us</span>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mt-1">
-              Core Principles
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-black uppercase tracking-widest bg-blue-600 text-white px-3 py-1 border border-slate-900">
+              Guiding Directives
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-slate-900 mt-4">
+              Core Operational Principles
             </h2>
-            <p className="mt-3 text-base text-muted-foreground">
-              The fundamental values guiding our engineers across every site installation and design phase.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
               <div 
                 key={v.title} 
-                className="relative group rounded-none bg-card border border-border p-6 shadow-sm hover:border-primary/60 hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="bg-white border-3 border-slate-900 p-6 shadow-[6px_6px_0px_0px_rgba(37,99,235,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform flex flex-col justify-between"
               >
-                <div className={`absolute inset-0 bg-gradient-to-b ${v.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
-                <div className="relative">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300 mb-6">
-                    <v.icon className="h-6 w-6" />
+                <div>
+                  <div className="flex items-center justify-center w-12 h-12 bg-blue-50 text-blue-600 border-2 border-slate-900 mb-6">
+                    <v.icon className="h-6 w-6 stroke-[2.5]" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{v.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  <h3 className="text-lg font-black text-slate-900 uppercase tracking-wide">{v.title}</h3>
+                  <p className="mt-3 text-sm text-slate-600 font-medium leading-relaxed">
                     {v.description}
                   </p>
                 </div>
@@ -237,91 +241,65 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. Organizational Structure */}
-      <section className="py-20 lg:py-24 bg-secondary/20 border-b border-border">
+      {/* ORGANIZATIONAL STRUCTURE */}
+      <section className="py-20 lg:py-28 bg-blue-50 border-b-4 border-slate-900">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">Team Structure</span>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mt-1">
+            <span className="text-xs font-black uppercase tracking-widest text-blue-600">Company Blueprint</span>
+            <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900 mt-1">
               Leadership & Field Operations
             </h2>
-            <p className="mt-3 text-muted-foreground text-sm sm:text-base">
-              A streamlined, multi-tiered organization engineered for agile execution and strict quality assurance.
-            </p>
           </div>
 
           <div className="max-w-5xl mx-auto space-y-6">
             
-            {/* Tier 1: Executive */}
+            {/* Executive */}
             <div className="flex justify-center">
-              <div className="w-full max-w-md bg-card border-2 border-primary/40 rounded-none p-6 text-center shadow-lg hover:border-primary transition-colors relative">
-                <div className="w-12 h-12 bg-primary/10 rounded-none flex items-center justify-center mx-auto mb-3 text-primary">
-                  <Briefcase className="h-6 w-6" />
-                </div>
-                <h3 className="text-base font-bold text-foreground tracking-wide">CHAIRMAN & CHIEF EXECUTIVE OFFICER</h3>
-                <p className="text-xs font-semibold text-primary mt-1 uppercase tracking-wider">Strategic Vision & Governance</p>
+              <div className="w-full max-w-md bg-blue-600 text-white border-4 border-slate-900 p-6 text-center shadow-[8px_8px_0px_0px_rgba(15,23,42,1)]">
+                <Briefcase className="h-8 w-8 mx-auto mb-2 text-white" />
+                <h3 className="text-lg font-black tracking-wider uppercase">CHAIRMAN & CHIEF EXECUTIVE OFFICER</h3>
+                <p className="text-xs font-bold text-blue-200 uppercase tracking-widest mt-1">Strategic Vision & Governance</p>
               </div>
             </div>
 
-            {/* Vertical Connector Line */}
-            <div className="w-px h-6 bg-border mx-auto" />
+            <div className="w-1 bg-slate-900 h-8 mx-auto" />
 
-            {/* Tier 2: Department Management */}
+            {/* Department Management */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-card border border-border/80 rounded-none p-5 text-center shadow-sm hover:border-primary/50 transition-colors">
-                <Building2 className="h-7 w-7 mx-auto text-primary mb-2" />
-                <h4 className="font-bold text-foreground text-sm">Sr. IT Infrastructure & Solutions Manager</h4>
-                <p className="text-xs text-muted-foreground mt-1">NOC Operations, Engineering & Execution</p>
-              </div>
-
-              <div className="bg-card border border-border/80 rounded-none p-5 text-center shadow-sm hover:border-primary/50 transition-colors">
-                <Users className="h-7 w-7 mx-auto text-primary mb-2" />
-                <h4 className="font-bold text-foreground text-sm">Business Development & Accounts</h4>
-                <p className="text-xs text-muted-foreground mt-1">Enterprise Partnerships & Client Relations</p>
-              </div>
-
-              <div className="bg-card border border-border/80 rounded-none p-5 text-center shadow-sm hover:border-primary/50 transition-colors">
-                <Award className="h-7 w-7 mx-auto text-primary mb-2" />
-                <h4 className="font-bold text-foreground text-sm">Finance & Administration</h4>
-                <p className="text-xs text-muted-foreground mt-1">Corporate Management & Regulatory Compliance</p>
-              </div>
+              {[
+                { title: "Sr. IT Infrastructure & Solutions", sub: "NOC Operations & Engineering", icon: Building2 },
+                { title: "Business Development & Accounts", sub: "Enterprise Client Partnerships", icon: Users },
+                { title: "Finance & Administration", sub: "Corporate Governance & Regulatory", icon: Award }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white border-3 border-slate-900 p-5 text-center shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+                  <item.icon className="h-7 w-7 mx-auto text-blue-600 mb-2" />
+                  <h4 className="font-black text-slate-900 text-sm uppercase">{item.title}</h4>
+                  <p className="text-xs text-slate-600 font-bold mt-1">{item.sub}</p>
+                </div>
+              ))}
             </div>
 
-            {/* Vertical Connector Line */}
-            <div className="w-px h-6 bg-border mx-auto" />
+            <div className="w-1 bg-slate-900 h-8 mx-auto" />
 
-            {/* Tier 3: Field Implementation Units */}
-            <div className="bg-card rounded-none p-6 border border-border/80 shadow-sm">
-              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground text-center mb-6">
-                Specialized Technical Divisions
+            {/* Technical Divisions */}
+            <div className="bg-white border-4 border-slate-900 p-6 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)]">
+              <p className="text-xs font-black uppercase tracking-widest text-blue-600 text-center mb-6">
+                Specialized Field Divisions
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <div className="bg-muted/40 rounded-none p-4 border border-border/60 text-center hover:border-primary/40 transition-colors">
-                  <Cpu className="h-5 w-5 text-primary mx-auto mb-2" />
-                  <h5 className="font-bold text-foreground text-sm">Network Engineering</h5>
-                  <p className="text-xs text-muted-foreground mt-0.5">Core Routing, Switching & NOC Support</p>
-                </div>
-
-                <div className="bg-muted/40 rounded-none p-4 border border-border/60 text-center hover:border-primary/40 transition-colors">
-                  <Layers className="h-5 w-5 text-primary mx-auto mb-2" />
-                  <h5 className="font-bold text-foreground text-sm">Cabling & Fiber Teams</h5>
-                  <p className="text-xs text-muted-foreground mt-0.5">Fusion Splicing & Clean Cable Layouts</p>
-                </div>
-
-                <div className="bg-muted/40 rounded-none p-4 border border-border/60 text-center hover:border-primary/40 transition-colors">
-                  <Radio className="h-5 w-5 text-primary mx-auto mb-2" />
-                  <h5 className="font-bold text-foreground text-sm">Auxiliary & Security</h5>
-                  <p className="text-xs text-muted-foreground mt-0.5">CCTV, Access Controls & FDAS Systems</p>
-                </div>
-
-                <div className="bg-muted/40 rounded-none p-4 border border-border/60 text-center hover:border-primary/40 transition-colors">
-                  <HardHat className="h-5 w-5 text-primary mx-auto mb-2" />
-                  <h5 className="font-bold text-foreground text-sm">Field Support Units</h5>
-                  <p className="text-xs text-muted-foreground mt-0.5">On-Call Maintenance & SLA Support</p>
-                </div>
-
+                {[
+                  { title: "Network Engineering", sub: "Routing, Switching & NOC", icon: Cpu },
+                  { title: "Cabling & Fiber Teams", sub: "Fusion Splicing & Testing", icon: Layers },
+                  { title: "Auxiliary Systems", sub: "CCTV, Access Control & FDAS", icon: Radio },
+                  { title: "Field Support Units", sub: "On-Call Emergency SLA", icon: HardHat }
+                ].map((div, idx) => (
+                  <div key={idx} className="bg-blue-50 border-2 border-slate-900 p-4 text-center">
+                    <div.icon className="h-6 w-6 text-blue-600 mx-auto mb-2" />
+                    <h5 className="font-black text-slate-900 text-xs uppercase">{div.title}</h5>
+                    <p className="text-[11px] font-semibold text-slate-600 mt-1">{div.sub}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -329,7 +307,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-   
+      {/* SAFETY & QUALITY - Big Blue Callout */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="bg-blue-600 text-white border-4 border-slate-900 p-8 sm:p-14 shadow-[12px_12px_0px_0px_rgba(15,23,42,1)] relative overflow-hidden">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+              
+              <div className="lg:col-span-8 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-blue-600 border border-slate-900 text-xs font-black uppercase tracking-widest">
+                  <ShieldCheck className="h-4 w-4" />
+                  <span>Quality Assurance Standard</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white leading-none">
+                  High Performance. Zero Compliance Shortcuts.
+                </h2>
+
+                <p className="text-blue-100 text-base sm:text-lg font-medium leading-relaxed">
+                  Every installation is backed by comprehensive OTDR trace verification, Fluke copper certifications, and structured cable labeling. Our field personnel strictly abide by workplace safety mandates to protect personnel and secure high-altitude and critical infrastructure environments.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  {[
+                    "Fluke Copper Certification",
+                    "Comprehensive OTDR Documentation",
+                    "Certified High-Altitude PPE Clearance",
+                    "Zero-Downtime NOC Cutover Strategies"
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-3 bg-blue-700/60 p-3 border border-blue-400/30 text-white font-bold text-sm">
+                      <CheckCircle2 className="h-5 w-5 text-white shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="bg-white text-slate-900 border-4 border-slate-900 p-8 text-center shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] space-y-4">
+                  <div className="w-16 h-16 bg-blue-600 text-white flex items-center justify-center mx-auto border-2 border-slate-900">
+                    <Zap className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-2xl font-black uppercase">Zero Incident Standard</h3>
+                  <p className="text-xs font-semibold text-slate-600 leading-relaxed">
+                    Prioritizing technician safety with strict harness guidelines and line clearances on all commercial and enterprise deployments.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   )

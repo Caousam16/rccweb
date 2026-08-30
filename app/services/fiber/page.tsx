@@ -23,14 +23,18 @@ import {
   Briefcase,
   Database,
   Building,
+  ArrowRight,
+  Zap,
+  CheckCircle2,
+  ChevronRight,
 } from "lucide-react";
 
 const categories = [
-  { id: "all", name: "All Services" },
-  { id: "planning", name: "Planning & Engineering" },
-  { id: "deployment", name: "Deployment & Construction" },
-  { id: "maintenance", name: "Maintenance & Operations" },
-  { id: "solutions", name: "Enterprise Solutions" },
+  { id: "all", name: "ALL SERVICES" },
+  { id: "planning", name: "PLANNING & ENGINEERING" },
+  { id: "deployment", name: "DEPLOYMENT & CONSTRUCTION" },
+  { id: "maintenance", name: "MAINTENANCE & OPERATIONS" },
+  { id: "solutions", name: "ENTERPRISE SOLUTIONS" },
 ];
 
 const servicesData = [
@@ -206,29 +210,57 @@ const servicesData = [
 
 const gallery = [
   {
-    title: "Fiber Optic Installation",
+    title: "FIBER OPTIC INSTALLATION",
     image: "/services/fiber/fiber-installation.png",
+    code: "FIELD-01",
   },
   {
-    title: "Fusion Splicing",
+    title: "FUSION SPLICING",
     image: "/services/fiber/fusion-splicing.png",
+    code: "FIELD-02",
   },
   {
-    title: "OTDR Testing & Certification",
+    title: "OTDR TESTING & CERTIFICATION",
     image: "/services/fiber/otdr-testing.png",
+    code: "FIELD-03",
   },
   {
-    title: "Outside Plant Construction",
+    title: "OUTSIDE PLANT CONSTRUCTION",
     image: "/services/fiber/osp-construction.png",
+    code: "FIELD-04",
   },
   {
-    title: "Data Center Fiber Cabling",
+    title: "DATA CENTER FIBER CABLING",
     image: "/services/fiber/data-center-fiber.png",
+    code: "FIELD-05",
   },
   {
-    title: "FTTH Deployment",
+    title: "FTTH DEPLOYMENT",
     image: "/services/fiber/ftth-deployment.png",
+    code: "FIELD-06",
   },
+];
+
+const industries = [
+  "Telecommunications Carriers",
+  "Internet Service Providers (ISPs)",
+  "Government Infrastructure",
+  "Utility Companies",
+  "Data Centers",
+  "Commercial Buildings",
+  "Industrial Facilities",
+  "Property Developers",
+];
+
+const advantages = [
+  "End-to-end turnkey project delivery",
+  "Certified fiber optic technicians",
+  "OTDR & Tier 1/2 certification testing",
+  "OSP and ISP specialists",
+  "24/7 emergency restoration services",
+  "Enterprise-grade documentation and reporting",
+  "Scalable network architecture",
+  "Standards-compliant installations",
 ];
 
 export default function FiberServicesPage() {
@@ -243,44 +275,73 @@ export default function FiberServicesPage() {
     <>
       <Header />
 
-      <main className="bg-slate-50 text-slate-900 min-h-screen">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-50 text-slate-900 min-h-[80vh] flex items-center relative overflow-hidden border-b border-slate-200">
+      <main className="bg-white text-blue-95 font-sans selection:bg-blue-600 selection:text-white">
+        {/* Hero Section */}
+        <section className="relative bg-white border-b-4 border-blue-600 overflow-hidden min-h-[85vh] flex items-center">
+          {/* Stark Blue Architectural Grid Lines */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#0052ff15_1px,transparent_1px),linear-gradient(to_bottom,#0052ff15_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
           <NetworkBackground
-                    nodeCount={50}
-                    nodeColorRgb="37, 99, 235"
-                    pulseColorRgb="29, 78, 216"
-                  />
+            nodeCount={65}
+            nodeColorRgb="0, 82, 255"
+            pulseColorRgb="37, 99, 235"
+          />
 
-          <div className="max-w-7xl mx-auto px-6 py-28 text-center">
-            <span className="uppercase tracking-widest text-indigo-600 font-semibold text-sm">
-              Carrier-Grade Telecommunications
-            </span>
+          {/* Bold Visual Accent Blocks */}
+          <div className="absolute -top-12 -right-12 w-96 h-96 bg-blue-600/10 border-4 border-blue-600 pointer-events-none hidden lg:block" />
+          <div className="absolute bottom-0 left-0 w-32 h-2 bg-blue-600" />
 
-            <h1 className="mt-5 text-5xl md:text-7xl font-black bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-800 bg-clip-text text-transparent">
-              End-to-End Fiber Optic Infrastructure
+          <div className="relative max-w-7xl mx-auto px-6 py-24 z-10 w-full">
+            <div className="inline-flex items-center gap-2 bg-blue-600 text-white font-black text-xs px-4 py-1.5 uppercase tracking-widest border-2 border-blue-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <Zap className="w-4 h-4 fill-white" /> CARRIER-GRADE TELECOMMUNICATIONS
+            </div>
+
+            <h1 className="mt-8 text-5xl md:text-7xl lg:text-8xl font-black text-slate-950 uppercase tracking-tight leading-[0.95] max-w-5xl">
+              END-TO-END <span className="text-blue-600 bg-blue-50 px-2 border-b-4 border-blue-600">FIBER OPTIC</span> INFRASTRUCTURE
             </h1>
 
-            <p className="mt-8 max-w-3xl mx-auto text-slate-600 text-lg leading-relaxed">
-              From network planning and engineering to deployment, maintenance, and managed fiber operations, we deliver enterprise-grade optical infrastructure for carriers, government agencies, utilities, and businesses.
+            <p className="mt-8 max-w-3xl text-slate-800 text-lg md:text-xl font-bold leading-relaxed border-l-4 border-blue-600 pl-6 bg-slate-50 py-3">
+              From network planning and engineering to deployment, maintenance, and managed fiber operations, we deliver high-velocity, high-capacity optical systems engineered for zero failure.
             </p>
 
-            
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#services"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-black uppercase text-sm tracking-wider px-8 py-4 border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
+              >
+                EXPLORE CAPABILITIES <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#contact"
+                className="bg-white hover:bg-slate-100 text-slate-950 font-black uppercase text-sm tracking-wider px-8 py-4 border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(0,82,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                REQUEST SYSTEM AUDIT
+              </a>
+            </div>
           </div>
-  
         </section>
 
-        {/* Categories / Services Filters */}
-        <section className="max-w-7xl mx-auto px-6 py-16">
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Services Filters Section */}
+        <section id="services" className="max-w-7xl mx-auto px-6 py-20">
+          <div className="border-b-4 border-slate-950 pb-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <span className="text-blue-600 font-black tracking-widest text-sm uppercase">CATALOGUE</span>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-950 uppercase tracking-tight">ENGINEERING SERVICES</h2>
+            </div>
+            <p className="text-slate-700 font-bold max-w-md text-sm uppercase">
+              SELECT A CATEGORY TO FILTER OUR INFRASTRUCTURE CAPABILITIES.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3 mb-12">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`rounded-full px-5 py-2 transition font-medium text-sm shadow-sm ${
+                className={`px-6 py-3 font-black text-xs uppercase tracking-wider transition-all border-2 border-slate-950 ${
                   activeTab === cat.id
-                    ? "bg-indigo-600 text-white shadow-indigo-100"
-                    : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 hover:text-slate-900"
+                    ? "bg-blue-600 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-[-2px] translate-y-[-2px]"
+                    : "bg-white text-slate-950 hover:bg-blue-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                 }`}
               >
                 {cat.name}
@@ -288,10 +349,7 @@ export default function FiberServicesPage() {
             ))}
           </div>
 
-          <motion.div 
-            layout 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
+          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {filtered.map((service) => {
                 const Icon = service.icon;
@@ -300,25 +358,29 @@ export default function FiberServicesPage() {
                   <motion.div
                     layout
                     key={service.title}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    whileHover={{ y: -6 }}
-                    className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.15 }}
+                    className="group border-2 border-slate-950 bg-white p-6 shadow-[6px_6px_0px_0px_rgba(0,82,255,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all flex flex-col justify-between"
                   >
                     <div>
-                      <div className="w-12 h-12 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center mb-5">
-                        <Icon className="w-6 h-6 text-indigo-600" />
+                      <div className="w-14 h-14 bg-blue-600 border-2 border-slate-950 flex items-center justify-center mb-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] group-hover:bg-slate-950 transition-colors">
+                        <Icon className="w-7 h-7 text-white" />
                       </div>
 
-                      <h3 className="font-bold text-xl mb-3 text-slate-900">
+                      <h3 className="font-black text-xl mb-3 text-slate-950 uppercase tracking-tight border-b-2 border-slate-100 pb-2">
                         {service.title}
                       </h3>
 
-                      <p className="text-slate-600 leading-relaxed text-sm">
+                      <p className="text-slate-700 font-medium text-sm leading-relaxed">
                         {service.desc}
                       </p>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t-2 border-slate-950 flex justify-between items-center text-xs font-black uppercase text-blue-600">
+                      <span>SPECIFICATIONS</span>
+                      <ChevronRight className="w-4 h-4 stroke-[3]" />
                     </div>
                   </motion.div>
                 );
@@ -326,34 +388,42 @@ export default function FiberServicesPage() {
             </AnimatePresence>
           </motion.div>
         </section>
-        
-        {/* Project Gallery / Image Showcase */}
-        <section className="border-t border-slate-200 bg-white py-20">
-          <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Proven Field Deployments</h2>
-            <p className="text-slate-600 mt-2">Real-world optical infrastructure installations completed by our teams.</p>
-          </div>
 
+        {/* Project Gallery / Image Showcase */}
+        <section className="border-y-4 border-slate-950 bg-blue-50 py-24 relative">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="border-l-8 border-blue-600 pl-6 mb-16">
+              <span className="text-blue-600 font-black tracking-widest text-sm uppercase">FIELD PROOF</span>
+              <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tight">PROVEN DEPLOYMENTS</h2>
+              <p className="text-slate-800 font-bold uppercase text-sm mt-2">
+                Real-world optical infrastructure installations completed by our tactical engineering teams.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {gallery.map((item) => (
                 <div
                   key={item.title}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 cursor-pointer shadow-sm"
+                  className="group border-2 border-slate-950 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden"
                 >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  <div className="bg-slate-950 text-white font-black text-xs px-3 py-1 uppercase tracking-widest border-b-2 border-slate-950 flex justify-between items-center">
+                    <span>{item.code}</span>
+                    <span className="w-2 h-2 bg-blue-500 animate-pulse" />
+                  </div>
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-slate-950">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors" />
+                  </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                    <h3 className="text-xl font-semibold text-white tracking-wide">
+                  <div className="p-5 bg-white">
+                    <h3 className="text-lg font-black text-slate-950 uppercase tracking-tight group-hover:text-blue-600 transition-colors">
                       {item.title}
                     </h3>
                   </div>
@@ -363,63 +433,62 @@ export default function FiberServicesPage() {
           </div>
         </section>
 
-        {/* SEO Content Section */}
-        <section className="border-t border-slate-200 bg-slate-50 py-20">
-          <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900">
-              Professional Fiber Optic Services for Enterprise Networks
-            </h2>
-
-            <div className="mt-8 space-y-6 text-slate-600 leading-8">
-              <p>
-                We provide complete fiber optic engineering, deployment, and maintenance services for telecommunications providers, internet service providers (ISPs), government agencies, utilities, data centers, commercial buildings, industrial facilities, and enterprise organizations. Our engineers design, build, test, certify, and maintain high-performance optical networks that deliver reliable connectivity and long-term scalability.
-              </p>
-
-              <p>
-                Our capabilities include network design, route planning, site surveys, outside plant (OSP) construction, inside plant (ISP) installation, fusion splicing, fiber termination, OTDR testing, commissioning, preventive maintenance, emergency restoration, FTTH deployment, network upgrades, infrastructure relocation, and turnkey EPC fiber optic projects.
-              </p>
-
-              <p>
-                Every project follows international telecommunications standards, industry best practices, and rigorous quality assurance procedures to ensure maximum uptime, low optical loss, and future-ready infrastructure. Whether you're expanding an existing backbone or deploying a completely new fiber network, our experienced engineering team delivers dependable solutions from planning through long-term operations.
-              </p>
+        {/* SEO / Technical Capabilities Section */}
+        <section className="bg-white py-24 border-b-4 border-slate-950">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <span className="bg-blue-600 text-white font-black text-xs px-3 py-1 uppercase tracking-widest">ENTERPRISE FIBER</span>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-950 uppercase tracking-tight mt-4">
+                PROFESSIONAL OPTICAL SERVICES FOR MISSION-CRITICAL NETWORKS
+              </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-10 mt-14">
-              <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-slate-900">
-                  Industries We Serve
+            <div className="border-2 border-slate-950 p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(0,82,255,1)] bg-white mb-16">
+              <div className="space-y-6 text-slate-900 font-medium leading-relaxed text-base md:text-lg">
+                <p className="border-l-4 border-slate-950 pl-4">
+                  We provide complete fiber optic engineering, deployment, and maintenance services for telecommunications providers, internet service providers (ISPs), government agencies, utilities, data centers, commercial buildings, industrial facilities, and enterprise organizations.
+                </p>
+                <p>
+                  Our capabilities include network design, route planning, site surveys, outside plant (OSP) construction, inside plant (ISP) installation, fusion splicing, fiber termination, OTDR testing, commissioning, preventive maintenance, emergency restoration, FTTH deployment, network upgrades, infrastructure relocation, and turnkey EPC fiber optic projects.
+                </p>
+                <p className="font-bold text-slate-950 uppercase text-sm bg-blue-50 p-4 border-2 border-blue-600">
+                  EVERY PROJECT FOLLOWS INTERNATIONAL TELECOMMUNICATIONS STANDARDS (ITU/TIA) AND RIGOROUS QA/QC PROCEDURES TO GUARANTEE MAXIMUM UPTIME AND LOW OPTICAL LOSS.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="border-2 border-slate-950 p-8 bg-blue-600 text-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="text-2xl font-black uppercase tracking-tight mb-6 flex items-center gap-3">
+                  <Building className="w-7 h-7 stroke-[2.5]" /> INDUSTRIES WE SERVE
                 </h3>
-                <ul className="space-y-2 text-slate-600 list-disc list-inside">
-                  <li>Telecommunications Carriers</li>
-                  <li>Internet Service Providers (ISPs)</li>
-                  <li>Government Infrastructure</li>
-                  <li>Utility Companies</li>
-                  <li>Data Centers</li>
-                  <li>Commercial Buildings</li>
-                  <li>Industrial Facilities</li>
-                  <li>Property Developers</li>
+                <ul className="grid gap-3">
+                  {industries.map((item) => (
+                    <li key={item} className="flex items-center gap-3 font-bold text-sm uppercase bg-blue-700/60 p-3 border border-blue-400/30">
+                      <ChevronRight className="w-4 h-4 text-white stroke-[3]" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-slate-900">
-                  Why Choose Our Fiber Engineering Team
+              <div className="border-2 border-slate-950 p-8 bg-white shadow-[8px_8px_0px_0px_rgba(0,82,255,1)]">
+                <h3 className="text-2xl font-black text-slate-950 uppercase tracking-tight mb-6 flex items-center gap-3">
+                  <Zap className="w-7 h-7 text-blue-600 stroke-[2.5]" /> WHY CHOOSE OUR TEAM
                 </h3>
-                <ul className="space-y-2 text-slate-600 list-disc list-inside">
-                  <li>End-to-end turnkey project delivery</li>
-                  <li>Certified fiber optic technicians</li>
-                  <li>OTDR & Tier 1/2 certification testing</li>
-                  <li>OSP and ISP specialists</li>
-                  <li>24/7 emergency restoration services</li>
-                  <li>Enterprise-grade documentation and reporting</li>
-                  <li>Scalable network architecture</li>
-                  <li>Standards-compliant installations</li>
+                <ul className="grid gap-3">
+                  {advantages.map((item) => (
+                    <li key={item} className="flex items-center gap-3 font-bold text-sm uppercase text-slate-950 bg-slate-50 p-3 border border-slate-200">
+                      <CheckCircle2 className="w-5 h-5 text-blue-600 stroke-[2.5]" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
         </section>
-        
+
         <ApproachSection />
 
         <CTA />

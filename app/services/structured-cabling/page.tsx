@@ -147,42 +147,64 @@ export default function StructuredCablingPage() {
           </div>
         </section>
 
-        {/* Image Carousel Section */}      
-        <section className="w-full py-10">
         <Swiper
           modules={[EffectCoverflow, Autoplay]}
           effect="coverflow"
           centeredSlides
-          slidesPerView={3}
-          spaceBetween={50} // Space between slides
           loop
+          grabCursor
           autoplay={{
             delay: 3500,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.15,
+              spaceBetween: 16,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
           }}
           coverflowEffect={{
-            rotate: 5,
-            stretch: 50, // Increase/decrease spacing in coverflow
-            depth: 150,
-            modifier: .7,
-            scale: 1,
+            rotate: 8,
+            stretch: 0,
+            depth: 180,
+            modifier: 1.2,
+            scale: 0.88,
             slideShadows: false,
           }}
-          className="w-full"
+          className="w-full !py-10"
         >
           {slides.map((src, index) => (
-            <SwiperSlide key={index}>
-              <div className="aspect-square overflow-hidden rounded-lg bg-white p-4 shadow">
-                <img
-                  src={src}
-                  alt={`Slide ${index + 1}`}
-                  className="h-full w-full object-cover"
-                />
+            <SwiperSlide key={index} className="transition-all duration-500">
+              <div className="group relative aspect-square overflow-hidden rounded-2xl border border-white/20 bg-white p-2 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                {/* Image */}
+                <div className="h-full w-full overflow-hidden rounded-xl">
+                  <img
+                    src={src}
+                    alt={`Slide ${index + 1}`}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  />
+                </div>
+
+                {/* Gradient overlay */}
+                <div className="pointer-events-none absolute inset-2 rounded-xl bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                {/* Slide number */}
+                <div className="absolute bottom-5 left-5 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-        </section>
 
         {/* Why Choose Section */}
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">

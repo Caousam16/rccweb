@@ -1,266 +1,116 @@
 "use client"
 
-import { Shield, Clock, Award, Users } from "lucide-react"
-import { useEffect, useRef } from "react"
+import { Shield, Clock, Award, Users, ArrowUpRight } from "lucide-react"
 
 const features = [
   {
     icon: Shield,
     title: "Quality Assurance",
-    description: "Every project meets rigorous quality standards with premium materials and expert craftsmanship.",
+    description: "Premium materials and expert craftsmanship engineered to last.",
   },
   {
     icon: Clock,
     title: "On-Time Delivery",
-    description: "We understand deadlines. Our projects are completed on schedule without compromising quality.",
+    description: "Projects completed on schedule without compromising standard quality.",
   },
   {
     icon: Award,
     title: "Industry Certified",
-    description: "Our team holds certifications from leading manufacturers and industry organizations.",
+    description: "Certified by top-tier global manufacturers and regulatory bodies.",
   },
   {
     icon: Users,
     title: "Dedicated Support",
-    description: "Post-installation support and maintenance services to keep your systems running optimally.",
+    description: "24/7 reliable post-installation support and active maintenance.",
   },
 ]
 
 export function WhyChooseUs() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    let animationFrameId: number
-    let width = (canvas.width = canvas.offsetWidth)
-    let height = (canvas.height = canvas.offsetHeight)
-
-    // Handle high DPI displays
-    const dpr = window.devicePixelRatio || 1
-    canvas.width = width * dpr
-    canvas.height = height * dpr
-    ctx.scale(dpr, dpr)
-
-    // Node Configuration
-    const nodeCount = 28
-    const maxDistance = 90
-    const mouseRadius = 120
-
-    let mouse = { x: -1000, y: -1000 }
-
-    interface Node {
-      x: number
-      y: number
-      vx: number
-      vy: number
-      radius: number
-      baseAlpha: number
-    }
-
-    interface Pulse {
-      from: Node
-      to: Node
-      progress: number
-      speed: number
-    }
-
-    const nodes: Node[] = Array.from({ length: nodeCount }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.8,
-      vy: (Math.random() - 0.5) * 0.8,
-      radius: Math.random() * 2 + 1.5,
-      baseAlpha: Math.random() * 0.5 + 0.3,
-    }))
-
-    const pulses: Pulse[] = []
-
-    const spawnPulse = () => {
-      if (nodes.length < 2) return
-      const n1 = nodes[Math.floor(Math.random() * nodes.length)]
-      const n2 = nodes[Math.floor(Math.random() * nodes.length)]
-      const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y)
-
-      if (dist < maxDistance && dist > 10) {
-        pulses.push({
-          from: n1,
-          to: n2,
-          progress: 0,
-          speed: 0.02 + Math.random() * 0.02,
-        })
-      }
-    }
-
-    const pulseInterval = setInterval(spawnPulse, 400)
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
-      mouse.x = e.clientX - rect.left
-      mouse.y = e.clientY - rect.top
-    }
-
-    const handleMouseLeave = () => {
-      mouse.x = -1000
-      mouse.y = -1000
-    }
-
-    canvas.addEventListener("mousemove", handleMouseMove)
-    canvas.addEventListener("mouseleave", handleMouseLeave)
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height)
-
-      // Update and draw nodes
-      nodes.forEach((node, i) => {
-        node.x += node.vx
-        node.y += node.vy
-
-        // Bounce off walls
-        if (node.x < 0 || node.x > width) node.vx *= -1
-        if (node.y < 0 || node.y > height) node.vy *= -1
-
-        // Mouse interaction
-        const dxMouse = mouse.x - node.x
-        const dyMouse = mouse.y - node.y
-        const distMouse = Math.hypot(dxMouse, dyMouse)
-
-        if (distMouse < mouseRadius) {
-          const angle = Math.atan2(dyMouse, dxMouse)
-          const force = (mouseRadius - distMouse) / mouseRadius
-          node.x -= Math.cos(angle) * force * 1.5
-          node.y -= Math.sin(angle) * force * 1.5
-        }
-
-        // Draw node
-        ctx.beginPath()
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(59, 130, 246, ${node.baseAlpha})` // Primary highlight tint
-        ctx.fill()
-
-        // Connect nodes
-        for (let j = i + 1; j < nodes.length; j++) {
-          const other = nodes[j]
-          const dist = Math.hypot(node.x - other.x, node.y - other.y)
-
-          if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * 0.25
-            ctx.beginPath()
-            ctx.moveTo(node.x, node.y)
-            ctx.lineTo(other.x, other.y)
-            ctx.strokeStyle = `rgba(148, 163, 184, ${alpha})`
-            ctx.lineWidth = 0.75
-            ctx.stroke()
-          }
-        }
-      })
-
-      // Draw signal pulses across connections
-      for (let i = pulses.length - 1; i >= 0; i--) {
-        const p = pulses[i]
-        p.progress += p.speed
-
-        if (p.progress >= 1) {
-          pulses.splice(i, 1)
-          continue
-        }
-
-        const px = p.from.x + (p.to.x - p.from.x) * p.progress
-        const py = p.from.y + (p.to.y - p.from.y) * p.progress
-
-        ctx.beginPath()
-        ctx.arc(px, py, 2, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(59, 130, 246, 0.9)"
-        ctx.shadowColor = "rgba(59, 130, 246, 0.8)"
-        ctx.shadowBlur = 6
-        ctx.fill()
-        ctx.shadowBlur = 0 // Reset shadow
-      }
-
-      animationFrameId = requestAnimationFrame(render)
-    }
-
-    render()
-
-    return () => {
-      cancelAnimationFrame(animationFrameId)
-      clearInterval(pulseInterval)
-      canvas.removeEventListener("mousemove", handleMouseMove)
-      canvas.removeEventListener("mouseleave", handleMouseLeave)
-    }
-  }, [])
-
   return (
-    <section className="py-24 bg-secondary/50 relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
-            <p className="text-sm font-semibold tracking-widest text-primary uppercase">
+    <section className="relative overflow-hidden bg-white py-24 text-slate-900 border-y-4 border-slate-900">
+      {/* Sharp Decorative Grid Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#1e40af_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          
+          {/* Content Column */}
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 border-2 border-slate-900 bg-blue-600 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+              <span className="h-2 w-2 bg-yellow-400" />
               Why Choose Us
-            </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-              A Trusted Partner for Your Infrastructure Needs
+            </div>
+
+            <h2 className="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-6xl uppercase leading-none">
+              A <span className="bg-blue-600 text-white px-3 py-1 inline-block shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">Trusted</span> Partner
+              <br /> For Infrastructure
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              With over 15 years of experience, RCC Cabling has established itself as a leader 
-              in system integration. We combine technical expertise with exceptional service 
-              to deliver solutions that exceed expectations.
+
+            <p className="mt-6 text-xl font-bold leading-relaxed text-slate-800 max-w-2xl border-l-4 border-blue-600 pl-4">
+              With over <span className="text-blue-600">15 years of experience</span>, RCC Cabling delivers bulletproof system integration solutions with technical authority.
             </p>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {features.map((feature) => (
-                <div key={feature.title} className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20">
-                      <feature.icon className="h-5 w-5 text-primary" />
-                    </div>
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              {features.map(({ icon: Icon, title, description }) => (
+                <div 
+                  key={title} 
+                  className="group relative border-2 border-slate-900 bg-white p-5 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(37,99,235,1)] hover:border-blue-600"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-slate-900 bg-blue-600 text-white shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] group-hover:bg-slate-900">
+                    <Icon className="h-6 w-6" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{feature.description}</p>
-                  </div>
+
+                  <h3 className="mt-4 text-lg font-black uppercase tracking-wide text-slate-900">
+                    {title}
+                  </h3>
+                  <p className="mt-1 text-sm font-semibold leading-snug text-slate-700">
+                    {description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Network Mesh Container */}
-          <div className="relative flex items-center justify-center min-h-[400px]">
-            <div className="relative w-full max-w-md h-96 rounded-2xl bg-card/60 backdrop-blur-md border border-border/80 shadow-xl overflow-hidden flex items-center justify-center">
-              
-              {/* Dynamic Interactive Network Canvas */}
-              <canvas
-                ref={canvasRef}
-                className="absolute inset-0 w-full h-full cursor-crosshair"
-              />
-
-              {/* Decorative Tech Corners */}
-              <span className="absolute top-3 left-3 w-2 h-2 rounded-full bg-primary/40" />
-              <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-primary/20" />
-              <span className="absolute bottom-3 left-3 w-2 h-2 rounded-full bg-primary/20" />
-              <span className="absolute bottom-3 right-3 w-2 h-2 rounded-full bg-primary/40" />
-
-              {/* Central Glassmorphism Badge */}
-              <div className="relative z-10 text-center px-8 py-6 rounded-xl bg-background/70 backdrop-blur-md border border-border/60 shadow-lg">
-                <div className="flex items-baseline justify-center gap-0.5 leading-none">
-                  <span className="text-6xl font-extrabold tracking-tighter text-foreground">
-                    15
-                  </span>
-                  <span className="text-3xl font-bold text-primary mb-1">+</span>
+          {/* Experience Card Column */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-md">
+              {/* Card Outer Container */}
+              <div className="relative border-4 border-slate-900 bg-blue-600 p-8 text-white shadow-[12px_12px_0px_0px_rgba(15,23,42,1)]">
+                
+                {/* Sharp Decorative Badge */}
+                <div className="absolute -top-5 -right-5 flex h-14 w-14 items-center justify-center border-2 border-slate-900 bg-yellow-400 text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] font-black">
+                  <ArrowUpRight className="h-8 w-8 stroke-[3]" />
                 </div>
-                <div className="w-12 h-0.5 bg-primary/50 mx-auto my-3 rounded-full" />
-                <p className="text-xs font-bold tracking-widest uppercase text-foreground mb-1">
-                  Years of Excellence
-                </p>
-                <p className="text-xs text-muted-foreground leading-relaxed max-w-[180px] mx-auto">
-                  Delivering reliable infrastructure solutions since 2011
-                </p>
-              </div>
 
+                <div className="text-center py-6">
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-8xl font-black tracking-tighter text-white drop-shadow-[4px_4px_0px_rgba(15,23,42,1)]">
+                      15
+                    </span>
+                    <span className="text-5xl font-black text-yellow-400 drop-shadow-[2px_2px_0px_rgba(15,23,42,1)]">+</span>
+                  </div>
+
+                  <div className="mx-auto my-4 h-2 w-20 bg-slate-900" />
+
+                  <p className="text-lg font-black uppercase tracking-wider text-white">
+                    Years of Excellence
+                  </p>
+
+                  <p className="mt-3 text-sm font-bold leading-relaxed text-slate-900 bg-white p-3 border-2 border-slate-900 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+                    Delivering reliable infrastructure solutions since 2011
+                  </p>
+                </div>
+
+                {/* Bottom Highlight Bar */}
+                <div className="mt-4 flex items-center justify-between border-t-2 border-blue-900 pt-4 text-xs font-black uppercase tracking-widest text-blue-100">
+                  <span>Battle Tested</span>
+                  <span className="h-2 w-2 bg-yellow-400" />
+                  <span>Proven Results</span>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

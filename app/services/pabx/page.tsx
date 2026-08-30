@@ -29,7 +29,6 @@ const technologies = [
   "IP-PBX Systems",
   "VoIP",
   "SIP Trunking",
-  "Cloud PBX",
   "Hybrid PBX",
   "IP Phones",
   "Softphones",

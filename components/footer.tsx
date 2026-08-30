@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import {
   Phone,
   Mail,
@@ -9,6 +8,8 @@ import {
   Facebook,
   Linkedin,
   MessageCircle,
+  ArrowRight,
+  ChevronRight,
 } from "lucide-react";
 
 const navigation = {
@@ -26,260 +27,103 @@ const navigation = {
 };
 
 export function Footer() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
-
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    ctx.scale(dpr, dpr);
-
-    const nodeCount = 35;
-    const maxDistance = 110;
-    const mouseRadius = 140;
-
-    let mouse = { x: -1000, y: -1000 };
-
-    interface Node {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      baseAlpha: number;
-    }
-
-    interface Pulse {
-      from: Node;
-      to: Node;
-      progress: number;
-      speed: number;
-    }
-
-    const nodes: Node[] = Array.from({ length: nodeCount }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: (Math.random() - 0.5) * 0.6,
-      radius: Math.random() * 2 + 1,
-      baseAlpha: Math.random() * 0.4 + 0.2,
-    }));
-
-    const pulses: Pulse[] = [];
-
-    const spawnPulse = () => {
-      if (nodes.length < 2) return;
-      const n1 = nodes[Math.floor(Math.random() * nodes.length)];
-      const n2 = nodes[Math.floor(Math.random() * nodes.length)];
-      const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y);
-
-      if (dist < maxDistance && dist > 10) {
-        pulses.push({
-          from: n1,
-          to: n2,
-          progress: 0,
-          speed: 0.015 + Math.random() * 0.015,
-        });
-      }
-    };
-
-    const pulseInterval = setInterval(spawnPulse, 500);
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    };
-
-    const handleMouseLeave = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    };
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.scale(dpr, dpr);
-    };
-
-    window.addEventListener("resize", handleResize);
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("mouseleave", handleMouseLeave);
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      nodes.forEach((node, i) => {
-        node.x += node.vx;
-        node.y += node.vy;
-
-        if (node.x < 0 || node.x > width) node.vx *= -1;
-        if (node.y < 0 || node.y > height) node.vy *= -1;
-
-        const dxMouse = mouse.x - node.x;
-        const dyMouse = mouse.y - node.y;
-        const distMouse = Math.hypot(dxMouse, dyMouse);
-
-        if (distMouse < mouseRadius) {
-          const angle = Math.atan2(dyMouse, dxMouse);
-          const force = (mouseRadius - distMouse) / mouseRadius;
-          node.x -= Math.cos(angle) * force * 1.2;
-          node.y -= Math.sin(angle) * force * 1.2;
-        }
-
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(6, 182, 212, ${node.baseAlpha})`; // Accent yellow/gold highlight
-        ctx.fill();
-
-        for (let j = i + 1; j < nodes.length; j++) {
-          const other = nodes[j];
-          const dist = Math.hypot(node.x - other.x, node.y - other.y);
-
-          if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * 0.15;
-            ctx.beginPath();
-            ctx.moveTo(node.x, node.y);
-            ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(113, 113, 122, ${alpha})`;
-            ctx.lineWidth = 0.75;
-            ctx.stroke();
-          }
-        }
-      });
-
-      for (let i = pulses.length - 1; i >= 0; i--) {
-        const p = pulses[i];
-        p.progress += p.speed;
-
-        if (p.progress >= 1) {
-          pulses.splice(i, 1);
-          continue;
-        }
-
-        const px = p.from.x + (p.to.x - p.from.x) * p.progress;
-        const py = p.from.y + (p.to.y - p.from.y) * p.progress;
-
-        ctx.beginPath();
-        ctx.arc(px, py, 1.8, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(234, 179, 8, 0.85)";
-        ctx.shadowColor = "rgba(234, 179, 8, 0.7)";
-        ctx.shadowBlur = 5;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      clearInterval(pulseInterval);
-      window.removeEventListener("resize", handleResize);
-      canvas.removeEventListener("mousemove", handleMouseMove);
-      canvas.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
   return (
-    <footer className="relative bg-zinc-950 text-zinc-300 border-t border-zinc-800 overflow-hidden">
-      {/* Network Mesh Canvas Layer */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-60 pointer-events-auto"
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-16 pointer-events-none">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
-          {/* Company */}
-          <div>
-            <h2 className="text-2xl font-bold text-white">
-              RCC<span className="text-accent">.</span>
+    <footer className="bg-white text-blue-950 border-t-8 border-blue-600 font-sans">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-12">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <div className="inline-block bg-blue-600 text-white px-3 py-1 font-black text-xs uppercase tracking-widest">
+              ICT & Network Infrastructure
+            </div>
+            
+            <h2 className="text-5xl font-black text-blue-950 tracking-tighter">
+              RCC<span className="text-blue-600">.</span>
             </h2>
 
-            <p className="mt-4 text-sm leading-7 text-zinc-400">
+            <p className="text-sm font-bold text-blue-900 leading-relaxed">
               RCC Cabling & Network Solutions Corp. delivers professional ICT,
               security, structured cabling, and fiber optic solutions for
               commercial, industrial, and residential projects.
             </p>
 
-            <div className="mt-6 flex gap-4">
+            <div className="flex gap-2 pt-2">
               <a
                 href="https://www.facebook.com/RCCCABLING"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition"
+                className="p-3 bg-blue-50 border-2 border-blue-950 text-blue-950 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors"
+                aria-label="Facebook"
               >
-                <Facebook size={20} />
+                <Facebook size={20} strokeWidth={2.5} />
               </a>
 
               <a
                 href="https://www.linkedin.com/company/rcc-cabling-and-network-solutions-corp/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition"
+                className="p-3 bg-blue-50 border-2 border-blue-950 text-blue-950 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors"
+                aria-label="LinkedIn"
               >
-                <Linkedin size={20} />
+                <Linkedin size={20} strokeWidth={2.5} />
               </a>
 
               <a
                 href="viber://chat?number=%2B639971537230"
-                className="hover:text-accent transition"
+                className="p-3 bg-blue-50 border-2 border-blue-950 text-blue-950 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors"
+                aria-label="Viber Chat"
               >
-                <MessageCircle size={20} />
+                <MessageCircle size={20} strokeWidth={2.5} />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-5">Quick Links</h3>
+            <h3 className="text-blue-600 font-black text-xl uppercase tracking-wider mb-6 border-b-4 border-blue-600 pb-2 inline-block">
+              Quick Links
+            </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-extrabold text-blue-950 text-sm">
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="hover:text-accent transition"
+                    className="hover:text-blue-600 hover:translate-x-1 inline-flex items-center gap-1.5 transition-all"
                   >
+                    <ChevronRight size={16} strokeWidth={3} className="text-blue-600" />
                     {item.name}
                   </Link>
                 </li>
               ))}
 
               <li>
-                <Link href="/services" className="hover:text-accent transition">
+                <Link
+                  href="/services"
+                  className="hover:text-blue-600 hover:translate-x-1 inline-flex items-center gap-1.5 transition-all"
+                >
+                  <ChevronRight size={16} strokeWidth={3} className="text-blue-600" />
                   Services
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Our Services */}
           <div>
-            <h3 className="text-white font-semibold mb-5">Our Services</h3>
+            <h3 className="text-blue-600 font-black text-xl uppercase tracking-wider mb-6 border-b-4 border-blue-600 pb-2 inline-block">
+              Our Services
+            </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-extrabold text-blue-950 text-sm">
               {navigation.services.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="hover:text-accent transition"
+                    className="hover:text-blue-600 hover:translate-x-1 inline-flex items-center gap-1.5 transition-all"
                   >
+                    <ChevronRight size={16} strokeWidth={3} className="text-blue-600" />
                     {item.name}
                   </Link>
                 </li>
@@ -287,61 +131,48 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-white font-semibold mb-5">Contact Us</h3>
+          {/* Contact Details & CTA */}
+          <div className="space-y-6">
+            <h3 className="text-blue-600 font-black text-xl uppercase tracking-wider mb-6 border-b-4 border-blue-600 pb-2 inline-block">
+              Contact Us
+            </h3>
 
-            <div className="space-y-5 text-sm">
-              <div className="flex gap-3">
-                <Phone className="text-accent mt-1" size={18} />
+            <div className="space-y-3 text-xs font-black text-blue-950">
+              <div className="flex gap-3 items-center bg-blue-50 border-2 border-blue-950 p-3">
+                <Phone className="text-blue-600 shrink-0" size={18} strokeWidth={2.5} />
                 <span>(+63) 925 873 8786</span>
               </div>
 
-              <div className="flex gap-3">
-                <Mail className="text-accent mt-1" size={18} />
-                <span className="break-all">
-                  rcccabling.netsolutions@yahoo.com.ph
-                </span>
+              <div className="flex gap-3 items-center bg-blue-50 border-2 border-blue-950 p-3">
+                <Mail className="text-blue-600 shrink-0" size={18} strokeWidth={2.5} />
+                <span className="break-all">rcccabling.netsolutions@yahoo.com.ph</span>
               </div>
 
-              <div className="flex gap-3">
-                <MapPin className="text-accent mt-1" size={18} />
-                <span>
-                  Quezon City
-                  <br />
-                  Metro Manila
-                  <br />
-                  Philippines
-                </span>
+              <div className="flex gap-3 items-start bg-blue-50 border-2 border-blue-950 p-3">
+                <MapPin className="text-blue-600 shrink-0" size={18} strokeWidth={2.5} />
+                <span>Quezon City, Metro Manila, Philippines</span>
               </div>
 
               <Link
                 href="/contact"
-                className="inline-block bg-accent text-black font-medium px-5 py-3 rounded-md hover:opacity-90 transition"
+                className="mt-2 flex items-center justify-between w-full bg-blue-600 hover:bg-blue-950 text-white font-black px-5 py-4 border-2 border-blue-950 transition-colors uppercase tracking-wider text-sm"
               >
-                Request a Quote
+                <span>Request a Quote</span>
+                <ArrowRight size={18} strokeWidth={3} />
               </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 border-t border-zinc-800/80 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500 [&_a]:pointer-events-auto">
-          <p>
+        <div className="mt-16 border-t-4 border-blue-950 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-black text-blue-900">
+          <p className="uppercase tracking-wider">
             © {new Date().getFullYear()} RCC Cabling & Network Solutions Corp.
-            All Rights Reserved.
           </p>
 
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-accent">
-              Privacy Policy
-            </Link>
-
-            <Link href="/terms" className="hover:text-accent">
-              Terms of Service
-            </Link>
-
-            <Link href="/contact" className="hover:text-accent">
+          <div className="flex gap-6 uppercase tracking-wider">
+            
+            <Link href="/contact" className="hover:text-blue-600 underline decoration-2">
               Contact
             </Link>
           </div>

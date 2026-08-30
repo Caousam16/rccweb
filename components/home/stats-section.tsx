@@ -3,10 +3,10 @@
 import { useEffect, useState, useRef } from "react"
 
 const stats = [
-  { value: 15, suffix: "+", label: "Years of Experience" },
-  { value: 240, suffix: "+", label: "Completed Projects" },
-  { value: 9.6, suffix: "", label: "Client Rating" },
-  { value: 150, suffix: "+", label: "Clients Served" },
+  { value: 15, suffix: "", label: "Years of Experience" },
+  { value: 500, suffix: "+", label: "Completed Projects" },
+  { value: 9.7, suffix: "", label: "Client Rating" },
+  { value: 320, suffix: "+", label: "Clients Served" },
 ]
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -62,15 +62,18 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 
 export function StatsSection() {
   return (
-    <section className="py-16 bg-secondary">
-      <div className="mx-auto max-w-full px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+    <section className="bg-blue-600 py-20 text-white">
+      <div className="mx-auto max-w-full px-4 lg:px-12">
+        <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-4 border-4 border-white bg-white">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-4xl font-bold tracking-tight text-foreground lg:text-5xl">
+            <div
+              key={stat.label}
+              className="group relative flex flex-col items-center justify-center rounded-none border-2 border-white bg-blue-600 p-8 text-center transition-all duration-150 hover:bg-white hover:text-blue-600"
+            >
+              <p className="text-6xl font-black tracking-tighter lg:text-7xl">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="mt-2 text-sm font-medium text-muted-foreground">
+              <p className="mt-3 text-base font-black uppercase tracking-widest">
                 {stat.label}
               </p>
             </div>
