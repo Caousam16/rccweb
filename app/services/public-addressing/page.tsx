@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTA } from "@/components/CTA"
-import ApproachSection from "@/components/ApproachSection";
+import ApproachSection from "@/components/ApproachSection"
 import {
   Building2,
   CheckCircle2,
@@ -13,28 +13,30 @@ import {
   Radio,
   ShieldCheck,
   Volume2,
+  ArrowRight,
+  Zap,
 } from "lucide-react"
 
 export default function PublicAddressingPage() {
   const benefits = [
     {
       title: "Instant Communication",
-      description: "Deliver clear announcements across multiple locations in real time.",
+      description: "Deliver crystal-clear announcements across multiple zones in real time without latency.",
       icon: Volume2,
     },
     {
       title: "Emergency Preparedness",
-      description: "Broadcast emergency alerts and evacuation instructions immediately.",
+      description: "Broadcast immediate alert sequences and voice evacuation instructions automatically.",
       icon: ShieldCheck,
     },
     {
       title: "Centralized Management",
-      description: "Control multiple zones and facilities from a single interface.",
+      description: "Manage global multi-building zones from a single high-availability digital dashboard.",
       icon: Radio,
     },
     {
       title: "Scalable Infrastructure",
-      description: "Expand your audio network as your organization grows.",
+      description: "Expand speaker endpoints effortlessly across your IP network as facility footprints grow.",
       icon: Building2,
     },
   ]
@@ -43,142 +45,175 @@ export default function PublicAddressingPage() {
     {
       title: "Commercial Buildings",
       icon: Building2,
-      description: "Reliable paging, background music, and emergency notifications for offices and mixed-use developments.",
+      description: "High-clarity paging, ambient background music, and mass notification for modern office towers.",
     },
     {
-      title: "Manufacturing",
+      title: "Manufacturing Plants",
       icon: Factory,
-      description: "Clear plant-wide communication for production updates and safety announcements.",
+      description: "High-decibel, noise-penetrating audio distribution engineered for demanding shop floors.",
     },
     {
-      title: "Healthcare",
+      title: "Healthcare Facilities",
       icon: Hospital,
-      description: "Support patient announcements, staff coordination, and emergency alerts.",
+      description: "Critical code alerts, quiet-zone staff announcements, and campus-wide paging networks.",
     },
     {
-      title: "Education",
+      title: "Educational Campuses",
       icon: School,
-      description: "Campus-wide communication for daily announcements and emergency response.",
+      description: "Synchronized bell schedules, automated safety lockdowns, and district-wide public addressing.",
     },
     {
       title: "Retail & Malls",
       icon: ShoppingBag,
-      description: "Promotions, customer notifications, and operational announcements across multiple zones.",
+      description: "Multi-zone promotional audio targeting, customer messaging, and emergency evacuation.",
     },
   ]
 
   const technologies = [
     "Network Audio Systems",
     "Digital Signal Processing (DSP)",
-    "PoE Speakers & Amplifiers",
-    "Zoned Audio Distribution",
-    "SIP Integration",
-    "Emergency Voice Evacuation",
+    "PoE+ High-Power Speakers",
+    "Multi-Zone Audio Routing",
+    "SIP & VoIP Telephony Integration",
+    "EN 54 Voice Evacuation Systems",
   ]
 
   return (
-    <>
+    <div className="bg-white text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white">
       <Header />
 
       <main>
-        {/* Hero */}
-        <section className="relative overflow-hidden bg-slate-950 text-white">
-          {/* Subtle Grid Background Pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        {/* HERO SECTION */}
+        <section className="relative overflow-hidden bg-blue-600 text-white border-b-8 border-slate-950 pt-20 pb-28 md:pt-28 md:pb-36">
+          {/* Sharp Grid Graphic Backdrop */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff1a_2px,transparent_2px),linear-gradient(to_bottom,#ffffff1a_2px,transparent_2px)] bg-[size:32px_32px]"></div>
           
-          <div className="container relative mx-auto px-6 py-24 md:py-32">
-            <div className="max-w-3xl">
+          {/* Loud Diagonal Accent Bar */}
+          <div className="absolute top-0 right-0 -mt-12 -mr-12 hidden w-96 h-96 bg-blue-500 rotate-12 border-8 border-white lg:block pointer-events-none opacity-40"></div>
 
-              <h1 className="mt-8 text-4xl font-extrabold tracking-tight md:text-6xl lg:leading-[1.1]">
-                Public Address Systems
+          <div className="container relative mx-auto px-6">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 border-2 border-white bg-slate-950 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-[4px_4px_0px_0px_#ffffff]">
+                <Zap className="h-4 w-4 text-blue-400 fill-blue-400" />
+                Enterprise Audio Systems
+              </div>
+
+              <h1 className="mt-8 text-5xl font-black uppercase tracking-tight md:text-7xl lg:text-8xl leading-none">
+                Public <span className="text-slate-950 underline decoration-white decoration-8 underline-offset-8">Address</span> Systems
               </h1>
 
-              <p className="mt-6 text-lg leading-relaxed text-slate-300 md:text-xl">
-                Deliver reliable voice communication, emergency notifications,
-                and facility-wide announcements through scalable public
-                addressing solutions designed for enterprise environments.
+              <p className="mt-8 max-w-2xl text-xl font-bold leading-relaxed text-blue-50 md:text-2xl">
+                High-decibel, ultra-reliable voice communication and emergency alert networks engineered for mission-critical enterprise environments.
               </p>
-            </div>
-          </div>
-        </section>
 
-        {/* Overview */}
-        <section className="py-24">
-          <div className="container mx-auto grid gap-12 px-6 lg:grid-cols-2 lg:gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">System Overview</h2>
-              
-              <div className="mt-6 space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  A Public Address (PA) System enables organizations to communicate
-                  quickly and effectively across offices, campuses, factories,
-                  commercial buildings, and public spaces. 
-                </p>
-                <p>
-                  Modern public address solutions integrate seamlessly with existing
-                  infrastructure, allowing centralized control, multi-zone paging,
-                  scheduled announcements, and emergency broadcasting. Our solutions are engineered for reliability, scalability, and exceptional audio clarity.
-                </p>
-              </div>
-            </div>
-
-            <div className="relative rounded-3xl border bg-muted/20 p-8 shadow-sm md:p-10">
-              <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-primary/5 blur-2xl"></div>
-              <h3 className="text-2xl font-semibold relative z-10">
-                Core Capabilities
-              </h3>
-
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 relative z-10">
-                {[
-                  "Multi-zone paging",
-                  "Emergency voice broadcasting",
-                  "Scheduled announcements",
-                  "Background music",
-                  "SIP & VoIP integration",
-                  "Remote monitoring",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 rounded-lg bg-background/50 p-3 shadow-sm border border-border/50">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="font-medium text-sm">{item}</span>
-                  </div>
-                ))}
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="#overview"
+                  className="inline-flex items-center gap-3 border-4 border-slate-950 bg-white px-8 py-4 text-lg font-black uppercase tracking-wider text-slate-950 shadow-[6px_6px_0px_0px_#020617] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#020617] active:translate-x-0 active:translate-y-0"
+                >
+                  Explore System
+                  <ArrowRight className="h-6 w-6 stroke-[3]" />
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Benefits */}
-        <section className="bg-slate-50/50 dark:bg-muted/10 py-24 border-y">
+        {/* OVERVIEW SECTION */}
+        <section id="overview" className="py-24 bg-white border-b-4 border-slate-900">
           <div className="container mx-auto px-6">
-            <div className="max-w-2xl text-center md:text-left">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+            <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-stretch">
+              
+              <div className="lg:col-span-7 flex flex-col justify-center">
+                <div className="inline-block w-fit border-2 border-slate-900 bg-blue-100 px-3 py-1 text-xs font-black uppercase tracking-wider text-blue-900 mb-4">
+                  High Performance Paging
+                </div>
+                <h2 className="text-4xl font-black uppercase tracking-tight text-slate-950 md:text-5xl leading-none">
+                  System Overview
+                </h2>
+                
+                <div className="mt-8 space-y-6 text-lg font-medium text-slate-700 leading-relaxed">
+                  <p className="border-l-4 border-blue-600 pl-4 text-xl font-bold text-slate-900">
+                    A modern Public Address (PA) System delivers instantly intelligible audio across wide-area physical spaces without delay or dead zones.
+                  </p>
+                  <p>
+                    Our Next-Gen PA architecture integrates native IP network endpoints, offering full multi-zone routing, automated schedule triggers, and seamless emergency override functions. Built on open standards, it bridges enterprise IT infrastructures with heavy-duty acoustic hardware.
+                  </p>
+                </div>
+              </div>
+
+              {/* Sharp Blueprint Card */}
+              <div className="lg:col-span-5 border-4 border-slate-950 bg-blue-50 p-8 shadow-[12px_12px_0px_0px_#020617]">
+                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-950 border-b-4 border-slate-950 pb-4">
+                  Core Capabilities
+                </h3>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-1">
+                  {[
+                    "Multi-zone target paging",
+                    "Life-safety emergency broadcasting",
+                    "Automated bell & message scheduling",
+                    "Multi-source background audio",
+                    "Direct SIP & VoIP PBX integration",
+                    "Health monitoring & endpoint diagnostics",
+                  ].map((item) => (
+                    <div 
+                      key={item} 
+                      className="flex items-center gap-4 border-2 border-slate-950 bg-white p-4 shadow-[4px_4px_0px_0px_#020617]"
+                    >
+                      <div className="bg-blue-600 p-1 border border-slate-950">
+                        <CheckCircle2 className="h-5 w-5 text-white stroke-[3]" />
+                      </div>
+                      <span className="font-black text-slate-950 uppercase text-sm tracking-wide">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* BENEFITS SECTION */}
+        <section className="bg-blue-50 py-24 border-b-4 border-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl">
+              <span className="border-2 border-slate-900 bg-blue-600 px-3 py-1 text-xs font-black uppercase tracking-wider text-white">
+                Impact & Value
+              </span>
+              <h2 className="mt-4 text-4xl font-black uppercase tracking-tight text-slate-950 md:text-6xl">
                 Strategic Benefits
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Improve operational efficiency, workplace safety, and
-                communication across your entire organization.
+              <p className="mt-4 text-xl font-bold text-slate-700">
+                A robust PA infrastructure eliminates communication silos and enforces site-wide safety protocols.
               </p>
             </div>
 
-            <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {benefits.map((benefit) => {
                 const Icon = benefit.icon
                 return (
                   <div
                     key={benefit.title}
-                    className="group relative overflow-hidden rounded-2xl border bg-background p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-primary/5"
+                    className="flex flex-col justify-between border-4 border-slate-950 bg-white p-8 shadow-[8px_8px_0px_0px_#2563eb] transition-all hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#020617]"
                   >
-                    <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary">
-                      <Icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
+                    <div>
+                      <div className="mb-6 inline-flex h-16 w-16 items-center justify-center border-4 border-slate-950 bg-blue-600 text-white shadow-[4px_4px_0px_0px_#020617]">
+                        <Icon className="h-8 w-8 stroke-[2.5]" />
+                      </div>
+
+                      <h3 className="text-2xl font-black uppercase tracking-tight text-slate-950">
+                        {benefit.title}
+                      </h3>
+
+                      <p className="mt-4 font-semibold text-slate-600 leading-snug">
+                        {benefit.description}
+                      </p>
                     </div>
 
-                    <h3 className="text-xl font-bold">
-                      {benefit.title}
-                    </h3>
-
-                    <p className="mt-3 leading-relaxed text-muted-foreground">
-                      {benefit.description}
-                    </p>
+                    <div className="mt-8 pt-4 border-t-2 border-slate-100 flex items-center justify-end">
+                      <div className="h-3 w-3 bg-blue-600 border border-slate-950"></div>
+                    </div>
                   </div>
                 )
               })}
@@ -186,34 +221,39 @@ export default function PublicAddressingPage() {
           </div>
         </section>
 
-        {/* Industries */}
-        <section className="py-24">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              Industries We Serve
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tailored audio communication solutions designed for the unique demands of your sector.
-            </p>
+        {/* INDUSTRIES SECTION */}
+        <section className="py-24 bg-white border-b-4 border-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="border-2 border-slate-900 bg-slate-950 px-3 py-1 text-xs font-black uppercase tracking-wider text-white">
+                Target Sectors
+              </span>
+              <h2 className="mt-4 text-4xl font-black uppercase tracking-tight text-slate-950 md:text-5xl">
+                Industries We Serve
+              </h2>
+              <p className="mt-4 text-lg font-bold text-slate-600">
+                Customized audio profiles engineered for the acoustic demands of your specific facility.
+              </p>
+            </div>
 
-            <div className="mt-16 grid gap-6 text-left md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {industries.map((industry) => {
                 const Icon = industry.icon
                 return (
                   <div
                     key={industry.title}
-                    className="group rounded-2xl border bg-card p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-lg"
+                    className="border-4 border-slate-950 bg-white p-8 shadow-[8px_8px_0px_0px_#020617] transition-all hover:bg-blue-50"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-lg bg-muted p-3 transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="h-6 w-6 text-primary" />
+                    <div className="flex items-center gap-4 border-b-4 border-slate-950 pb-6">
+                      <div className="border-2 border-slate-950 bg-blue-600 p-3 text-white shadow-[3px_3px_0px_0px_#020617]">
+                        <Icon className="h-7 w-7 stroke-[2.5]" />
                       </div>
-                      <h3 className="text-xl font-semibold">
+                      <h3 className="text-2xl font-black uppercase tracking-tight text-slate-950">
                         {industry.title}
                       </h3>
                     </div>
 
-                    <p className="mt-5 leading-relaxed text-muted-foreground">
+                    <p className="mt-6 font-semibold text-slate-700 leading-relaxed">
                       {industry.description}
                     </p>
                   </div>
@@ -223,43 +263,49 @@ export default function PublicAddressingPage() {
           </div>
         </section>
 
-        {/* Technologies */}
-        <section className="bg-slate-900 py-24 text-white">
+        {/* TECHNOLOGIES SECTION */}
+        <section className="bg-slate-950 py-24 text-white border-b-8 border-blue-600">
           <div className="container mx-auto px-6">
-            <div className="grid gap-16 lg:grid-cols-2 items-center">
-              <div className="max-w-lg">
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                  Enterprise-Grade Technologies
+            <div className="grid gap-12 lg:grid-cols-12 items-center">
+              
+              <div className="lg:col-span-5">
+                <span className="border-2 border-blue-400 bg-blue-600 px-3 py-1 text-xs font-black uppercase tracking-wider text-white">
+                  Hardware & Standards
+                </span>
+                <h2 className="mt-4 text-4xl font-black uppercase tracking-tight md:text-6xl text-white leading-none">
+                  Enterprise Technologies
                 </h2>
-                <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                  We deploy industry-leading technologies that provide reliable,
-                  high-quality audio communication while integrating seamlessly with modern
-                  enterprise IT infrastructure.
+                <p className="mt-6 text-lg font-semibold text-blue-100 leading-relaxed">
+                  We deploy heavy-duty audio components engineered to interface directly with enterprise IT switches, offering power over ethernet (PoE), automated system checks, and continuous uptime.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="lg:col-span-7 grid gap-4 sm:grid-cols-2">
                 {technologies.map((technology) => (
                   <div
                     key={technology}
-                    className="flex items-center gap-4 rounded-xl border border-slate-800 bg-slate-950/50 p-5 transition-colors hover:bg-slate-800"
+                    className="flex items-center gap-4 border-4 border-white bg-blue-600 p-6 shadow-[6px_6px_0px_0px_#2563eb]"
                   >
-                    <div className="rounded-full bg-primary/20 p-2 text-primary">
-                      <Cog className="h-5 w-5" />
+                    <div className="border-2 border-slate-950 bg-slate-950 p-2 text-white">
+                      <Cog className="h-6 w-6 stroke-[2.5]" />
                     </div>
-                    <span className="font-medium">{technology}</span>
+                    <span className="text-lg font-black uppercase tracking-wide text-white">{technology}</span>
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
         </section>
 
-        <ApproachSection />
-        <CTA />
+        {/* APPROACH SECTION & CTA */}
+        <div className="bg-white">
+          <ApproachSection />
+          <CTA />
+        </div>
       </main>
 
       <Footer />
-    </>
+    </div>
   )
 }

@@ -19,34 +19,36 @@ import {
   Layers,
   CheckCircle2,
   ArrowRight,
+  Wifi,
+  Sparkles,
+  ChevronRight,
 } from "lucide-react";
 
 export default function WirelessAccessPointPage() {
-
   const benefits = [
     {
-      icon: <Zap className="w-8 h-8 text-blue-600" />,
+      icon: <Zap className="w-8 h-8 text-blue-600 group-hover:scale-110 transition-transform duration-300" />,
       title: "Ultra-Fast & Seamless Roaming",
       description:
-        "Maintain uninterrupted connectivity as users move across offices, floors, or campus buildings.",
+        "Maintain uninterrupted connectivity as users move across offices, floors, or campus buildings with zero handoff latency.",
     },
     {
-      icon: <ShieldCheck className="w-8 h-8 text-blue-600" />,
+      icon: <ShieldCheck className="w-8 h-8 text-blue-600 group-hover:scale-110 transition-transform duration-300" />,
       title: "Enterprise-Grade Security",
       description:
-        "Protect your network with WPA3 encryption, secure authentication, guest isolation, and network segmentation.",
+        "Protect your network with WPA3 encryption, strict secure authentication, guest isolation, and micro-segmentation.",
     },
     {
-      icon: <Layers className="w-8 h-8 text-blue-600" />,
+      icon: <Layers className="w-8 h-8 text-blue-600 group-hover:scale-110 transition-transform duration-300" />,
       title: "High-Density Performance",
       description:
-        "Support hundreds of simultaneous wireless devices without sacrificing speed or reliability.",
+        "Support hundreds of simultaneous high-bandwidth devices per access point without throughput degradation.",
     },
     {
-      icon: <Radio className="w-8 h-8 text-blue-600" />,
+      icon: <Radio className="w-8 h-8 text-blue-600 group-hover:scale-110 transition-transform duration-300" />,
       title: "Complete Wireless Coverage",
       description:
-        "Professional RF planning eliminates dead zones while optimizing roaming and signal quality.",
+        "Professional RF predictive mapping completely eliminates dead zones while optimizing channel assignment and signal quality.",
     },
   ];
 
@@ -55,113 +57,144 @@ export default function WirelessAccessPointPage() {
       icon: <Building2 className="w-6 h-6 text-blue-600" />,
       title: "Corporate Offices",
       description:
-        "Reliable wireless infrastructure for hybrid workspaces, conference rooms, and guest access.",
+        "Reliable wireless infrastructure for hybrid workspaces, high-density conference rooms, and isolated guest access.",
     },
     {
       icon: <Hospital className="w-6 h-6 text-blue-600" />,
       title: "Healthcare",
       description:
-        "Secure wireless connectivity for medical devices, electronic health records, and clinical mobility.",
+        "Mission-critical wireless connectivity for life-saving medical devices, mobile EHR access, and patient Wi-Fi.",
     },
     {
       icon: <Factory className="w-6 h-6 text-blue-600" />,
-      title: "Warehouses",
+      title: "Warehouses & Logistics",
       description:
-        "Continuous connectivity for barcode scanners, inventory systems, IoT devices, and automation.",
+        "Rugged, continuous connectivity for handheld barcode scanners, automated AGVs, and industrial IoT sensors.",
     },
     {
       icon: <GraduationCap className="w-6 h-6 text-blue-600" />,
       title: "Education",
       description:
-        "High-capacity Wi-Fi designed for classrooms, campuses, dormitories, and learning spaces.",
+        "Ultra-high capacity Wi-Fi engineered for dense lecture halls, digital learning labs, and sprawling campus dorms.",
     },
     {
       icon: <ShoppingBag className="w-6 h-6 text-blue-600" />,
       title: "Retail & Hospitality",
       description:
-        "Fast, secure wireless networks for POS systems, guest Wi-Fi, and operational devices.",
+        "Always-on wireless networks powering fast POS terminals, inventory control, and engagement-driven guest Wi-Fi.",
     },
   ];
 
   const technologies = [
     {
-      name: "Wi-Fi 6 / Wi-Fi 6E / Wi-Fi 7",
+      name: "Wi-Fi 6 / 6E / Wi-Fi 7",
       detail:
-        "Next-generation wireless technology delivering faster speeds, lower latency, and higher device capacity.",
+        "Next-generation tri-band spectrum architecture delivering multi-gigabit throughput and ultra-low latency.",
     },
     {
-      name: "Power over Ethernet (PoE)",
+      name: "Power over Ethernet (PoE+ / PoE++)",
       detail:
-        "Simplified deployments using a single Ethernet cable for both power and network connectivity.",
+        "Streamlined single-cable deployments delivering multi-gigabit data speeds alongside heavy power delivery.",
     },
     {
       name: "Cloud Network Management",
       detail:
-        "Centralized monitoring and administration through platforms such as Cisco Meraki, Aruba Central, and UniFi.",
+        "Centralized Single-Pane-of-Glass monitoring via Cisco Meraki, Aruba Central, and Ubiquiti UniFi.",
     },
     {
-      name: "WPA3 Security",
+      name: "WPA3 & Zero Trust Security",
       detail:
-        "Modern encryption with enterprise authentication and secure access control.",
+        "Modern cryptographic security paired with RADIUS, 802.1X enterprise authentication, and dynamic access policies.",
     },
     {
-      name: "Beamforming Technology",
+      name: "Beamforming & Smart Antennas",
       detail:
-        "Intelligent wireless optimization that directs signal strength toward connected devices.",
+        "Intelligent signal routing that dynamically focuses RF energy directly toward targeted active devices.",
     },
     {
-      name: "RF Site Surveys",
+      name: "Predictive RF Site Surveys",
       detail:
-        "Predictive planning and post-installation validation to maximize wireless coverage and performance.",
+        "Comprehensive heatmapping, interference auditing, and post-installation validation for zero-compromise coverage.",
     },
   ];
 
-
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white">
       <Header />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900 text-white min-h-[85vh] flex items-center relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-28 text-center">
-          <span className="inline-flex rounded-full border border-blue-700 bg-blue-900/40 px-4 py-1 text-sm font-semibold uppercase tracking-wider text-blue-200">
-            Enterprise Wireless Access Point Solutions
-          </span>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-white pt-24 pb-20 lg:pt-32 lg:pb-28 border-b-2 border-slate-900">
+        {/* Loud Sharp Background Shapes */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f4f8_1px,transparent_1px),linear-gradient(to_bottom,#f0f4f8_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-blue-600/10 blur-3xl rounded-full" />
+        <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-blue-400/10 blur-3xl rounded-full" />
 
-          <h1 className="mt-8 text-4xl font-extrabold leading-tight md:text-6xl">
-            Enterprise Wi-Fi That Delivers Speed, Security & Reliable Coverage
-          </h1>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col items-center text-center">
+            
+            {/* Loud Badge */}
+            <div className="inline-flex items-center gap-2 border-2 border-blue-600 bg-blue-50 px-5 py-1.5 text-xs font-black uppercase tracking-widest text-blue-700 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)]">
+              <Sparkles className="w-4 h-4 text-blue-600" />
+              <span>Enterprise Wireless Access Point Solutions</span>
+            </div>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">
-            We design, install, and manage enterprise-grade Wireless Access
-            Point (WAP) solutions that eliminate dead zones, improve network
-            performance, and keep your business securely connected.
-          </p>
+            {/* Sharp Bold Headline */}
+            <h1 className="mt-8 text-5xl font-black tracking-tight text-slate-900 sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl uppercase leading-none">
+              Enterprise <span className="text-blue-600 underline decoration-blue-600 decoration-8 underline-offset-8">Wi-Fi</span> Engineered For Speed.
+            </h1>
 
-          <div className="mt-10">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700"
-            >
-              Schedule a Site Survey
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+            <p className="mt-8 max-w-3xl text-lg sm:text-xl font-medium leading-relaxed text-slate-700">
+              We design, deploy, and optimize high-density, enterprise-grade Wireless Access Point (WAP) networks. Zero dead zones. Ironclad security. Maximum throughput.
+            </p>
+
+            {/* Sharp Action Buttons */}
+            <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-black text-lg px-9 py-5 border-2 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-wider"
+              >
+                <span>Schedule Site Survey</span>
+                <ArrowRight className="h-6 w-6 stroke-[3]" />
+              </Link>
+              <a
+                href="#technologies"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-bold text-lg px-8 py-5 border-2 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-wider"
+              >
+                Explore Tech
+              </a>
+            </div>
+
+            {/* Quick Specs Highlight Bar */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl border-2 border-slate-900 bg-white p-4 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)]">
+              {[
+                { label: "STANDARD", val: "Wi-Fi 6E / 7 Ready" },
+                { label: "UPTIME", val: "99.999% Target" },
+                { label: "SECURITY", val: "WPA3 Enterprise" },
+                { label: "DEPLOYMENT", val: "Zero-Touch Cloud" },
+              ].map((spec, idx) => (
+                <div key={idx} className="text-center p-3 border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] font-black uppercase text-blue-600 tracking-wider">{spec.label}</div>
+                  <div className="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">{spec.val}</div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-20 bg-white">
+      {/* Benefits Section */}
+      <section className="py-24 bg-slate-50 relative border-b-2 border-slate-900">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold">
-              Why Upgrade Your Wireless Network?
+          <div className="flex flex-col items-center text-center">
+            <span className="text-xs font-black uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 border border-blue-300">
+              High Impact Performance
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-5xl font-black uppercase text-slate-900 tracking-tight">
+              Why Upgrade Your Wireless Infrastructure?
             </h2>
-
-            <p className="mt-4 text-slate-600">
-              Enterprise wireless infrastructure provides consistent
-              performance, enhanced security, and the scalability modern
-              organizations require.
+            <p className="mt-4 text-slate-700 font-medium max-w-2xl">
+              Consumer Wi-Fi fails under load. Our enterprise wireless architectures deliver absolute stability, aggressive security controls, and high-density throughput.
             </p>
           </div>
 
@@ -169,69 +202,96 @@ export default function WirelessAccessPointPage() {
             {benefits.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-slate-200 bg-slate-50 p-6"
+                className="group relative bg-white border-2 border-slate-900 p-8 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:shadow-[10px_10px_0px_0px_rgba(37,99,235,1)] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
               >
-                <div className="mb-5">{item.icon}</div>
-
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                  {item.description}
-                </p>
+                <div>
+                  <div className="mb-6 inline-block p-4 bg-blue-50 border-2 border-blue-600 shadow-[3px_3px_0px_0px_rgba(37,99,235,1)]">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">{item.title}</h3>
+                  <p className="mt-3 text-sm text-slate-600 font-medium leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-wider">
+                  <span>Enterprise Grade</span>
+                  <ChevronRight className="w-4 h-4" />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Industries */}
-      <section className="py-20">
+      {/* Industries Section */}
+      <section className="py-24 bg-white border-b-2 border-slate-900">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold">
-              Wireless Solutions for Every Industry
-            </h2>
-
-            <p className="mt-4 text-slate-600">
-              We build wireless infrastructures tailored to the operational
-              requirements of different industries.
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 border border-blue-200">
+                Tailored Environments
+              </span>
+              <h2 className="mt-4 text-3xl sm:text-5xl font-black uppercase text-slate-900 tracking-tight">
+                Architected For Every Sector
+              </h2>
+            </div>
+            <p className="text-slate-600 font-medium max-w-md">
+              Custom-engineered RF strategies designed to handle the exact structural and operational challenges of your industry.
             </p>
           </div>
 
-          <div className="grid gap-6 mt-16 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {industries.map((industry) => (
               <div
                 key={industry.title}
-                className="rounded-xl border bg-white p-6 transition hover:border-blue-500"
+                className="bg-white border-2 border-slate-900 p-8 shadow-[6px_6px_0px_0px_rgba(37,99,235,1)] hover:bg-blue-600 hover:text-white group transition-all duration-200"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50">
-                  {industry.icon}
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center border-2 border-slate-900 bg-blue-50 group-hover:bg-white transition-colors shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+                    {industry.icon}
+                  </div>
+                  <h3 className="text-xl font-black uppercase tracking-tight group-hover:text-white">{industry.title}</h3>
                 </div>
 
-                <h3 className="mt-5 text-lg font-semibold">
-                  {industry.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                <p className="mt-5 text-sm font-medium leading-relaxed text-slate-600 group-hover:text-blue-50">
                   {industry.description}
                 </p>
               </div>
             ))}
+
+            {/* Sharp CTA Box inside Grid */}
+            <div className="bg-slate-900 border-2 border-slate-900 p-8 text-white flex flex-col justify-between shadow-[6px_6px_0px_0px_rgba(37,99,235,1)]">
+              <div>
+                <Wifi className="w-10 h-10 text-blue-400 mb-4 animate-pulse" />
+                <h3 className="text-2xl font-black uppercase tracking-tight">Custom Facility?</h3>
+                <p className="mt-2 text-sm text-slate-300 font-medium">
+                  Need high-density outdoor coverage, harsh environment APs, or complex multi-building mesh bridge links?
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-black text-sm px-5 py-3 border-2 border-white shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] transition-all uppercase tracking-wider"
+              >
+                <span>Talk To Us</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="bg-white py-20">
+      {/* Technologies Section */}
+      <section id="technologies" className="py-24 bg-slate-50 border-b-2 border-slate-900 relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold">
-              Technologies We Deploy
+            <span className="text-xs font-black uppercase tracking-widest text-white bg-blue-600 px-3 py-1 border border-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
+              Next-Gen Tech
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-5xl font-black uppercase text-slate-900 tracking-tight">
+              Hardware & Standards We Deploy
             </h2>
-
-            <p className="mt-4 text-slate-600">
-              We utilize industry-leading wireless technologies to ensure
-              exceptional coverage, security, and scalability.
+            <p className="mt-4 text-slate-600 font-medium">
+              We leverage cutting-edge hardware platforms and protocol standards to secure and accelerate your wireless communications.
             </p>
           </div>
 
@@ -239,25 +299,32 @@ export default function WirelessAccessPointPage() {
             {technologies.map((tech) => (
               <div
                 key={tech.name}
-                className="rounded-xl border border-slate-200 bg-white p-6"
+                className="bg-white border-2 border-slate-900 p-6 shadow-[5px_5px_0px_0px_rgba(15,23,42,1)] hover:border-blue-600 transition-colors"
               >
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                  <h3 className="font-semibold">{tech.name}</h3>
+                <div className="flex items-start gap-3">
+                  <div className="p-1 bg-blue-600 text-white border border-slate-900 mt-0.5">
+                    <CheckCircle2 className="h-5 w-5 stroke-[3]" />
+                  </div>
+                  <div>
+                    <h3 className="font-extrabold text-slate-900 text-lg uppercase tracking-tight">{tech.name}</h3>
+                    <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
+                      {tech.detail}
+                    </p>
+                  </div>
                 </div>
-
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  {tech.detail}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Embedded Component Sections */}
+      <div className="bg-white border-b-2 border-slate-900">
+        <ApproachSection />
+      </div>
 
-      <ApproachSection />
       <CTA />
+
       <Footer />
     </div>
   );

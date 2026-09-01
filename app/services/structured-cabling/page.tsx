@@ -1,21 +1,19 @@
 "use client"
 
-
 import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTA } from "@/components/CTA"
-import  ApproachSection  from "@/components/ApproachSection"
-import { NetworkBackground } from "@/components/NetworkBackground";
+import ApproachSection from "@/components/ApproachSection"
+import { NetworkBackground } from "@/components/NetworkBackground"
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react"
+import { EffectCoverflow, Autoplay } from "swiper/modules"
 
-import "swiper/css";
-import "swiper/css/effect-coverflow";
+import "swiper/css"
+import "swiper/css/effect-coverflow"
 
-import Image from "next/image"
-import { CheckCircle2, Network, Cable, Server, ShieldCheck } from "lucide-react"
+import { CheckCircle2, Network, Cable, Server, ShieldCheck, ArrowRight } from "lucide-react"
 
 const services = [
   "Structured Cabling Installation",
@@ -49,191 +47,182 @@ const slides = [
   "/services/structured-cabling/sc-6.png",
   "/services/structured-cabling/sc-7.png",
   "/services/structured-cabling/sc-8.png",
-
-];
+]
 
 const features = [
   {
-    icon: <Network className="h-8 w-8 text-blue-600" />,
-    title: "Scalable Infrastructure",
+    icon: <Network className="h-10 w-10" />,
+    title: "SCALABLE INFRASTRUCTURE",
     description:
-      "Future-ready structured cabling systems designed to support business growth and evolving technology requirements.",
+      "Future-ready structured cabling systems designed to support rapid business growth and evolving technology shifts.",
   },
   {
-    icon: <Cable className="h-8 w-8 text-blue-600" />,
-    title: "Standards-Compliant",
+    icon: <Cable className="h-10 w-10" />,
+    title: "STRICT STANDARDS",
     description:
-      "Professional installations following ANSI/TIA and industry best practices for maximum reliability.",
+      "Precision installations following ANSI/TIA and industry best practices. Built for absolute operational reliability.",
   },
   {
-    icon: <Server className="h-8 w-8 text-blue-600" />,
-    title: "Enterprise Performance",
+    icon: <Server className="h-10 w-10" />,
+    title: "ENTERPRISE POWER",
     description:
-      "High-performance copper and fiber infrastructure for offices, campuses, warehouses, and data centers.",
+      "High-performance copper and fiber infrastructure engineered for vast campuses, warehouses, and data centers.",
   },
   {
-    icon: <ShieldCheck className="h-8 w-8 text-blue-600" />,
-    title: "Certified Testing",
+    icon: <ShieldCheck className="h-10 w-10" />,
+    title: "CERTIFIED TESTING",
     description:
-      "Every installation is tested, documented, and certified to ensure dependable network performance.",
+      "Every connection is thoroughly tested, fully documented, and certified to guarantee peak network performance.",
   },
 ]
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
+const sharpFadeUp = {
+  initial: { opacity: 0, y: 35 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.5 }
+  viewport: { once: true, margin: "-50px" },
+  transition: { duration: 0.4, ease: "easeOut" }
 }
 
 export default function StructuredCablingPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-between">
+    <div className="min-h-screen bg-white flex flex-col justify-between selection:bg-blue-600 selection:text-white font-sans">
       <Header />
 
       <main className="flex-grow">
-
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-950 via-slate-900 to-blue-900 text-white min-h-[85vh] flex items-center relative overflow-hidden">
-          <NetworkBackground
-                    nodeCount={50}
-                    nodeColorRgb="37, 99, 235"
-                    pulseColorRgb="29, 78, 216"
+        {/* HERO SECTION - Vibrant Blue, Sharp & Loud */}
+        <section className="relative min-h-[85vh] flex items-center bg-blue-900 overflow-hidden border-b-[12px] border-blue-600">
+          <div className="absolute inset-0 z-0">
+            <NetworkBackground
+              nodeCount={65}
+              nodeColorRgb="255, 255, 255"
+              pulseColorRgb="37, 99, 235"
             />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_40%)]" />
-          <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
-          <div className="absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
+          </div>
+          
+          {/* Geometric Grid Gridlines */}
+          <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff0f_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0f_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
+          
+          {/* Diagonal Slice Accent */}
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-800 transform origin-bottom-right -skew-x-12 translate-x-16 z-0 opacity-40 pointer-events-none" />
 
-          <div className="relative mx-auto flex min-h-[70vh] max-w-7xl items-center justify-center px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
             <motion.div
-              className="max-w-3xl text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              className="max-w-4xl"
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <span className="inline-flex rounded-full bg-blue-500/20 px-4 py-1 text-sm font-semibold text-blue-200 ring-1 ring-blue-300/20">
-                Enterprise Network Infrastructure
-              </span>
+              <div className="inline-block border-l-4 border-blue-400 pl-4 mb-6">
+                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-blue-200">
+                  Enterprise Network Infrastructure
+                </span>
+              </div>
 
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Structured Cabling Services
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white uppercase leading-[0.92] tracking-tighter mb-8">
+                Structured <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-blue-200">
+                  Cabling
+                </span>
+                <br /> Services
               </h1>
 
-              <p className="mt-6 text-lg leading-8 text-blue-100/90">
-                Build a reliable, scalable, and high-performance network
-                infrastructure with professionally designed structured cabling
-                solutions. We deliver enterprise-grade copper and fiber optic
-                installations for offices, commercial buildings, and data centers.
+              <p className="text-lg sm:text-2xl font-semibold text-blue-50 max-w-2xl leading-snug mb-10 border-l-4 border-white pl-5">
+                High-capacity, fault-tolerant network cabling designed for modern high-bandwidth environments. Certified fiber and copper deployments.
               </p>
 
-              <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <div className="flex flex-col sm:flex-row gap-5">
                 <a
                   href="/contact"
-                  className="rounded-lg bg-white px-6 py-3 font-semibold text-blue-700 shadow-md transition hover:bg-blue-50 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative inline-flex items-center justify-center bg-white text-blue-950 px-8 py-4 font-black uppercase tracking-widest transition-all hover:bg-blue-600 hover:text-white border-2 border-white shadow-[6px_6px_0_rgba(37,99,235,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
                 >
-                  Request a Quote
+                  <span className="relative z-10 flex items-center gap-2">
+                    Request Quote <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </a>
 
                 <a
                   href="/contact"
-                  className="rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative inline-flex items-center justify-center bg-transparent text-white px-8 py-4 font-black uppercase tracking-widest transition-all border-2 border-white hover:bg-white hover:text-blue-900"
                 >
-                  Schedule a Site Survey
+                  <span className="relative z-10">Schedule Site Survey</span>
                 </a>
               </div>
             </motion.div>
-
-            
           </div>
         </section>
 
-        <Swiper
-          modules={[EffectCoverflow, Autoplay]}
-          effect="coverflow"
-          centeredSlides
-          loop
-          grabCursor
-          autoplay={{
-            delay: 3500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          breakpoints={{
-            0: {
-              slidesPerView: 1.15,
-              spaceBetween: 16,
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 24,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 32,
-            },
-          }}
-          coverflowEffect={{
-            rotate: 8,
-            stretch: 0,
-            depth: 180,
-            modifier: 1.2,
-            scale: 0.88,
-            slideShadows: false,
-          }}
-          className="w-full !py-10"
-        >
-          {slides.map((src, index) => (
-            <SwiperSlide key={index} className="transition-all duration-500">
-              <div className="group relative aspect-square overflow-hidden rounded-2xl border border-white/20 bg-white p-2 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-                {/* Image */}
-                <div className="h-full w-full overflow-hidden rounded-xl">
+        {/* FULL-COLOR SWIPER CAROUSEL SECTION */}
+        <section className="bg-blue-950 py-16 relative overflow-hidden border-b-8 border-blue-600">
+          <div className="absolute top-0 left-0 w-full h-4 bg-white" />
+          
+          <Swiper
+            modules={[EffectCoverflow, Autoplay]}
+            effect="coverflow"
+            centeredSlides
+            loop
+            grabCursor
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              0: { slidesPerView: 1.2, spaceBetween: 16 },
+              640: { slidesPerView: 2, spaceBetween: 24 },
+              1024: { slidesPerView: 3, spaceBetween: 36 },
+            }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 180,
+              modifier: 1,
+              scale: 0.9,
+              slideShadows: false,
+            }}
+            className="w-full max-w-screen-2xl mx-auto py-6"
+          >
+            {slides.map((src, index) => (
+              <SwiperSlide key={index}>
+                <div className="group relative aspect-square bg-white border-8 border-white shadow-[10px_10px_0_rgba(37,99,235,1)] transition-all duration-300 hover:shadow-[14px_14px_0_rgba(255,255,255,1)] hover:-translate-y-2 hover:-translate-x-1">
+                  {/* Full color image with vibrant hover scale */}
                   <img
                     src={src}
-                    alt={`Slide ${index + 1}`}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    alt={`Structured Cabling Work ${index + 1}`}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  {/* Vibrant badge */}
+                  <div className="absolute top-0 left-0 bg-blue-600 text-white font-black text-lg px-4 py-2 border-b-2 border-r-2 border-white">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
                 </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </section>
 
-                {/* Gradient overlay */}
-                <div className="pointer-events-none absolute inset-2 rounded-xl bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                {/* Slide number */}
-                <div className="absolute bottom-5 left-5 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* Why Choose Section */}
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
-          <motion.div className="max-w-3xl" {...fadeInUp}>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Why Choose Our Structured Cabling Solutions
+        {/* BOLD FEATURES SECTION */}
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-28">
+          <motion.div className="mb-16" {...sharpFadeUp}>
+            <h2 className="text-4xl md:text-6xl font-black uppercase text-blue-950 tracking-tighter border-l-8 border-blue-600 pl-6 leading-none">
+              Why Choose Our <br />
+              <span className="text-blue-600">Infrastructure</span>
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Our structured cabling systems provide the foundation for reliable
-              business communications, faster data transmission, simplified
-              maintenance, and long-term scalability.
-            </p>
           </motion.div>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((item, index) => (
               <motion.div
                 key={item.title}
-                className="rounded-xl border bg-white p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
-                {...fadeInUp}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group border-4 border-blue-950 p-8 bg-white transition-all duration-300 hover:bg-blue-950 hover:text-white hover:-translate-y-2 hover:shadow-[12px_12px_0_rgba(37,99,235,1)]"
+                {...sharpFadeUp}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <div className="p-2 w-fit bg-blue-50 rounded-lg">
+                <div className="text-blue-600 group-hover:text-white transition-colors mb-6">
                   {item.icon}
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-gray-900">
+                <h3 className="text-2xl font-black uppercase tracking-tight mb-4 group-hover:text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-gray-600">
+                <p className="font-semibold text-gray-700 group-hover:text-blue-100 leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
@@ -241,28 +230,29 @@ export default function StructuredCablingPage() {
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className="bg-gray-50 border-y border-gray-100 py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div className="max-w-3xl" {...fadeInUp}>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Our Structured Cabling Services
+        {/* HIGH-CONTRAST SERVICES MATRIX */}
+        <section className="bg-blue-50 py-28 border-y-4 border-blue-950 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 transform rotate-45 translate-x-32 -translate-y-32 opacity-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-950 transform rotate-45 -translate-x-48 translate-y-48 opacity-10 pointer-events-none" />
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div className="text-center max-w-3xl mx-auto mb-16" {...sharpFadeUp}>
+              <h2 className="text-4xl md:text-6xl font-black uppercase text-blue-950 tracking-tighter leading-none">
+                Core <span className="text-blue-600">Capabilities</span>
               </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Comprehensive structured cabling capabilities engineered specifically for modern business environments.
-              </p>
+              <div className="mt-4 w-24 h-2 bg-blue-600 mx-auto" />
             </motion.div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {services.map((service, index) => (
                 <motion.div
                   key={service}
-                  className="flex items-start gap-3 rounded-xl border border-gray-200/60 bg-white p-5 shadow-sm"
-                  {...fadeInUp}
-                  transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.4) }}
+                  className="flex items-center gap-4 bg-white border-l-4 border-blue-600 p-4 shadow-sm hover:shadow-md hover:border-l-8 transition-all duration-200 group"
+                  {...sharpFadeUp}
+                  transition={{ duration: 0.2, delay: Math.min(index * 0.03, 0.3) }}
                 >
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 text-blue-600 flex-shrink-0" />
-                  <span className="text-gray-700 font-medium text-sm sm:text-base">
+                  <CheckCircle2 className="h-6 w-6 text-blue-600 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                  <span className="text-blue-950 font-bold uppercase text-sm tracking-wide">
                     {service}
                   </span>
                 </motion.div>
@@ -272,8 +262,10 @@ export default function StructuredCablingPage() {
         </section>
 
         <ApproachSection />
-        <CTA />
 
+        <div className="border-t-8 border-blue-900">
+          <CTA />
+        </div>
       </main>
 
       <Footer />
