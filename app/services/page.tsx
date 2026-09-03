@@ -142,11 +142,7 @@ export default function ServicesPage() {
 
       {/* HERO SECTION */}
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden border-b-4 border-blue-600 bg-slate-950 px-6 py-28 text-white sm:px-10 lg:px-[7%]">
-        {/* Crisp Technical Grid & Ambient Glow Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
-        <div className="absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-blue-600/30 blur-[120px]" />
-        <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px]" />
-
+      
         {/* Video Layer */}
         <video
           className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-luminosity pointer-events-none"
@@ -163,10 +159,6 @@ export default function ServicesPage() {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl text-center">
-          <div className="inline-flex items-center gap-2 border-2 border-blue-500 bg-blue-600/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.25em] text-blue-400 shadow-[0_0_20px_rgba(37,99,235,0.4)] backdrop-blur-md">
-            <Zap className="h-4 w-4 fill-blue-400 text-blue-400" />
-            <span>Industrial Grade Capability</span>
-          </div>
 
           <h1 className="mt-8 text-5xl font-black uppercase tracking-tight text-white sm:text-7xl lg:text-8xl leading-[0.95]">
             Seamless Integration <br />
@@ -176,7 +168,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg font-medium leading-relaxed text-slate-300 sm:text-xl lg:text-2xl">
-            We design, implement, and maintain high-performance building management systems engineered for absolute operational uptime and threat containment.
+            We design, implement, and maintain high-performance building technology systems that enhance operational efficiency, security, and resilience.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
@@ -219,7 +211,7 @@ export default function ServicesPage() {
 
               <div className="mt-8 border-t-2 border-slate-100 pt-6">
                 <div className="flex items-center gap-4 text-slate-950 font-extrabold text-sm uppercase tracking-wider">
-                  <div className="flex h-10 w-10 items-center justify-center bg-blue-600 text-white font-mono">
+                  <div className="flex h-10 w-10 items-center justify-center bg-blue-600 text-white">
                     100%
                   </div>
                   <span>Full Turnkey Planning & Deployment</span>
@@ -293,9 +285,6 @@ export default function ServicesPage() {
                   
                   {/* Top Overlay Badges */}
                   <div className="absolute left-0 top-0 flex w-full justify-between items-start p-4 pointer-events-none">
-                    <span className="border border-slate-900 bg-slate-950 px-2.5 py-1 font-mono text-xs font-bold text-white">
-                      SYS-{item.id}
-                    </span>
                     <span className="border border-blue-600 bg-blue-600 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-white shadow-md">
                       {item.badge}
                     </span>

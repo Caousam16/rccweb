@@ -65,25 +65,37 @@ export default function CATVIPTVPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-blue-600 text-white border-b-8 border-blue-950 py-24 lg:py-36">
-        {/* Background Decorative Accent Grid */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-        
-        <div className="relative mx-auto max-w-7xl px-6">
+      <section className="relative min-h-[90vh] flex items-center bg-slate-950 text-white border-b-4 border-slate-900 overflow-hidden">
+        {/* Full-bleed Background Image with Overlays */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/services/catv-hero.jpg"
+            alt="CATV & IPTV Background"
+            className="w-full h-full object-cover contrast-100"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40" />
+        </div>
+
+        {/* Main Content Container */}
+        <div className="container mx-auto max-w-7xl px-6 py-24 relative z-10">
           <div className="max-w-4xl">
             <span className="inline-block border-2 border-white bg-blue-950 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-[4px_4px_0px_0px_#ffffff]">
               CATV & IPTV Solutions
             </span>
 
-            <h1 className="mt-8 text-6xl lg:text-7xl font-black uppercase tracking-tight leading-none">
-              Modern CATV & IPTV Services for <span className="bg-white text-blue-600 px-2 inline-block transform -rotate-1">Reliable</span> Digital Entertainment
+            <h1 className="mt-8 text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-none text-white">
+              Modern CATV & IPTV Services for{" "}
+              <span className="bg-white text-blue-600 px-2 inline-block transform -rotate-1">
+                Reliable
+              </span>{" "}
+              Digital Entertainment
             </h1>
 
             <p className="mt-8 text-xl font-bold leading-relaxed text-blue-100 max-w-2xl">
               We design, deploy, and maintain enterprise-grade CATV and IPTV
               solutions that deliver high-quality television services across
-              hotels, residential communities, campuses, hospitals, and
-              commercial establishments.
+              hotels, residential communities, campuses, hospitals, and commercial
+              establishments.
             </p>
           </div>
         </div>

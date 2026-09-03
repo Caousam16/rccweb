@@ -42,28 +42,47 @@ export default function PABXSystemPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-20 pb-28 border-b-4 border-blue-600">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0052ff10_1px,transparent_1px),linear-gradient(to_bottom,#0052ff10_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+      <section className="relative min-h-screen flex flex-col justify-center py-12 overflow-hidden bg-slate-950 border-b-4 border-blue-600">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/services/pabx-hero.jpg"
+            alt="PABX Systems Background"
+            className="h-full w-full object-cover object-center"
+          />
+          {/* Corrected Dark Overlay Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/30" />
+          
+          {/* Frosted glass blur reduced to ~25% strength (backdrop-blur-[2px]) */}
+          <div className="absolute inset-0 backdrop-blur-[2px]" />
+        </div>
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#0052ff10_1px,transparent_1px),linear-gradient(to_bottom,#0052ff10_1px,transparent_1px)] bg-[size:3rem_3rem]" />
         
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Main Content Container */}
+        <div className="relative z-10 my-auto mx-auto w-full max-w-7xl px-6 lg:px-8">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-none border-2 border-blue-600 bg-blue-50 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-blue-600 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)]">
-              <Zap className="h-4 w-4 fill-blue-600" />
+            {/* Badge with lighter text background and contrast */}
+            <div className="inline-flex items-center gap-2 rounded-none border-2 border-blue-400 bg-blue-100/90 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-blue-800 shadow-[4px_4px_0px_0px_rgba(59,130,246,1)]">
+              <Zap className="h-4 w-4 fill-blue-800" />
               Communication Solutions
             </div>
 
-            <h1 className="mt-8 text-5xl font-black tracking-tight text-blue-950 uppercase sm:text-7xl leading-none">
-              High-Impact <span className="text-blue-600 underline decoration-blue-500 decoration-8 underline-offset-8">PABX Systems</span> & Infrastructure
+            {/* Main Headline - Lightened with white text and a lighter blue highlighted word */}
+            <h1 className="mt-8 text-5xl font-black tracking-tight text-white uppercase sm:text-7xl leading-none">
+              High-Impact <span className="text-blue-400 underline decoration-blue-400 decoration-8 underline-offset-8">PABX Systems</span> & Infrastructure
             </h1>
 
-            <p className="mt-8 text-xl font-medium text-slate-700 max-w-2xl leading-relaxed">
+            {/* Subtitle - Lightened from slate-300 to slate-100 */}
+            <p className="mt-8 text-xl font-medium text-slate-100 max-w-2xl leading-relaxed">
               Modernize your enterprise communications with zero latency. Enterprise voice connectivity, intelligent call routing, and scalable VoIP integrations engineered for maximum reliability.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#overview"
-                className="inline-flex items-center gap-3 bg-blue-600 px-8 py-4 text-lg font-black text-white uppercase tracking-wider rounded-none border-2 border-blue-950 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] transition-all"
+                className="inline-flex items-center gap-3 bg-blue-500 hover:bg-blue-600 px-8 py-4 text-lg font-black text-white uppercase tracking-wider rounded-none border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] transition-all"
               >
                 Explore Systems
                 <ArrowRight className="h-5 w-5 stroke-[3]" />
@@ -105,7 +124,7 @@ export default function PABXSystemPage() {
 
             <div className="lg:col-span-5 flex flex-col gap-6">
               <div className="flex-1 bg-blue-600 text-white p-8 border-2 border-blue-950 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)]">
-                <div className="bg-white/10 text-white font-mono text-xs font-bold px-3 py-1 inline-block mb-4 border border-white/20">
+                <div className="bg-white/10 text-white text-xs font-bold px-3 py-1 inline-block mb-4 border border-white/20">
                   FEATURE 01
                 </div>
                 <h3 className="font-black text-2xl uppercase tracking-wider mb-3">
@@ -117,7 +136,7 @@ export default function PABXSystemPage() {
               </div>
 
               <div className="flex-1 bg-white text-blue-950 p-8 border-2 border-blue-950 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)]">
-                <div className="bg-blue-100 text-blue-600 font-mono text-xs font-bold px-3 py-1 inline-block mb-4 border border-blue-300">
+                <div className="bg-blue-100 text-blue-600 text-xs font-bold px-3 py-1 inline-block mb-4 border border-blue-300">
                   FEATURE 02
                 </div>
                 <h3 className="font-black text-2xl uppercase tracking-wider mb-3">
@@ -171,7 +190,7 @@ export default function PABXSystemPage() {
       <section className="bg-blue-950 py-24 text-white border-b-4 border-blue-600">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-2xl">
-            <span className="text-blue-400 font-mono text-xs font-bold tracking-widest uppercase">Coverage</span>
+            <span className="text-blue-400 text-xs font-bold tracking-widest uppercase">Coverage</span>
             <h2 className="mt-2 text-4xl font-black uppercase tracking-tight sm:text-5xl">
               Industries We Serve
             </h2>

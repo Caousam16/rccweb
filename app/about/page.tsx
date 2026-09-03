@@ -49,60 +49,85 @@ export default function AboutPage() {
       <Header />
       
       {/* HERO SECTION - Electric White & Vivid Blue */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-white border-b-4 border-blue-600 overflow-hidden">
-        {/* High-Contrast Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#2563eb15_1px,transparent_1px),linear-gradient(to_bottom,#2563eb15_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-        
+      <section className="relative min-h-screen flex items-center justify-center border-b-4 border-blue-600 overflow-hidden bg-slate-900 py-16">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/about-hero.mp4" type="video/mp4" />
+          {/* Fallback image if video fails to load or load fails on low-power mode */}
+          <Image
+            src="/it.png"
+            alt="Background cover"
+            fill
+            className="object-cover"
+          />
+        </video>
+
+        {/* Dark Overlay for High-Contrast Text Readability */}
+        <div className="absolute inset-0 bg-slate-950/75 z-0" />
+
         {/* Bold Blue Glow Accent */}
-        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl pointer-events-none z-0" />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           
-          {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-xs font-black tracking-widest uppercase mb-8 border-2 border-blue-700 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
-            <Network className="h-4 w-4 stroke-[3]" />
-            Enterprise Infrastructure Engineering
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
             {/* Left Column: Heading */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-slate-900 leading-[0.95]">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[0.95]">
                 Powering networks with <br />
-                <span className="text-blue-600 underline decoration-blue-500 decoration-8 underline-offset-8">
+                <span className="text-blue-400 underline decoration-blue-500 decoration-8 underline-offset-8">
                   unshakeable
-                </span> speed.
+                </span>{" "}
+                speed.
               </h1>
 
-              <div className="space-y-4 text-slate-700 leading-relaxed text-base sm:text-xl font-medium pt-2">
+              <div className="space-y-4 text-slate-200 leading-relaxed text-base sm:text-xl font-medium pt-2">
                 <p>
-                  <strong className="text-blue-600 font-extrabold uppercase">
+                  <strong className="text-blue-400 font-extrabold uppercase">
                     RCC Cabling and Network Solutions Corporation
                   </strong>{" "}
-                  is a premier systems integration partner delivering turnkey IT, telecommunications, and building auxiliary solutions tailored for Philippine enterprises.
+                  is a premier systems integration partner delivering turnkey IT,
+                  telecommunications, and building auxiliary solutions tailored
+                  for Philippine enterprises.
                 </p>
-                <p className="text-slate-600 text-base">
-                  Whether engineered for high-density structured cabling, enterprise-grade CCTV networks, or long-distance fiber optic backbones, we turn complex technical designs into dependable operational realities.
+                <p className="text-slate-300 text-base">
+                  Whether engineered for high-density structured cabling,
+                  enterprise-grade CCTV networks, or long-distance fiber optic
+                  backbones, we turn complex technical designs into dependable
+                  operational realities.
                 </p>
               </div>
 
               {/* Vendor List */}
-              <div className="p-4 bg-blue-50 border-2 border-blue-600 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)]">
-                <p className="text-xs font-black uppercase tracking-wider text-blue-900">
+              <div className="p-4 bg-slate-900/90 border-2 border-blue-500 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)] backdrop-blur-sm">
+                <p className="text-xs font-black uppercase tracking-wider text-blue-400">
                   Certified Distribution & Integration Partner:
                 </p>
-                <p className="text-sm font-bold text-slate-900 mt-1">
-                  LS • Alantek • Fluke Networks • Hikvision • Cisco • Bosch • Panasonic
+                <p className="text-sm font-bold text-white mt-1">
+                  LS • Alantek • Fluke Networks • Hikvision • Cisco • Bosch •
+                  Panasonic
                 </p>
               </div>
 
               {/* Badges Grid */}
               <div className="pt-2 flex flex-wrap gap-2">
-                {["Fiber Optics", "Structured Cabling", "CCTV & Security", "PABX", "FDAS", "NOC Migration"].map((tag) => (
+                {[
+                  "Fiber Optics",
+                  "Structured Cabling",
+                  "CCTV & Security",
+                  "PABX",
+                  "FDAS",
+                  "NOC Migration",
+                ].map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-black uppercase bg-slate-900 text-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_rgba(37,99,235,1)]"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-black uppercase bg-slate-900 text-white border-2 border-slate-700 shadow-[2px_2px_0px_0px_rgba(37,99,235,1)]"
                   >
                     <CheckCircle2 className="h-3.5 w-3.5 text-blue-400" />
                     {tag}
@@ -111,26 +136,35 @@ export default function AboutPage() {
               </div>
 
               {/* Stats Box */}
-              <div className="pt-6 grid grid-cols-3 gap-4 border-t-2 border-slate-200 mt-8">
-                <div className="p-4 bg-white border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
-                  <p className="text-4xl font-black text-blue-600 tracking-tight">15+</p>
-                  <p className="text-xs font-black uppercase text-slate-800 mt-1">Years Field Work</p>
+              <div className="pt-6 grid grid-cols-3 gap-4 border-t-2 border-slate-700 mt-8">
+                <div className="p-4 bg-slate-900/90 border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] backdrop-blur-sm">
+                  <p className="text-4xl font-black text-blue-400 tracking-tight">
+                    15
+                  </p>
+                  <p className="text-xs font-black uppercase text-slate-200 mt-1">
+                    Years Experience
+                  </p>
                 </div>
-                <div className="p-4 bg-white border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
-                  <p className="text-4xl font-black text-blue-600 tracking-tight">240+</p>
-                  <p className="text-xs font-black uppercase text-slate-800 mt-1">Projects Built</p>
+                <div className="p-4 bg-slate-900/90 border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] backdrop-blur-sm">
+                  <p className="text-4xl font-black text-blue-400 tracking-tight">
+                    500+
+                  </p>
+                  <p className="text-xs font-black uppercase text-slate-200 mt-1">
+                    Projects Built
+                  </p>
                 </div>
-                <div className="p-4 bg-blue-600 text-white border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+                <div className="p-4 bg-blue-600 text-white border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
                   <p className="text-4xl font-black tracking-tight">99.7%</p>
-                  <p className="text-xs font-black uppercase text-blue-100 mt-1">Uptime Target</p>
+                  <p className="text-xs font-black uppercase text-blue-100 mt-1">
+                    Uptime Target
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Visual Showcase */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none bg-blue-600 p-3 border-4 border-slate-900 shadow-[12px_12px_0px_0px_rgba(15,23,42,1)]">
-                
+              <div className="relative mx-auto max-w-md lg:max-w-none bg-blue-600 p-3 border-4 border-white shadow-[12px_12px_0px_0px_rgba(255,255,255,1)]">
                 {/* Floating Credential Badge */}
                 <div className="absolute -top-5 -right-5 bg-white text-slate-900 border-2 border-slate-900 px-4 py-2 font-black text-xs uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] flex items-center gap-2 z-20">
                   <ShieldCheck className="h-4 w-4 text-blue-600" />
@@ -148,16 +182,15 @@ export default function AboutPage() {
                   />
                 </div>
 
-                <div className="mt-3 p-3 bg-slate-900 text-white flex items-center justify-between text-xs font-black tracking-wider uppercase">
+                <div className="mt-3 p-3 bg-slate-900 text-white flex items-center justify-between text-xs font-black tracking-wider uppercase border border-slate-800">
                   <div className="flex items-center gap-2 text-blue-400">
-                    <span className="h-2.5 w-2.5 bg-blue-400 animate-ping" />
+                    <span className="h-2.5 w-2.5 bg-blue-400 animate-ping rounded-full" />
                     Field Teams Active
                   </div>
                   <span className="text-slate-300">ISO Standard Compliant</span>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>

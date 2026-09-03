@@ -123,27 +123,36 @@ export default function WirelessAccessPointPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-24 pb-20 lg:pt-32 lg:pb-28 border-b-2 border-slate-900">
-        {/* Loud Sharp Background Shapes */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f4f8_1px,transparent_1px),linear-gradient(to_bottom,#f0f4f8_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
-        <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-blue-600/10 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-blue-400/10 blur-3xl rounded-full" />
-
+      <section className="relative overflow-hidden bg-slate-950 pt-24 pb-20 lg:pt-32 lg:pb-28 border-b-2 border-slate-900">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-20 filter contrast-125 saturate-50 scale-105"
+          >
+            <source src="/services/wap-hero.mp4" type="video/mp4" />
+          </video>
+          
+        </div>
+        
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center text-center">
             
             {/* Loud Badge */}
-            <div className="inline-flex items-center gap-2 border-2 border-blue-600 bg-blue-50 px-5 py-1.5 text-xs font-black uppercase tracking-widest text-blue-700 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)]">
-              <Sparkles className="w-4 h-4 text-blue-600" />
+            <div className="inline-flex items-center gap-2 border-2 border-blue-500 bg-blue-950/90 px-5 py-1.5 text-xs font-black uppercase tracking-widest text-blue-400 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)] backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-blue-400" />
               <span>Enterprise Wireless Access Point Solutions</span>
             </div>
 
             {/* Sharp Bold Headline */}
-            <h1 className="mt-8 text-5xl font-black tracking-tight text-slate-900 sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl uppercase leading-none">
-              Enterprise <span className="text-blue-600 underline decoration-blue-600 decoration-8 underline-offset-8">Wi-Fi</span> Engineered For Speed.
+            <h1 className="mt-8 text-5xl font-black tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl uppercase leading-none drop-shadow-sm">
+              Enterprise <span className="text-blue-500 underline decoration-blue-500 decoration-8 underline-offset-8">Wi-Fi</span> Engineered For Speed.
             </h1>
 
-            <p className="mt-8 max-w-3xl text-lg sm:text-xl font-medium leading-relaxed text-slate-700">
+            <p className="mt-8 max-w-3xl text-lg sm:text-xl font-medium leading-relaxed text-slate-300">
               We design, deploy, and optimize high-density, enterprise-grade Wireless Access Point (WAP) networks. Zero dead zones. Ironclad security. Maximum throughput.
             </p>
 
@@ -151,30 +160,30 @@ export default function WirelessAccessPointPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-black text-lg px-9 py-5 border-2 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-wider"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-black text-lg px-9 py-5 border-2 border-white shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-wider"
               >
                 <span>Schedule Site Survey</span>
                 <ArrowRight className="h-6 w-6 stroke-[3]" />
               </Link>
               <a
                 href="#technologies"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-bold text-lg px-8 py-5 border-2 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-wider"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-lg px-8 py-5 border-2 border-white shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-wider"
               >
                 Explore Tech
               </a>
             </div>
 
             {/* Quick Specs Highlight Bar */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl border-2 border-slate-900 bg-white p-4 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)]">
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl border-2 border-slate-900 bg-slate-900/90 p-4 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)] backdrop-blur-md">
               {[
                 { label: "STANDARD", val: "Wi-Fi 6E / 7 Ready" },
                 { label: "UPTIME", val: "99.999% Target" },
                 { label: "SECURITY", val: "WPA3 Enterprise" },
                 { label: "DEPLOYMENT", val: "Zero-Touch Cloud" },
               ].map((spec, idx) => (
-                <div key={idx} className="text-center p-3 border border-slate-200 bg-slate-50">
-                  <div className="text-[10px] font-black uppercase text-blue-600 tracking-wider">{spec.label}</div>
-                  <div className="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">{spec.val}</div>
+                <div key={idx} className="text-center p-3 border border-slate-800 bg-slate-950/80">
+                  <div className="text-[10px] font-black uppercase text-blue-400 tracking-wider">{spec.label}</div>
+                  <div className="text-sm sm:text-base font-extrabold text-white mt-0.5">{spec.val}</div>
                 </div>
               ))}
             </div>

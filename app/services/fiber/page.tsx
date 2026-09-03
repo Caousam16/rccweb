@@ -276,47 +276,93 @@ export default function FiberServicesPage() {
       <Header />
 
       <main className="bg-white text-blue-95 font-sans selection:bg-blue-600 selection:text-white">
+        
         {/* Hero Section */}
-        <section className="relative bg-white border-b-4 border-blue-600 overflow-hidden min-h-[85vh] flex items-center">
-          {/* Stark Blue Architectural Grid Lines */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#0052ff15_1px,transparent_1px),linear-gradient(to_bottom,#0052ff15_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        <section className="relative min-h-screen flex items-center justify-center border-b-4 border-blue-600 overflow-hidden bg-slate-900 py-16">
+          {/* Background Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          >
+            <source src="/services/fiber/fiber-hero-vid.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
-          <NetworkBackground
-            nodeCount={65}
-            nodeColorRgb="0, 82, 255"
-            pulseColorRgb="37, 99, 235"
-          />
-
-          {/* Bold Visual Accent Blocks */}
-          <div className="absolute -top-12 -right-12 w-96 h-96 bg-blue-600/10 border-4 border-blue-600 pointer-events-none hidden lg:block" />
-          <div className="absolute bottom-0 left-0 w-32 h-2 bg-blue-600" />
+          {/* Dark Overlay with Blur */}
+          <div className="absolute inset-0 bg-slate-950/70 z-0 pointer-events-none" />
 
           <div className="relative max-w-7xl mx-auto px-6 py-24 z-10 w-full">
-            <div className="inline-flex items-center gap-2 bg-blue-600 text-white font-black text-xs px-4 py-1.5 uppercase tracking-widest border-2 border-blue-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <Zap className="w-4 h-4 fill-white" /> CARRIER-GRADE TELECOMMUNICATIONS
-            </div>
-
-            <h1 className="mt-8 text-5xl md:text-7xl lg:text-8xl font-black text-slate-950 uppercase tracking-tight leading-[0.95] max-w-5xl">
-              END-TO-END <span className="text-blue-600 bg-blue-50 px-2 border-b-4 border-blue-600">FIBER OPTIC</span> INFRASTRUCTURE
+            {/* Heading with light text */}
+            <h1 className="mt-8 text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tight leading-[0.95] max-w-5xl">
+              END-TO-END <span className="text-blue-600 text-8xl sm:text-5xl md:text-8xl font-black uppercase tracking-tight">FIBER OPTIC </span> INFRASTRUCTURE
             </h1>
+            
 
-            <p className="mt-8 max-w-3xl text-slate-800 text-lg md:text-xl font-bold leading-relaxed border-l-4 border-blue-600 pl-6 bg-slate-50 py-3">
+            {/* Paragraph with light text */}
+            <p className="mt-8 max-w-3xl text-slate-200 text-lg md:text-xl font-medium leading-relaxed border-l-4 border-blue-600 pl-6 bg-slate-900/60 backdrop-blur-sm py-3">
               From network planning and engineering to deployment, maintenance, and managed fiber operations, we deliver high-velocity, high-capacity optical systems engineered for zero failure.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#services"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-black uppercase text-sm tracking-wider px-8 py-4 border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-black uppercase text-sm tracking-wider px-8 py-4 border-2 border-white shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
               >
                 EXPLORE CAPABILITIES <ArrowRight className="w-5 h-5" />
               </a>
               <a
                 href="#contact"
-                className="bg-white hover:bg-slate-100 text-slate-950 font-black uppercase text-sm tracking-wider px-8 py-4 border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(0,82,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                className="bg-white hover:bg-slate-100 text-slate-950 font-black uppercase text-sm tracking-wider px-8 py-4 border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(37,99,235,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
               >
                 REQUEST SYSTEM AUDIT
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Project Gallery / Image Showcase */}
+        <section className="border-y-4 border-slate-950 bg-blue-50 py-24 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="border-l-8 border-blue-600 pl-6 mb-16">
+              <span className="text-blue-600 font-black tracking-widest text-sm uppercase">FIELD PROOF</span>
+              <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tight">PROVEN DEPLOYMENTS</h2>
+              <p className="text-slate-800 font-bold uppercase text-sm mt-2">
+                Real-world optical infrastructure installations completed by our tactical engineering teams.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {gallery.map((item) => (
+                <div
+                  key={item.title}
+                  className="group border-2 border-slate-950 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden"
+                >
+                  <div className="bg-slate-950 text-white font-black text-xs px-3 py-1 uppercase tracking-widest border-b-2 border-slate-950 flex justify-between items-center">
+                    <span>{item.code}</span>
+                    <span className="w-2 h-2 bg-blue-500 animate-pulse" />
+                  </div>
+
+                  <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-slate-950">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors" />
+                  </div>
+
+                  <div className="p-5 bg-white">
+                    <h3 className="text-lg font-black text-slate-950 uppercase tracking-tight group-hover:text-blue-600 transition-colors">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -387,50 +433,6 @@ export default function FiberServicesPage() {
               })}
             </AnimatePresence>
           </motion.div>
-        </section>
-
-        {/* Project Gallery / Image Showcase */}
-        <section className="border-y-4 border-slate-950 bg-blue-50 py-24 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="border-l-8 border-blue-600 pl-6 mb-16">
-              <span className="text-blue-600 font-black tracking-widest text-sm uppercase">FIELD PROOF</span>
-              <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tight">PROVEN DEPLOYMENTS</h2>
-              <p className="text-slate-800 font-bold uppercase text-sm mt-2">
-                Real-world optical infrastructure installations completed by our tactical engineering teams.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {gallery.map((item) => (
-                <div
-                  key={item.title}
-                  className="group border-2 border-slate-950 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden"
-                >
-                  <div className="bg-slate-950 text-white font-black text-xs px-3 py-1 uppercase tracking-widest border-b-2 border-slate-950 flex justify-between items-center">
-                    <span>{item.code}</span>
-                    <span className="w-2 h-2 bg-blue-500 animate-pulse" />
-                  </div>
-
-                  <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-slate-950">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors" />
-                  </div>
-
-                  <div className="p-5 bg-white">
-                    <h3 className="text-lg font-black text-slate-950 uppercase tracking-tight group-hover:text-blue-600 transition-colors">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
         {/* SEO / Technical Capabilities Section */}

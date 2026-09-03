@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTA } from "@/components/CTA"
 import ApproachSection from "@/components/ApproachSection"
+
 import {
   Building2,
   CheckCircle2,
@@ -18,6 +19,7 @@ import {
 } from "lucide-react"
 
 export default function PublicAddressingPage() {
+
   const benefits = [
     {
       title: "Instant Communication",
@@ -84,32 +86,44 @@ export default function PublicAddressingPage() {
 
       <main>
         {/* HERO SECTION */}
-        <section className="relative overflow-hidden bg-blue-600 text-white border-b-8 border-slate-950 pt-20 pb-28 md:pt-28 md:pb-36">
-          {/* Sharp Grid Graphic Backdrop */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff1a_2px,transparent_2px),linear-gradient(to_bottom,#ffffff1a_2px,transparent_2px)] bg-[size:32px_32px]"></div>
-          
-          {/* Loud Diagonal Accent Bar */}
-          <div className="absolute top-0 right-0 -mt-12 -mr-12 hidden w-96 h-96 bg-blue-500 rotate-12 border-8 border-white lg:block pointer-events-none opacity-40"></div>
+        <section className="relative min-h-screen flex flex-col justify-center py-12 overflow-hidden bg-slate-950 border-b-4 border-blue-600">
+          {/* Background Image Layer with Reduced Overlay Opacity */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/services/pa-hero.jpg"
+              alt="Public Addressing Background"
+              className="w-full h-full object-cover contrast-100"
+            />
+            {/* Lightened gradient overlay for better background visibility */}
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/20" />
+          </div>
 
-          <div className="container relative mx-auto px-6">
+          {/* Softened Dark Overlay (decreased opacity so image shines through) */}
+          <div className="absolute inset-0 bg-slate-950/50 mix-blend-multiply" />
+
+          <div className="container relative z-10 mx-auto px-6">
             <div className="max-w-4xl">
+              {/* Badge */}
               <div className="inline-flex items-center gap-2 border-2 border-white bg-slate-950 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-[4px_4px_0px_0px_#ffffff]">
                 <Zap className="h-4 w-4 text-blue-400 fill-blue-400" />
                 Enterprise Audio Systems
               </div>
 
-              <h1 className="mt-8 text-5xl font-black uppercase tracking-tight md:text-7xl lg:text-8xl leading-none">
-                Public <span className="text-slate-950 underline decoration-white decoration-8 underline-offset-8">Address</span> Systems
+              {/* Heading - Explicitly set to text-white */}
+              <h1 className="mt-8 text-5xl font-black uppercase tracking-tight text-white md:text-7xl lg:text-8xl leading-none drop-shadow-lg">
+                Public <span className="text-blue-400 underline decoration-white decoration-8 underline-offset-8">Address</span> Systems
               </h1>
 
-              <p className="mt-8 max-w-2xl text-xl font-bold leading-relaxed text-blue-50 md:text-2xl">
+              {/* Subtitle - Brightened text color */}
+              <p className="mt-8 max-w-2xl text-xl font-bold leading-relaxed text-slate-100 md:text-2xl drop-shadow">
                 High-decibel, ultra-reliable voice communication and emergency alert networks engineered for mission-critical enterprise environments.
               </p>
 
+              {/* CTA Button - Updated contrasting shadow for dark backgrounds */}
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
                   href="#overview"
-                  className="inline-flex items-center gap-3 border-4 border-slate-950 bg-white px-8 py-4 text-lg font-black uppercase tracking-wider text-slate-950 shadow-[6px_6px_0px_0px_#020617] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#020617] active:translate-x-0 active:translate-y-0"
+                  className="inline-flex items-center gap-3 border-4 border-white bg-white px-8 py-4 text-lg font-black uppercase tracking-wider text-slate-950 shadow-[6px_6px_0px_0px_#2563eb] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#2563eb] active:translate-x-0 active:translate-y-0"
                 >
                   Explore System
                   <ArrowRight className="h-6 w-6 stroke-[3]" />

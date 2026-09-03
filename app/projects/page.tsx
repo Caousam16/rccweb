@@ -106,9 +106,6 @@ export default function ProjectsPage() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="inline-block bg-slate-900 text-white font-mono text-xs font-black uppercase tracking-widest px-4 py-2 mb-6 border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-            // Mission Critical Infrastructure
-          </div>
 
           <h1 className="text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
             Engineered <br />
@@ -125,19 +122,19 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl">
             <div className="bg-white text-slate-900 p-6 border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]">
               <div className="text-5xl font-black tracking-tight text-blue-600">500+</div>
-              <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-700 mt-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-700 mt-2">
                 Deployments Finished
               </div>
             </div>
             <div className="bg-white text-slate-900 p-6 border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]">
               <div className="text-5xl font-black tracking-tight text-blue-600">9.7</div>
-              <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-700 mt-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-700 mt-2">
                 Clients Satisfied (Avg. Rating)
               </div>
             </div>
             <div className="bg-white text-slate-900 p-6 border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]">
               <div className="text-5xl font-black tracking-tight text-blue-600">15+</div>
-              <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-700 mt-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-700 mt-2">
                 Years Field Expertise
               </div>
             </div>
@@ -150,10 +147,10 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <span className="text-blue-600 font-mono font-bold uppercase text-sm tracking-widest">// System Showcase</span>
+              <span className="text-blue-600 font-bold uppercase text-sm tracking-widest">// System Showcase</span>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tight">Active Deployments</h2>
             </div>
-            <div className="bg-blue-600 text-white font-mono font-bold px-4 py-2 border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+            <div className="bg-blue-600 text-white font-bold px-4 py-2 border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
               SLIDE {currentImageIndex + 1} / {slideshowImages.length}
             </div>
           </div>
@@ -195,7 +192,7 @@ export default function ProjectsPage() {
       <section className="py-20 bg-white border-b-8 border-slate-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="mb-12">
-            <span className="text-blue-600 font-mono font-bold uppercase text-sm tracking-widest">// Technical Domains</span>
+            <span className="text-blue-600 font-bold uppercase text-sm tracking-widest">// Technical Domains</span>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tight">Core Competencies</h2>
           </div>
 
@@ -206,7 +203,7 @@ export default function ProjectsPage() {
                 className="bg-slate-50 border-4 border-slate-900 p-6 flex flex-col justify-between hover:-translate-y-1 hover:translate-x-1 hover:bg-blue-50 transition-all shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]"
               >
                 <div>
-                  <div className="text-xs font-mono font-black text-blue-600 bg-blue-100 border border-blue-600 px-2 py-1 inline-block mb-4">
+                  <div className="text-xs font-bold text-blue-600 bg-blue-100 border border-blue-600 px-2 py-1 inline-block mb-4">
                     {service.code}
                   </div>
                   <h3 className="text-xl font-black text-slate-900 uppercase mb-3 leading-tight">

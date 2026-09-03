@@ -117,23 +117,32 @@ export default function CCTVServicePage() {
 
       {/* SECTION 1: HERO CONTAINER */}
       <section className="relative min-h-[90vh] bg-blue-700 text-white flex items-center overflow-hidden border-b-8 border-blue-500">
-        {/* Sharp Graphic Pattern Background Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
-        <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[140px] opacity-60 pointer-events-none" />
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/services/cctv/cctv-center.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-        <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-          
+        {/* Video Darkening Overlay */}
+        <div className="absolute inset-0 bg-blue-950/70 z-0" />
+
+        {/* Sharp Graphic Pattern Background Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none z-0" />
+        <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[140px] opacity-40 pointer-events-none z-0" />
+
+        <div className="max-w-7xl mx-auto px-6 py-20 flex items-center justify-start relative z-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-7 text-left"
+            className="max-w-3xl text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-blue-900 font-black text-xs tracking-widest uppercase rounded-none border-l-4 border-slate-900 mb-6 shadow-md">
-              <span className="w-2 h-2 bg-blue-600 animate-pulse" />
-              HARDENED INDUSTRIAL SECURITY
-            </div>
-
             <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black uppercase tracking-tight leading-[0.95] drop-shadow-sm">
               MAXIMUM <span className="text-slate-900 bg-white px-2 py-0.5 inline-block my-1">CLARITY.</span> ZERO BLIND SPOTS.
             </h1>
@@ -157,31 +166,6 @@ export default function CCTVServicePage() {
               </a>
             </div>
           </motion.div>
-
-          {/* Hero Visual Frame */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="lg:col-span-5 relative"
-          >
-            <div className="relative aspect-[4/5] rounded-none border-8 border-slate-900 bg-slate-900 shadow-[16px_16px_0px_0px_rgba(15,23,42,1)] overflow-hidden group">
-              <Image
-                src="/services/cctv/cctv-service.png"
-                alt="CCTV System Infrastructure"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-4 left-4 right-4 p-4 bg-white border-2 border-slate-900 text-slate-900">
-                <span className="text-[10px] font-black uppercase tracking-widest text-blue-700 block">SYSTEM STATUS</span>
-                <span className="text-lg font-black uppercase">24/7 ACTIVE ENCRYPTION</span>
-              </div>
-            </div>
-          </motion.div>
-
         </div>
       </section>
 
@@ -208,7 +192,7 @@ export default function CCTVServicePage() {
                 className="group relative flex flex-col bg-slate-50 border-4 border-slate-900 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] hover:shadow-[14px_14px_0px_0px_rgba(29,78,216,1)] hover:-translate-y-1 transition-all duration-200"
               >
                 <div className="relative aspect-[16/10] w-full bg-slate-200 border-b-4 border-slate-900 overflow-hidden">
-                  <span className="absolute top-3 left-3 z-10 bg-slate-900 text-white font-mono font-bold text-xs px-2 py-1">
+                  <span className="absolute top-3 left-3 z-10 bg-slate-900 text-white font-bold text-xs px-2 py-1">
                     {benefit.code}
                   </span>
                   <img
@@ -260,7 +244,7 @@ export default function CCTVServicePage() {
                   <h3 className="text-xl font-black uppercase tracking-wider text-white">
                     {category.type}
                   </h3>
-                  <span className="text-xs font-mono font-black uppercase bg-slate-950 text-white px-2 py-1 border border-white">
+                  <span className="text-xs font-black uppercase bg-slate-950 text-white px-2 py-1 border border-white">
                     SCROLL SPECS
                   </span>
                 </div>
@@ -307,7 +291,7 @@ export default function CCTVServicePage() {
                           {item.specs.map((spec) => (
                             <span
                               key={spec}
-                              className="text-xs font-mono font-bold bg-blue-950 text-blue-300 border border-blue-700 px-2 py-1"
+                              className="text-xs font-bold bg-blue-950 text-blue-300 border border-blue-700 px-2 py-1"
                             >
                               {spec}
                             </span>
@@ -366,7 +350,7 @@ export default function CCTVServicePage() {
               className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-slate-50 border-4 border-slate-900 p-8 sm:p-12 shadow-[12px_12px_0px_0px_rgba(29,78,216,1)]"
             >
               <div className="lg:col-span-6">
-                <span className="text-xs font-mono font-bold text-blue-700 block mb-2">[ SECTOR PROTOCOL ]</span>
+                <span className="text-xs font-bold text-blue-700 block mb-2">[ SECTOR PROTOCOL ]</span>
                 <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-slate-900 mb-6 leading-tight">
                   {currentSector.headline}
                 </h3>

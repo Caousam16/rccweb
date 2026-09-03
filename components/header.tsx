@@ -171,7 +171,7 @@ export function Header() {
           
           {/* LOGO */}
           <Link href="/" className="flex-shrink-0 flex items-center focus:outline-none group">
-            <div className="bg-slate-900 p-2 border-2 border-blue-600 group-hover:bg-blue-600 transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+            <div className="bg-slate-900 border-2 border-blue-600 group-hover:bg-blue-600 transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
               <Image
                 src="/rcc_logo.png"
                 width={120}

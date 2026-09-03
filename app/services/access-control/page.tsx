@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 
 export default function AccessControlPage() {
+  
   const benefits = [
     {
       code: "01",
@@ -138,65 +139,65 @@ export default function AccessControlPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-white text-slate-950 min-h-[90vh] flex items-center relative overflow-hidden border-b-4 border-blue-600">
-        {/* Subtle grid background pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <section className="relative min-h-[90vh] flex items-center bg-slate-950 text-slate-900 border-b-4 border-slate-900 overflow-hidden">
+        
+        {/* Full-bleed Background Image with Dark Blue Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/services/access-control/access-control.jfif"
+            alt="Access Control Background"
+            className="w-full h-full object-cover contrast-100"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40" />
+        </div>
 
-        <NetworkBackground
-          nodeCount={65}
-          nodeColorRgb="37, 99, 235"
-          pulseColorRgb="37, 99, 235"
-        />
+        {/* Top Accent Stripe */}
+        <div className="absolute top-0 left-0 w-full h-2 bg-blue-600 z-20" />
 
-        <div className="container mx-auto max-w-7xl px-6 py-28 relative z-10">
-          <div className="max-w-4xl">
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600 text-white font-mono text-xs font-bold uppercase tracking-widest mb-8 border border-blue-700 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
-              <Zap className="w-3.5 h-3.5 fill-current" /> Next-Gen Enterprise Security
+        {/* Main Content Container */}
+        <div className="container mx-auto max-w-7xl px-6 py-24 relative z-10">
+          <div className="max-w-3xl">
+            
+
+            {/* Headline Block */}
+            <div className="mb-8">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight uppercase leading-[0.95]">
+                Access Control
+              </h1>
+              <div className="mt-3 inline-block bg-white border-4 border-slate-900 px-4 py-2 shadow-[6px_6px_0px_0px_rgba(37,99,235,1)]">
+                <span className="text-blue-600 text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight">
+                  & Door Security
+                </span>
+              </div>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-slate-950 tracking-tight leading-[0.95] uppercase mb-8">
-              Access Control <br />
-              <span className="text-blue-600 underline decoration-blue-600 decoration-8 underline-offset-8">
-                & Door Security
-              </span>
-            </h1>
+            {/* Solid White Content Card for High Readability */}
+            <div className="bg-white border-4 border-slate-900 p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)] mb-8">
+              <p className="text-base sm:text-lg text-slate-900 font-semibold leading-relaxed border-l-4 border-blue-600 pl-4">
+                Lock down physical vulnerabilities and streamline multi-zone access. We build hyper-scalable biometric, RFID, and cloud-managed security infrastructure tailored to high-density environments.
+              </p>
+            </div>
 
-            <p className="text-lg md:text-2xl text-slate-700 font-medium leading-relaxed max-w-3xl mb-10 border-l-4 border-blue-600 pl-6">
-              Lock down physical vulnerabilities and streamline multi-zone access. 
-              We build hyper-scalable biometric, RFID, and cloud-managed security infrastructure tailored to high-density environments.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#technologies"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold text-sm tracking-wider uppercase border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold text-sm uppercase tracking-wider border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:bg-blue-700 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
               >
-                Explore Platform <ArrowRight className="w-5 h-5" />
+                Explore Platform <ArrowRight className="w-4 h-4" />
               </a>
+
               <a
                 href="#benefits"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-950 font-bold text-sm tracking-wider uppercase border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(37,99,235,1)] hover:bg-slate-100 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 font-bold text-sm uppercase tracking-wider border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)] hover:bg-slate-100 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(37,99,235,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
               >
                 System Capabilities
               </a>
             </div>
+
           </div>
         </div>
       </section>
-
-      {/* Live System Specs Ticker Bar */}
-      <div className="bg-slate-950 text-white border-b-2 border-slate-950 py-3 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between text-xs font-mono font-bold uppercase tracking-widest gap-4">
-          <span className="flex items-center gap-2 text-blue-400">
-            <Activity className="w-4 h-4 animate-pulse" /> Status: Systems Operational
-          </span>
-          <span className="hidden sm:inline-block text-slate-400">Response Speed: &lt; 200ms</span>
-          <span className="hidden md:inline-block text-slate-400">Encryption: AES-256 Grade</span>
-          <span className="text-blue-400">Multi-Site Ready</span>
-        </div>
-      </div>
 
       {/* TECHNOLOGIES SHOWCASE */}
       <section
@@ -207,23 +208,17 @@ export default function AccessControlPage() {
           {/* Section Header */}
           <div className="mb-16 border-b-2 border-slate-950 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-mono font-black uppercase tracking-widest text-blue-600">
-                01 // HARDWARE & SOFTWARE ECOSYSTEM
-              </span>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-slate-950 mt-2">
                 Core Technologies
               </h2>
             </div>
-            <span className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider">
-              [ Interactive Architecture View ]
-            </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* LEFT COLUMN */}
             <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-8 flex flex-col justify-between">
               <div className="bg-slate-50 border-2 border-slate-950 p-8 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)]">
-                <span className="inline-block bg-blue-600 text-white text-[10px] font-mono font-black uppercase tracking-widest px-2 py-0.5 mb-4">
+                <span className="inline-block bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-2 py-0.5 mb-4">
                   {techData[activeTab].subtitle}
                 </span>
 
@@ -268,7 +263,7 @@ export default function AccessControlPage() {
                       setActiveTab(index);
                       document
                         .getElementById(tech.id)
-                        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
                     }}
                     className={`w-full flex items-center justify-between p-4 text-left font-bold text-sm tracking-wider uppercase transition-all border-2 border-slate-950 ${
                       activeTab === index
@@ -277,7 +272,7 @@ export default function AccessControlPage() {
                     }`}
                   >
                     <span>{tech.title}</span>
-                    <span className="font-mono text-xs">0{index + 1}</span>
+                    <span className=" text-xs">0{index + 1}</span>
                   </button>
                 ))}
               </div>
@@ -290,16 +285,16 @@ export default function AccessControlPage() {
                   key={tech.id}
                   id={tech.id}
                   onViewportEnter={() => setActiveTab(index)}
-                  viewport={{ amount: 0.5 }}
-                  className="relative group border-4 border-slate-950 bg-slate-950 p-2 shadow-[12px_12px_0px_0px_rgba(37,99,235,1)]"
+                  viewport={{ amount: 0.6, margin: "-10% 0px -40% 0px" }}
+                  className="relative group border-4 border-slate-950 bg-slate-950 p-2 shadow-[12px_12px_0px_0px_rgba(37,99,235,1)] scroll-mt-28"
                 >
                   <div className="relative aspect-video w-full overflow-hidden border-2 border-slate-950 bg-slate-900">
                     <img
                       src={tech.image}
                       alt={tech.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ease-out grayscale hover:grayscale-0"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ease-out"
                     />
-                    <div className="absolute top-4 left-4 bg-slate-950 text-white font-mono text-xs px-3 py-1 font-bold border border-blue-500">
+                    <div className="absolute top-4 left-4 bg-slate-950 text-white text-xs px-3 py-1 font-bold border border-blue-500">
                       SYS // {tech.id.toUpperCase()}
                     </div>
                   </div>
@@ -318,7 +313,7 @@ export default function AccessControlPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 border-b-2 border-white/30 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-mono font-black uppercase tracking-widest text-slate-950 bg-white px-2 py-0.5">
+              <span className="text-xs font-black uppercase tracking-widest text-slate-950 bg-white px-2 py-0.5">
                 02 // KEY ADVANTAGES
               </span>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mt-4">
@@ -344,7 +339,7 @@ export default function AccessControlPage() {
                       <div className="w-12 h-12 bg-blue-600 text-white border-2 border-slate-950 flex items-center justify-center font-bold">
                         <Icon className="w-6 h-6 stroke-[2.5]" />
                       </div>
-                      <span className="font-mono text-2xl font-black text-slate-300">
+                      <span className=" text-2xl font-black text-slate-300">
                         {item.code}
                       </span>
                     </div>
@@ -368,7 +363,7 @@ export default function AccessControlPage() {
       <section id="industries" className="py-28 px-6 max-w-7xl mx-auto">
         <div className="mb-16 border-b-2 border-slate-950 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span className="text-xs font-mono font-black uppercase tracking-widest text-blue-600">
+            <span className="text-xs font-black uppercase tracking-widest text-blue-600">
               03 // TARGET DEPLOYMENTS
             </span>
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-slate-950 mt-2">
@@ -388,7 +383,7 @@ export default function AccessControlPage() {
             >
               <div className="flex items-center justify-between mb-6">
                 <Building2 className="w-8 h-8 text-blue-600 group-hover:text-white stroke-[2.5]" />
-                <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 bg-slate-200 group-hover:bg-white group-hover:text-slate-950 text-slate-800">
+                <span className=" text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 bg-slate-200 group-hover:bg-white group-hover:text-slate-950 text-slate-800">
                   {industry.tag}
                 </span>
               </div>

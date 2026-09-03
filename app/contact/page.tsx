@@ -6,11 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Phone, MapPin, Clock, Send, Facebook, Linkedin, MessageCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Send, Facebook, Linkedin, MessageCircle, ArrowRight, ShieldAlert } from "lucide-react"
 import { useState } from "react"
 import emailjs from "@emailjs/browser"
 
-// Add these constants (or put in .env.local)
 const EMAILJS_SERVICE_ID = "service_j5f5m9n"
 const EMAILJS_TEMPLATE_ID = "template_c3pr5nl"
 const EMAILJS_PUBLIC_KEY = "LVVOWRLV4DCewdZFa"
@@ -18,39 +17,43 @@ const EMAILJS_PUBLIC_KEY = "LVVOWRLV4DCewdZFa"
 const contactInfo = [
   {
     icon: Phone,
-    title: "Phone",
+    title: "PHONE",
     details: ["(+63) 925 873 8786"],
+    href: "tel:+639258738786",
   },
   {
     icon: Mail,
-    title: "Email",
+    title: "EMAIL",
     details: ["rcccabling.netsolutions@yahoo.com.ph"],
+    href: "mailto:rcccabling.netsolutions@yahoo.com.ph",
   },
   {
     icon: MapPin,
-    title: "Office Address",
-    details: ["Centro Plaza Condominium, 1103, 49 Sct. Torillo St, Diliman, Quezon City, 1103 Metro Manila"]
+    title: "OFFICE ADDRESS",
+    details: ["Centro Plaza Condominium, 1103, 49 Sct. Torillo St, Diliman, Quezon City, 1103 Metro Manila"],
+    href: null,
   },
   {
     icon: Clock,
-    title: "Business Hours",
+    title: "BUSINESS HOURS",
     details: ["Monday - Friday: 8:00 AM - 6:00 PM"],
+    href: null,
   },
   {
-  icon: Facebook,
-  title: "Facebook",
-  details: ["RCC Cabling and Network Solutions Corp."],
-  href: "https://www.facebook.com/RCCCABLING",
+    icon: Facebook,
+    title: "FACEBOOK",
+    details: ["RCC Cabling and Network Solutions Corp."],
+    href: "https://www.facebook.com/RCCCABLING",
   },
   {
     icon: Linkedin,
-    title: "LinkedIn",
+    title: "LINKEDIN",
     details: ["RCC Cabling and Network Solutions Corp."],
     href: "https://www.linkedin.com/company/rcc-cabling-and-network-solutions-corp/",
   },
   {
-    icon: MessageCircle, // or FaViber if using react-icons
-    title: "Viber",
+    icon: MessageCircle,
+    title: "VIBER",
     details: ["+63 9971537230"],
     href: "viber://chat?number=%2B639971537230",
   },
@@ -79,236 +82,290 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
-  setIsSubmitting(true)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
 
-  try {
-    await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone || "Not provided",
-        company: formData.company || "Not provided",
-        service: formData.service || "Not specified",
-        message: formData.message,
-      },
-      EMAILJS_PUBLIC_KEY
-    )
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone || "Not provided",
+          company: formData.company || "Not provided",
+          service: formData.service || "Not specified",
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
 
-    setIsSubmitted(true)
-    setFormData({ name: "", email: "", phone: "", company: "", service: "", message: "" })
-  } catch (error: any) {
-  console.error("EmailJS error:", error?.text || error?.status || error)
-  alert(`Error: ${error?.text || "Unknown error"}`)
-  }finally {
-    setIsSubmitting(false)
+      setIsSubmitted(true)
+      setFormData({ name: "", email: "", phone: "", company: "", service: "", message: "" })
+    } catch (error: any) {
+      console.error("EmailJS error:", error?.text || error?.status || error)
+      alert(`Error: ${error?.text || "Unknown error"}`)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
-}
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white text-black font-sans selection:bg-blue-600 selection:text-white">
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-primary">
+      <section className="pt-36 pb-20 bg-blue-600 text-white border-b-4 border-black">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium tracking-widest text-primary-foreground/60 uppercase">
-              Contact Us
-            </p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl text-balance">
-              {"Let's Discuss Your Project"}
+          <div className="max-w-3xl">
+            <div className="inline-block bg-black text-white text-xs font-black tracking-widest px-3 py-1 uppercase mb-6 rounded-none">
+              Contact Portal
+            </div>
+            <h1 className="text-5xl font-black uppercase tracking-tight sm:text-7xl leading-none">
+              Let's Discuss <br />
+              <span className="bg-white text-blue-600 px-2 py-1 inline-block mt-2">Your Project</span>
             </h1>
-            <p className="mt-6 text-lg text-primary-foreground/80 leading-relaxed">
-              Ready to upgrade your infrastructure? Get in touch with our team for a 
-              free consultation and customized quote.
+            <p className="mt-8 text-xl font-bold text-blue-100 leading-relaxed max-w-2xl">
+              Ready to upgrade your network infrastructure? Contact our engineering team directly for site surveys, consultations, and estimates.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-24 bg-background">
+      {/* Main Content Area */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-8">Get in Touch</h2>
-              <div className="space-y-8">
-                {contactInfo.map((item) => (
-                  <div key={item.title} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary">
-                        <item.icon className="h-5 w-5 text-foreground" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            {/* Contact Information Column */}
+            <div className="lg:col-span-5 space-y-10">
+              <div>
+                <h2 className="text-3xl font-black uppercase tracking-tight text-black border-b-4 border-blue-600 pb-3">
+                  Direct Channels
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                {contactInfo.map((item) => {
+                  const Content = (
+                    <div className="p-5 border-2 border-black bg-white hover:bg-blue-50 transition-colors duration-150 flex items-start gap-4 rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">
+                      <div className="flex-shrink-0 bg-blue-600 text-white p-3 border border-black rounded-none">
+                        <item.icon className="h-6 w-6 stroke-[2.5]" />
+                      </div>
+                      <div>
+                        <h3 className="text-xs font-black uppercase tracking-wider text-blue-600">{item.title}</h3>
+                        {item.details.map((detail) => (
+                          <p key={detail} className="font-bold text-black text-base mt-1 leading-snug">
+                            {detail}
+                          </p>
+                        ))}
                       </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">{item.title}</h3>
-                      {item.details.map((detail) => (
-                        <p key={detail} className="text-muted-foreground text-sm">
-                          {detail}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                  )
+
+                  return item.href ? (
+                    <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer" className="block">
+                      {Content}
+                    </a>
+                  ) : (
+                    <div key={item.title}>{Content}</div>
+                  )
+                })}
               </div>
 
-              {/* Map */}
-              <div className="mt-12 aspect-video rounded-lg overflow-hidden border border-border">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.3571943900274!2d121.03752359999999!3d14.635654100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7adb644e05d%3A0x9ed7f0e584f43ae!2sCentro%20Plaza%20Condominium!5e0!3m2!1sen!2sph!4v1778229434260!5m2!1sen!2sph"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-
-            </div>
-
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-8">Send Us a Message</h2>
-              
-              {isSubmitted ? (
-                <div className="bg-secondary/50 border border-border rounded-lg p-8 text-center">
-                  <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-accent/10">
-                    <Send className="h-8 w-8 text-accent" />
-                  </div>
-                  <h3 className="mt-4 text-xl font-semibold text-foreground">Thank You!</h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Your message has been received. Our team will get back to you within 24 hours.
-                  </p>
-                  <Button 
-                    className="mt-6"
-                    onClick={() => setIsSubmitted(false)}
-                  >
-                    Send Another Message
-                  </Button>
+              {/* Map Container */}
+              <div className="border-4 border-black p-2 bg-blue-600 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-none">
+                <div className="bg-black text-white px-4 py-2 font-black text-xs uppercase tracking-widest flex items-center justify-between mb-2">
+                  <span>Location Map</span>
+                  <MapPin className="h-4 w-4 text-blue-400" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="company">Company Name</Label>
-                      <Input
-                        id="company"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Service Interested In</Label>
-                    <select
-                      id="service"
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      <option value="">Select a service</option>
-                      {services.map((service) => (
-                        <option key={service} value={service}>
-                          {service}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Project Details *</Label>
-                    <Textarea
-                      id="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your project requirements, timeline, and any specific needs..."
-                    />
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    By submitting this form, you agree to be contacted by our team regarding your inquiry.
-                  </p>
-                </form>
-              )}
+                <div className="aspect-video w-full border-2 border-black overflow-hidden bg-white">
+                  <iframe
+                    src="https://maps.google.com/maps?q=Centro%20Plaza%20Condominium%20Quezon%20City&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
             </div>
+
+            {/* Contact Form Column */}
+            <div className="lg:col-span-7">
+              <div className="border-4 border-black p-8 bg-white shadow-[12px_12px_0px_0px_rgba(37,99,235,1)] rounded-none">
+                <h2 className="text-3xl font-black uppercase tracking-tight text-black border-b-4 border-black pb-4 mb-8">
+                  Send Message
+                </h2>
+
+                {isSubmitted ? (
+                  <div className="bg-blue-50 border-4 border-black p-10 text-center rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="flex items-center justify-center w-20 h-20 mx-auto bg-blue-600 text-white border-2 border-black mb-6">
+                      <Send className="h-10 w-10 stroke-[2.5]" />
+                    </div>
+                    <h3 className="text-3xl font-black uppercase tracking-tight text-black">Message Sent!</h3>
+                    <p className="mt-4 font-bold text-gray-800 text-lg">
+                      We have received your specifications. An engineer will reach out within 24 business hours.
+                    </p>
+                    <Button
+                      className="mt-8 rounded-none border-2 border-black bg-black text-white hover:bg-blue-600 hover:text-white font-black uppercase tracking-wider px-8 py-6 text-base shadow-[4px_4px_0px_0px_rgba(37,99,235,1)] transition-all"
+                      onClick={() => setIsSubmitted(false)}
+                    >
+                      Send Another Request
+                    </Button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="name" className="font-black uppercase text-xs tracking-wider text-black">
+                          Full Name *
+                        </Label>
+                        <Input
+                          id="name"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
+                          placeholder="JOHN DELA CRUZ"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="font-black uppercase text-xs tracking-wider text-black">
+                          Email Address *
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
+                          placeholder="JOHN@EXAMPLE.COM"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="phone" className="font-black uppercase text-xs tracking-wider text-black">
+                          Phone Number
+                        </Label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
+                          placeholder="+63 000 000 0000"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="company" className="font-black uppercase text-xs tracking-wider text-black">
+                          Company Name
+                        </Label>
+                        <Input
+                          id="company"
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
+                          placeholder="CORP INC."
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="service" className="font-black uppercase text-xs tracking-wider text-black">
+                        Service Required
+                      </Label>
+                      <select
+                        id="service"
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="flex h-12 w-full rounded-none border-2 border-black bg-blue-50/30 px-3 py-2 text-sm font-bold text-black focus:outline-none focus:border-blue-600"
+                      >
+                        <option value="">SELECT A SERVICE CATEGORY</option>
+                        {services.map((service) => (
+                          <option key={service} value={service}>
+                            {service.toUpperCase()}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="font-black uppercase text-xs tracking-wider text-black">
+                        Project Details *
+                      </Label>
+                      <Textarea
+                        id="message"
+                        required
+                        rows={5}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 font-bold text-black bg-blue-50/30"
+                        placeholder="SPECIFY REQUIREMENTS, TIMELINE, AND LOCATION..."
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full rounded-none border-2 border-black bg-blue-600 text-white hover:bg-black hover:text-white font-black uppercase tracking-wider text-lg py-7 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+                    >
+                      {isSubmitting ? "TRANSMITTING..." : "SUBMIT INQUIRY"}
+                    </Button>
+
+                    <p className="text-xs font-bold text-gray-500 text-center uppercase tracking-wider">
+                      Information provided is utilized solely for technical consultation purposes.
+                    </p>
+                  </form>
+                )}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-secondary">
+      <section className="py-20 bg-blue-600 text-white border-t-4 border-black">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">
+          <div className="max-w-3xl mb-12">
+            <h2 className="text-4xl font-black uppercase tracking-tight text-white bg-black inline-block px-4 py-2">
               Frequently Asked Questions
             </h2>
           </div>
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                question: "What areas do you serve?",
-                answer: "We provide services throughout Metro Manila and major cities across the Philippines. For projects outside these areas, please contact us to discuss your requirements.",
+                question: "WHAT AREAS DO YOU COVER?",
+                answer: "We deploy teams across Metro Manila and key economic zones in the Philippines. Nationwide deployment is available for large-scale enterprise contracts.",
               },
               {
-                question: "Do you offer maintenance services?",
-                answer: "Yes, we offer comprehensive maintenance packages for all systems we install. This includes preventive maintenance, 24/7 emergency support, and regular system health checks.",
+                question: "ARE MAINTENANCE CONTRACTS AVAILABLE?",
+                answer: "Yes. We offer continuous preventive maintenance, SLA-backed emergency responses, and system optimization packages.",
               },
               {
-                question: "How long does a typical installation take?",
-                answer: "Project timelines vary based on scope and complexity. Small projects may take a few days, while larger installations can span several weeks. We provide detailed timelines during the consultation phase.",
+                question: "WHAT IS THE STANDARD INSTALLATION TIMELINE?",
+                answer: "Timelines depend on site scale and infrastructure constraints. Small network setups take 2–5 days; enterprise-wide implementations are phased over weeks.",
               },
               {
-                question: "Do you provide free quotations?",
-                answer: "Yes, we offer free site surveys and detailed quotations for all projects. Contact us to schedule a consultation with our technical team.",
+                question: "DO YOU PROVIDE FREE SITE VISITS?",
+                answer: "We provide complimentary site evaluations and engineering consultations within Metro Manila.",
               },
             ].map((faq) => (
-              <div key={faq.question} className="bg-background p-6 rounded-lg border border-border">
-                <h3 className="font-semibold text-foreground">{faq.question}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
+              <div key={faq.question} className="bg-white text-black p-6 border-4 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="font-black text-lg uppercase tracking-tight text-blue-600 flex items-center gap-2">
+                  <ArrowRight className="h-5 w-5 stroke-[3] text-black" />
+                  {faq.question}
+                </h3>
+                <p className="mt-3 font-bold text-gray-800 text-sm leading-relaxed border-t-2 border-black pt-3">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
