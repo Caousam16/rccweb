@@ -40,41 +40,43 @@ export default function NewsPage() {
       </section>
 
       {/* Ticker Banner */}
-      <div className="w-full bg-white text-blue-900 py-3 px-6 border-b-8 border-blue-900 overflow-hidden font-mono text-sm font-bold tracking-wider uppercase">
+      <div className="w-full bg-white text-blue-900 py-3 px-6 border-b-8 border-blue-900 overflow-hidden text-sm font-bold tracking-wider uppercase">
         <div className="whitespace-nowrap animate-marquee">
           /// LATEST HEADLINES /// STAY INFORMED /// FRESH UPDATES DROP DAILY /// ALL SYSTEMS GO ///
         </div>
       </div>
 
-      {/* News Section */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-12 flex items-center justify-between border-b-4 border-white pb-4">
-          <h2 className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl">
-            Latest Articles
-          </h2>
-          <span className="bg-white text-blue-700 font-extrabold px-3 py-1 text-sm">
-            {news.length} ITEMS
-          </span>
-        </div>
+      {/* News Section (White Background) */}
+      <section className="bg-white text-blue-900 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-12 flex items-center justify-between border-b-4 border-blue-900 pb-4">
+            <h2 className="text-3xl font-black uppercase tracking-tight text-blue-900 sm:text-4xl">
+              Latest Articles
+            </h2>
+            <span className="bg-blue-900 text-white font-extrabold px-3 py-1 text-sm">
+              {news.length} ITEMS
+            </span>
+          </div>
 
-        {news.length > 0 ? (
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {news.map((item) => (
-              <div
-                key={item.slug}
-                className="group border-4 border-white bg-blue-800 p-2 transition-transform duration-150 hover:-translate-y-2 hover:bg-white hover:text-blue-900"
-              >
-                <NewsCard {...item} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="border-4 border-white bg-blue-800 p-16 text-center">
-            <p className="text-2xl font-black uppercase tracking-wider text-white">
-              No news available right now.
-            </p>
-          </div>
-        )}
+          {news.length > 0 ? (
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {news.map((item) => (
+                <div
+                  key={item.slug}
+                  className="group border-4 border-blue-900 bg-blue-50 p-2 transition-transform duration-150 hover:-translate-y-2 hover:bg-blue-900 hover:text-white"
+                >
+                  <NewsCard {...item} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="border-4 border-blue-900 bg-blue-50 p-16 text-center">
+              <p className="text-2xl font-black uppercase tracking-wider text-blue-900">
+                No news available right now.
+              </p>
+            </div>
+          )}
+        </div>
       </section>
 
       <Footer />

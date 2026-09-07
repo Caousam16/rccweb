@@ -76,7 +76,7 @@ export function HeroSection() {
         ))}
 
         {/* Sharp Overlays: Solid white fade for left text area, fully sharp image on right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent lg:w-2/3" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75 to-transparent lg:w-2/3" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/5 skew-x-12 transform origin-top-right" />
       </div>
 
@@ -84,8 +84,6 @@ export function HeroSection() {
       <div className="relative z-20 mx-auto max-w-7xl px-6 py-28 lg:px-8 lg:py-36 w-full">
         <div className="max-w-3xl">
           
-          {/* Sharp Badge */}
-        
 
           {/* Loud Bold Heading */}
           <h1 className="text-5xl font-black tracking-tight text-slate-900 sm:text-6xl lg:text-7xl leading-[1.05] uppercase">
