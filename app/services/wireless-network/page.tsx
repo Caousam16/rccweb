@@ -131,7 +131,7 @@ export default function WirelessAccessPointPage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-20 filter contrast-125 saturate-50 scale-105"
+            className="w-full h-full object-cover opacity-60 filter contrast-125 saturate-50 scale-105"
           >
             <source src="/services/wap-hero.mp4" type="video/mp4" />
           </video>
@@ -141,11 +141,6 @@ export default function WirelessAccessPointPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center text-center">
             
-            {/* Loud Badge */}
-            <div className="inline-flex items-center gap-2 border-2 border-blue-500 bg-blue-950/90 px-5 py-1.5 text-xs font-black uppercase tracking-widest text-blue-400 shadow-[4px_4px_0px_0px_rgba(37,99,235,1)] backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-blue-400" />
-              <span>Enterprise Wireless Access Point Solutions</span>
-            </div>
 
             {/* Sharp Bold Headline */}
             <h1 className="mt-8 text-5xl font-black tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl uppercase leading-none drop-shadow-sm">
@@ -177,7 +172,7 @@ export default function WirelessAccessPointPage() {
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl border-2 border-slate-900 bg-slate-900/90 p-4 shadow-[8px_8px_0px_0px_rgba(37,99,235,1)] backdrop-blur-md">
               {[
                 { label: "STANDARD", val: "Wi-Fi 6E / 7 Ready" },
-                { label: "UPTIME", val: "99.999% Target" },
+                { label: "UPTIME", val: "99.98% Target" },
                 { label: "SECURITY", val: "WPA3 Enterprise" },
                 { label: "DEPLOYMENT", val: "Zero-Touch Cloud" },
               ].map((spec, idx) => (
