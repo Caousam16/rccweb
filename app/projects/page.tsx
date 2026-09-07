@@ -98,16 +98,32 @@ const COMPLETED_OPERATIONS: readonly OperationItem[] = [
     items: [
       "FIBER SCADA TELECOMMUNICATIONS SYSTEM",
       "CCTV SYSTEM",
-      "FIRE ALARM SYSTEM",
+      "FIRE DETECTION AND ALARM SYSTEM",
     ],
     location: "BURGOS SOLAR FARM",
+  },
+  {
+    url: "/projects/kirahon-cctv.jfif",
+    items: [
+      "FIRE DETECTION AND ALARM SYSTEM",
+      "CCTV SYSTEM",
+    ],
+    location: "KIRAHON SOLAR PLANT",
+  },
+  {
+    url: "/projects/kidapawan-fiber.jfif",
+    items: [
+      "FIBER SCADA TELECOMMUNICATIONS SYSTEM",
+      "CCTV SYSTEM",
+    ],
+    location: "KIDAPAWAN GEOTHERMAL POWER PLANT",
   },
   {
     url: "/projects/fpip-fiber.jfif",
     items: [
       "FIBER OPTIC TRUNKING SYSTEM",
       "MEET ME ROOM SETUP",
-      "FIRE ALARM SYSTEM",
+      "FIRE DETECTION AND ALARM SYSTEM",
     ],
     location: "First Philippine Industrial Park",
   },

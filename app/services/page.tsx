@@ -75,7 +75,7 @@ const services: ServiceItem[] = [
     title: "Fiber Optic Networks",
     image: "/services/fiber_optic.jpg",
     desc: "High-speed backbone installations requiring precision fusion splicing, low-attenuation long-distance routing, and rigid OTDR performance certification standards.",
-    href: "/services/fiber-optics",
+    href: "/services/fiber",
     badge: "Infrastructure",
   },
   {
@@ -83,7 +83,7 @@ const services: ServiceItem[] = [
     title: "Public Address (PA) Systems",
     image: "/services/pa.jpg",
     desc: "Public Address and Voice Alarm (PAVA) architectures engineered for crystal-clear commercial paging, automated alerts, and background soundscapes.",
-    href: "/services/public-address",
+    href: "/services/public-addressing",
     badge: "Audio/Visual",
   },
   {
@@ -107,7 +107,7 @@ const services: ServiceItem[] = [
     title: "Enterprise Wireless Networks",
     image: "/services/wap.jpg",
     desc: "High-capacity wireless infrastructure maximizing coverage and roaming handoffs via advanced predictive RF heatmapping and controller-managed architectures.",
-    href: "/services/wireless-networks",
+    href: "/services/wireless-network",
     badge: "Infrastructure",
   },
 ]
@@ -145,7 +145,7 @@ export default function ServicesPage() {
       
         {/* Video Layer */}
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-luminosity pointer-events-none"
+          className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity pointer-events-none"
           autoPlay
           muted
           loop

@@ -11,6 +11,7 @@ const partners = [
   { name: "Cisco", file: "cisco" },
   { name: "Dahua", file: "dahua" },
   { name: "Hikvision", file: "hikvision" },
+  { name: "Juniper", file: "juniper" },
   { name: "LibreNMS", file: "librenms" },
   { name: "LSSimple", file: "lssimple" },
   { name: "Microsoft", file: "microsoft" },
@@ -18,8 +19,11 @@ const partners = [
   { name: "Oracle", file: "oracle" },
   { name: "Photon", file: "photon" },
   { name: "PioGoods", file: "piogoods" },
+  { name: "Ubiquity", file: "ubiquity" },
   { name: "VMware", file: "vmware" },
   { name: "VSOL", file: "vsol" },
+
+  
 ]
 
 function PartnerLogo({ name, file }: { name: string; file: string }) {

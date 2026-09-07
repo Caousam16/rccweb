@@ -173,7 +173,7 @@ export default function AboutPage() {
 
                 <div className="relative aspect-square w-full bg-white flex items-center justify-center p-8 border-2 border-slate-900">
                   <Image
-                    src="/services/RCC-Logo.png"
+                    src="/RCC-Logo.png"
                     alt="RCC Cabling Logo"
                     width={320}
                     height={320}

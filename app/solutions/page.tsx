@@ -95,29 +95,22 @@ export default function SolutionsPage() {
         {/* Loud Geometric Blue Accents */}
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#020617_0%,#091d34_60%,#1e40af_100%)] opacity-95" />
         
-        {/* Grid Blueprint Texture */}
-        <div 
-          className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:3rem_3rem]" 
-        />
 
-        {/* Hero Background Overlay */}
-        <div className="absolute inset-0 w-full h-full opacity-20 mix-blend-overlay">
-          <Image
-            src="/solutions/solutionshero.png"
-            alt="Operations Collaboration"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-        </div>
+        {/* Video Layer */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity pointer-events-none"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+          poster="/solutions/maintenance.jpg"
+        >
+          <source src="/solutions/solutions-hero-vid.mp4" type="video/mp4" />
+        </video>
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
           <div className="max-w-3xl">
-            {/* Sharp Square Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600 text-white text-xs font-black uppercase tracking-widest border border-blue-400 mb-6 rounded-none">
-              <Zap className="w-4 h-4 fill-white" />
-              <span>Next-Gen Enterprise Architecture</span>
-            </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase leading-[1.05]">
               INTEGRATED <br />
