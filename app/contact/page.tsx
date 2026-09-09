@@ -116,18 +116,35 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-20 bg-blue-600 text-white border-b-4 border-black">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative pt-36 pb-20 bg-blue-600 text-white border-b-4 border-black overflow-hidden">
+        {/* Video Background */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-100 mix-blend-luminosity pointer-events-none"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+          poster="/solutions/maintenance.jpg"
+        >
+          <source src="/contact-hero-vid.mp4" type="video/mp4" />
+        </video>
+
+        {/* Content Container */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-block bg-black text-white text-xs font-black tracking-widest px-3 py-1 uppercase mb-6 rounded-none">
               Contact Portal
             </div>
             <h1 className="text-5xl font-black uppercase tracking-tight sm:text-7xl leading-none">
               Let's Discuss <br />
-              <span className="bg-white text-blue-600 px-2 py-1 inline-block mt-2">Your Project</span>
+              <span className="bg-white text-blue-600 px-2 py-1 inline-block mt-2">
+                Your Project
+              </span>
             </h1>
             <p className="mt-8 text-xl font-bold text-blue-100 leading-relaxed max-w-2xl">
-              Ready to upgrade your network infrastructure? Contact our engineering team directly for site surveys, consultations, and estimates.
+              Ready to upgrade your network infrastructure? Contact our engineering
+              team directly for site surveys, consultations, and estimates.
             </p>
           </div>
         </div>
@@ -230,7 +247,7 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
-                          placeholder="JOHN DELA CRUZ"
+                          placeholder="Enter your name"
                         />
                       </div>
                       <div className="space-y-2">
@@ -244,7 +261,7 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
-                          placeholder="JOHN@EXAMPLE.COM"
+                          placeholder="company@example.com"
                         />
                       </div>
                     </div>
@@ -260,19 +277,19 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
-                          placeholder="+63 000 000 0000"
+                          placeholder="Contact Number"
                         />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="company" className="font-black uppercase text-xs tracking-wider text-black">
-                          Company Name
+                          Company
                         </Label>
                         <Input
                           id="company"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           className="rounded-none border-2 border-black focus-visible:ring-0 focus-visible:border-blue-600 h-12 font-bold text-black bg-blue-50/30"
-                          placeholder="CORP INC."
+                          placeholder="Company name"
                         />
                       </div>
                     </div>

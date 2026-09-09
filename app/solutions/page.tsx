@@ -41,7 +41,7 @@ const solutions = [
   },
   {
     id: "residential",
-    title: "Residential Complexes",
+    title: "Residential Complex",
     description: "Modern infrastructure for condominiums, residential towers, and gated communities.",
     image: "/solutions/residential.png",
     badge: "Smart-Living",
@@ -121,7 +121,7 @@ export default function SolutionsPage() {
             </h1>
 
             <p className="mt-8 text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl border-l-4 border-blue-500 pl-4">
-              We integrate people, processes, and technology to deliver auxiliary solutions that optimize operations, enhance experiences, and drive long-term value.
+              Empowering your organization with infrastructure you can depend on. Our expert team seamlessly integrates networking, security, telecommunications, and building automation to ensure your operations run smarter, safer, and faster.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4 items-center">
@@ -190,7 +190,7 @@ export default function SolutionsPage() {
               return (
                 <div
                   key={solution.id}
-                  className="group flex flex-col rounded-none bg-white border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200"
+                  className="group rounded-none bg-white border-2 border-slate-950 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200"
                 >
                   {/* Card Image */}
                   <div className="relative h-60 w-full bg-slate-100 border-b-2 border-slate-950">
@@ -215,10 +215,6 @@ export default function SolutionsPage() {
                       {solution.description}
                     </p>
 
-                    <div className="mt-8 pt-4 border-t-2 border-slate-100 flex items-center justify-between text-blue-600 font-black text-xs uppercase tracking-wider">
-                      <span>Explore Capabilities</span>
-                      <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform stroke-[3]" />
-                    </div>
                   </div>
                 </div>
               )
@@ -309,44 +305,6 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {/* --- INDUSTRIES WE SERVE SECTION --- */}
-      <section id="industries" className="py-24 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <span className="text-xs font-black uppercase tracking-widest text-white bg-blue-600 px-3 py-1 rounded-none inline-block mb-3">
-            Industries We Serve
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-950 uppercase mt-2 mb-4">
-            SOLUTIONS TAILORED TO <span className="text-blue-600">YOUR INDUSTRY</span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-slate-600 font-medium text-sm sm:text-base mb-16">
-            We partner with organizations across a wide range of industries, delivering solutions that meet unique operational demands.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((ind, i) => {
-              const IndIcon = ind.icon
-              return (
-                <div 
-                  key={i} 
-                  className="group flex items-center gap-5 p-6 bg-white rounded-none border-2 border-slate-950 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all text-left"
-                >
-                  <div className="p-4 bg-blue-600 text-white rounded-none border border-slate-950 group-hover:bg-slate-950 transition-colors">
-                    <IndIcon className="h-7 w-7 stroke-[2]" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-black text-slate-950 uppercase group-hover:text-blue-600 transition-colors">
-                      {ind.name}
-                    </h4>
-                    <p className="text-xs font-bold text-slate-500 mt-0.5 uppercase tracking-wider">
-                      {ind.desc}
-                    </p>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* --- CTA BANNER SECTION --- */}
       <section className="py-20 bg-white border-t-2 border-slate-200">
