@@ -73,10 +73,6 @@ export default async function ArticlePage({ params }: Props) {
                   className="w-full h-auto max-h-[75vh] object-contain block border-b-4 border-blue-950"
                 />
               </div>
-              <div className="bg-blue-950 text-white p-3 font-mono text-xs uppercase tracking-wider flex justify-between items-center gap-4">
-                <span>FIG_01 // MEDIA_ATTACHMENT</span>
-                <span>ORIGINAL_ASPECT_RATIO</span>
-              </div>
             </div>
 
             {/* Article Content */}
