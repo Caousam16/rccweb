@@ -12,6 +12,7 @@ import emailjs from "@emailjs/browser"
 
 const EMAILJS_SERVICE_ID = "service_j5f5m9n"
 const EMAILJS_TEMPLATE_ID = "template_c3pr5nl"
+const EMAILJS_RETURN_TEMPLATE_ID = "template_jca158c"
 const EMAILJS_PUBLIC_KEY = "LVVOWRLV4DCewdZFa"
 
 const contactInfo = [
@@ -83,33 +84,55 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  e.preventDefault()
+  setIsSubmitting(true)
 
-    try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone || "Not provided",
-          company: formData.company || "Not provided",
-          service: formData.service || "Not specified",
-          message: formData.message,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
+  try {
+    // Send inquiry to RCC
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        reply_to: formData.email,
+        phone: formData.phone || "Not provided",
+        company: formData.company || "Not provided",
+        service: formData.service || "Not specified",
+        message: formData.message,
+      },
+      EMAILJS_PUBLIC_KEY
+    )
 
-      setIsSubmitted(true)
-      setFormData({ name: "", email: "", phone: "", company: "", service: "", message: "" })
-    } catch (error: any) {
-      console.error("EmailJS error:", error?.text || error?.status || error)
-      alert(`Error: ${error?.text || "Unknown error"}`)
-    } finally {
-      setIsSubmitting(false)
-    }
+    // Send confirmation email back to client
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_RETURN_TEMPLATE_ID,
+      {
+        to_email: formData.email,
+        to_name: formData.name,
+        service: formData.service || "Not specified",
+        message: formData.message,
+      },
+      EMAILJS_PUBLIC_KEY
+    )
+
+    setIsSubmitted(true)
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      service: "",
+      message: "",
+    })
+  } catch (error: any) {
+    console.error("EmailJS error:", error?.text || error?.status || error)
+    alert(`Error: ${error?.text || "Unknown error"}`)
+  } finally {
+    setIsSubmitting(false)
   }
+}
 
   return (
     <main className="min-h-screen bg-white text-black font-sans selection:bg-blue-600 selection:text-white">
