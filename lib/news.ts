@@ -31,7 +31,7 @@ export const news = [
     title: "AIA CUBAO GATEWAY",
     excerpt: "Latest announcements from our team.",
     content:
-      "Completed project at AIA Cubao Gateway involving the successful implementation of a Structured Cabling System and WiFi Network System. The project focused on delivering a reliable, scalable, and efficient network infrastructure to support seamless connectivity and daily business operations.",
+      "sample git Completed project at AIA Cubao Gateway involving the successful implementation of a Structured Cabling System and WiFi Network System. The project focused on delivering a reliable, scalable, and efficient network infrastructure to support seamless connectivity and daily business operations.",
     date: "2025-01-21",
     image: "/news/aiacubao.jpg",
   },
