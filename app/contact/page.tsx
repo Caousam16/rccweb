@@ -10,10 +10,10 @@ import { Mail, Phone, MapPin, Clock, Send, Facebook, Linkedin, MessageCircle, Ar
 import { useState } from "react"
 import emailjs from "@emailjs/browser"
 
-const EMAILJS_SERVICE_ID = "service_j5f5m9n"
-const EMAILJS_TEMPLATE_ID = "template_c3pr5nl"
-const EMAILJS_RETURN_TEMPLATE_ID = "template_jca158c"
-const EMAILJS_PUBLIC_KEY = "LVVOWRLV4DCewdZFa"
+const EMAILJS_SERVICE_ID = "service_elwfp5e"
+const EMAILJS_TEMPLATE_ID = "template_i4cvbau"
+const EMAILJS_RETURN_TEMPLATE_ID = "template_zh6d31d"
+const EMAILJS_PUBLIC_KEY = "TZZORohdOrjFkzAnS"
 
 const contactInfo = [
   {
@@ -72,6 +72,7 @@ const services = [
 ]
 
 export default function ContactPage() {
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -88,14 +89,14 @@ export default function ContactPage() {
   setIsSubmitting(true)
 
   try {
-    // Send inquiry to RCC
+    // 1. Send inquiry email to your team (RCC)
     await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
       {
         from_name: formData.name,
         from_email: formData.email,
-        reply_to: formData.email,
+        reply_to: formData.email, // Standard EmailJS field
         phone: formData.phone || "Not provided",
         company: formData.company || "Not provided",
         service: formData.service || "Not specified",
@@ -104,18 +105,22 @@ export default function ContactPage() {
       EMAILJS_PUBLIC_KEY
     )
 
-    // Send confirmation email back to client
-    await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_RETURN_TEMPLATE_ID,
-      {
-        to_email: formData.email,
-        to_name: formData.name,
-        service: formData.service || "Not specified",
-        message: formData.message,
-      },
-      EMAILJS_PUBLIC_KEY
-    )
+    // 2. Send confirmation auto-responder to the user
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_RETURN_TEMPLATE_ID,
+        {
+          to_name: formData.name,
+          to_email: formData.email, // Ensure template settings map "To Email" to {{to_email}}
+          service: formData.service || "Not specified",
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+    } catch (confirmationError) {
+      console.warn("Auto-responder email failed to send:", confirmationError)
+    }
 
     setIsSubmitted(true)
     setFormData({
@@ -128,7 +133,7 @@ export default function ContactPage() {
     })
   } catch (error: any) {
     console.error("EmailJS error:", error?.text || error?.status || error)
-    alert(`Error: ${error?.text || "Unknown error"}`)
+    alert(`Failed to send inquiry: ${error?.text || "Please try again later."}`)
   } finally {
     setIsSubmitting(false)
   }
