@@ -10,7 +10,7 @@ const services = [
   {
     title: "CATV/IPTV Systems",
     image: "/services/home/iptv-catv.png",
-    href: "/services/catv",
+    href: "/services/iptv-catv",
   },
   {
     title: "CCTV Systems",
@@ -33,9 +33,9 @@ const services = [
     href: "/services/pabx",
   },
   {
-    title: "Sound & Audio",
+    title: "Public Address Systems",
     image: "/services/PA.jpg",
-    href: "/services/sound-audio",
+    href: "/services/public-addressing",
   },
   {
     title: "Structured Cabling",
